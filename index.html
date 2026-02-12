@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE FREE – menselijkheid, toujours</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Georgia', serif;
@@ -31,88 +29,25 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    h1 {
-      margin: 0;
-      font-size: 3em;
-      color: #ff6b6b;
-      text-shadow: 0 0 10px rgba(255,107,107,0.5);
-    }
-    .tagline {
-      font-size: 1.4em;
-      margin: 10px 0 0;
-      font-style: italic;
-      color: #aaa;
-    }
-    .main-nav {
-      display: flex;
-      gap: 30px;
-    }
-    .main-nav a {
-      color: #e0e0e0;
-      text-decoration: none;
-      font-size: 1.1em;
-      transition: color 0.3s;
-    }
-    .main-nav a:hover,
-    .main-nav a:focus {
-      color: #ff6b6b;
-    }
-    /* Hamburger */
-    .menu-toggle {
-      display: none;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .hamburger span {
-      background: #e0e0e0;
-      height: 3px;
-      width: 25px;
-      margin: 4px 0;
-      transition: all 0.3s;
-    }
+    h1 { margin: 0; font-size: 3em; color: #ff6b6b; text-shadow: 0 0 10px rgba(255,107,107,0.5); }
+    .tagline { font-size: 1.4em; margin: 10px 0 0; font-style: italic; color: #aaa; }
+    .main-nav { display: flex; gap: 30px; }
+    .main-nav a { color: #e0e0e0; text-decoration: none; font-size: 1.1em; transition: color 0.3s; }
+    .main-nav a:hover, .main-nav a:focus { color: #ff6b6b; }
+    .menu-toggle { display: none; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; }
+    .hamburger span { background: #e0e0e0; height: 3px; width: 25px; margin: 4px 0; transition: all 0.3s; }
     @media (max-width: 768px) {
-      .nav-container {
-        position: relative;
-      }
-      .main-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 20px;
-        background: #000;
-      }
-      .main-nav a {
-        padding: 15px;
-        border-bottom: 1px solid #444;
-        text-align: center;
-      }
-      .hamburger {
-        display: flex;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-      }
-      .menu-toggle:checked ~ .main-nav {
-        display: flex;
-      }
-      .menu-toggle:checked + .hamburger span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .menu-toggle:checked + .hamburger span:nth-child(2) {
-        opacity: 0;
-      }
-      .menu-toggle:checked + .hamburger span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-      }
+      .nav-container { position: relative; }
+      .main-nav { display: none; flex-direction: column; width: 100%; margin-top: 20px; background: #000; }
+      .main-nav a { padding: 15px; border-bottom: 1px solid #444; text-align: center; }
+      .hamburger { display: flex; position: absolute; right: 20px; top: 20px; }
+      .menu-toggle:checked ~ .main-nav { display: flex; }
+      .menu-toggle:checked + .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
+      .menu-toggle:checked + .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
     }
-    section {
-      max-width: 900px;
-      margin: 60px auto 40px;
-      padding: 0 20px;
-    }
+    section { max-width: 900px; margin: 60px auto 40px; padding: 0 20px; }
     .poem {
       font-size: 1.4em;
       text-align: center;
@@ -123,21 +58,14 @@
       border-right: 6px solid #ff6b6b;
       box-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
-    h2 {
+    .intro {
       text-align: center;
-      color: #ff6b6b;
-      margin: 60px 0 30px;
-      font-size: 2.2em;
-    }
-    .player {
+      font-size: 1.3em;
       margin: 40px 0;
-      text-align: center;
     }
-    iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 166px;
-      border: none;
+    .intro a {
+      color: #ff6b6b;
+      text-decoration: underline;
     }
     footer {
       text-align: center;
@@ -157,24 +85,22 @@
         <h1>THE FREE</h1>
         <p class="tagline">menselijkheid, toujours</p>
       </div>
-
       <input type="checkbox" id="menu-toggle" class="menu-toggle">
       <label for="menu-toggle" class="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </label>
-
       <nav class="main-nav">
-        <a href="#home">Home</a>
-        <a href="#klanken">Klanken</a>
-        <a href="#wie">Wie wij zijn</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="klanken.html">Klanken</a>
+        <a href="wie.html">Wie wij zijn</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section id="home">
+  <section>
     <div class="poem">
       Er is een binnenwereld<br>
       en een buitenwereld.<br>
@@ -182,32 +108,13 @@
       de mens.<br><br>
       Wij werken in dat tussen.
     </div>
-  </section>
 
-  <section>
-    <h2 id="klanken">Onze klanken</h2>
-    <div class="player">
-      <!-- Hier komt je SoundCloud embed – plak de iframe-code -->
-      <!-- Voorbeeld: -->
-      <!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/JOUW_TRACK_ID&color=%23ff6b6b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=false"></iframe> -->
+    <div class="intro">
+      Welkom in de kier.<br>
+      Duik in <a href="klanken.html">onze klanken</a><br>
+      Of lees <a href="wie.html">wie wij zijn</a>.<br><br>
+      Luister. Voel. Wees.
     </div>
-  </section>
-
-  <section>
-    <h2 id="wie">Wie wij zijn</h2>
-    <p>Jeroen Bos: zang en gitaar – de dichter van de kier.<br>
-       Karlos Ramzak: bas – duwend tegen de duisternis van nu.<br>
-       + drummer die het hart weer laat bonzen.<br>
-       + snarenman die wind vangt in de stilte.<br><br>
-       Wij zijn psychiatrische zielen,<br>
-       vrij in het tussen, altijd menselijk.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Stuur een noot, een gedachte, een riff:<br>
-       [vul hier je X-handle, email of link in]<br><br>
-       Of laat een bericht achter in het tussen – we horen het.</p>
   </section>
 
   <footer>
