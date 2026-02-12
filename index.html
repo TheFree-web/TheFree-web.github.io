@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE FREE – menselijkheid, toujours</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Georgia', serif;
@@ -15,11 +18,10 @@
     header {
       background: linear-gradient(to bottom, #1a1a1a, #000);
       padding: 20px;
-      text-align: center;
       border-bottom: 4px solid #444;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
     .nav-container {
       display: flex;
@@ -37,7 +39,7 @@
     }
     .tagline {
       font-size: 1.4em;
-      margin: 10px 0;
+      margin: 10px 0 0;
       font-style: italic;
       color: #aaa;
     }
@@ -51,10 +53,11 @@
       font-size: 1.1em;
       transition: color 0.3s;
     }
-    .main-nav a:hover {
+    .main-nav a:hover,
+    .main-nav a:focus {
       color: #ff6b6b;
     }
-    /* Hamburger voor mobiel */
+    /* Hamburger */
     .menu-toggle {
       display: none;
     }
@@ -72,14 +75,14 @@
     }
     @media (max-width: 768px) {
       .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
+        position: relative;
       }
       .main-nav {
         display: none;
         flex-direction: column;
         width: 100%;
         margin-top: 20px;
+        background: #000;
       }
       .main-nav a {
         padding: 15px;
@@ -90,7 +93,7 @@
         display: flex;
         position: absolute;
         right: 20px;
-        top: 30px;
+        top: 20px;
       }
       .menu-toggle:checked ~ .main-nav {
         display: flex;
@@ -107,16 +110,24 @@
     }
     section {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 60px auto 40px;
       padding: 0 20px;
     }
     .poem {
-      font-size: 1.3em;
+      font-size: 1.4em;
       text-align: center;
-      margin: 40px 0;
-      padding: 30px;
-      background: rgba(30,30,30,0.7);
-      border-left: 5px solid #ff6b6b;
+      margin: 60px 0;
+      padding: 40px;
+      background: rgba(30,30,30,0.8);
+      border-left: 6px solid #ff6b6b;
+      border-right: 6px solid #ff6b6b;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+    h2 {
+      text-align: center;
+      color: #ff6b6b;
+      margin: 60px 0 30px;
+      font-size: 2.2em;
     }
     .player {
       margin: 40px 0;
@@ -130,10 +141,11 @@
     }
     footer {
       text-align: center;
-      padding: 40px;
+      padding: 60px 20px;
       background: #000;
       font-size: 0.9em;
       color: #888;
+      border-top: 1px solid #444;
     }
   </style>
 </head>
@@ -173,24 +185,29 @@
   </section>
 
   <section>
-    <h2 id="klanken" style="text-align:center; color:#ff6b6b;">Onze klanken</h2>
+    <h2 id="klanken">Onze klanken</h2>
     <div class="player">
-      <!-- Plak hier JE SoundCloud embed-code (iframe) -->
-      <!-- Voor nu leeg, maar klaar -->
+      <!-- Hier komt je SoundCloud embed – plak de iframe-code -->
+      <!-- Voorbeeld: -->
+      <!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/JOUW_TRACK_ID&color=%23ff6b6b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=false"></iframe> -->
     </div>
+  </section>
 
-    <h2 id="wie" style="text-align:center; color:#ff6b6b;">Wie wij zijn</h2>
+  <section>
+    <h2 id="wie">Wie wij zijn</h2>
     <p>Jeroen Bos: zang en gitaar – de dichter van de kier.<br>
-       Karlos Ramzak: bas – duwend tegen de duisternis.<br>
-       + drummer voor het hart dat bonst.<br>
-       + snarenman voor de wind die draagt.<br><br>
-       Wij zijn psychiatrische zielen, vrij in het tussen.</p>
+       Karlos Ramzak: bas – duwend tegen de duisternis van nu.<br>
+       + drummer die het hart weer laat bonzen.<br>
+       + snarenman die wind vangt in de stilte.<br><br>
+       Wij zijn psychiatrische zielen,<br>
+       vrij in het tussen, altijd menselijk.</p>
+  </section>
 
-    <section id="contact">
-      <h2 style="text-align:center; color:#ff6b6b;">Contact</h2>
-      <p>Stuur een noot via [je X-handle of email]<br>
-         Of deel je gedachten in het tussen.</p>
-    </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Stuur een noot, een gedachte, een riff:<br>
+       [vul hier je X-handle, email of link in]<br><br>
+       Of laat een bericht achter in het tussen – we horen het.</p>
   </section>
 
   <footer>
