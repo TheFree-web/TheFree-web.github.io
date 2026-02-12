@@ -3,122 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE FREE – menselijkheid, toujours</title>
+  <title>The Free</title>
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
+      background: #0e0e0e;
+      color: #e8e8e8;
       font-family: Georgia, serif;
-      background: #111;
-      color: #ddd;
-      line-height: 1.7;
-      letter-spacing: 0.5px;
+      line-height: 1.8;
     }
 
     header {
-      padding: 30px 20px;
-      border-bottom: 1px solid #222;
-    }
-
-    .nav-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
     }
 
     h1 {
-      margin: 0;
       font-weight: normal;
-      font-size: 2.2em;
-      letter-spacing: 3px;
-    }
-
-    .tagline {
-      font-size: 0.9em;
-      color: #888;
-      margin-top: 5px;
+      letter-spacing: 6px;
+      font-size: 1.6rem;
+      margin: 0;
     }
 
     nav {
-      display: flex;
-      gap: 25px;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
     }
 
     nav a {
-      color: #ccc;
+      color: #888;
       text-decoration: none;
-      font-size: 0.9em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin: 0 12px;
     }
 
     nav a:hover {
       color: #fff;
     }
 
-    /* Hamburger */
-    .menu-toggle {
-      display: none;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      height: 2px;
-      width: 22px;
-      background: #ccc;
-      margin: 4px 0;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        right: 20px;
-        background: #111;
-        padding: 20px;
-        border: 1px solid #222;
-      }
-
-      .menu-toggle:checked ~ nav {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-    }
-
     main {
-      max-width: 700px;
-      margin: 120px auto;
+      max-width: 520px;
+      margin: 140px auto;
       padding: 0 20px;
       text-align: center;
     }
 
-    .poem {
-      font-size: 1.2em;
-      margin-bottom: 60px;
+    .spacer {
+      height: 80px;
     }
 
     footer {
       text-align: center;
-      padding: 60px 20px;
-      font-size: 0.8em;
-      color: #666;
-      border-top: 1px solid #222;
+      padding: 80px 20px;
+      font-size: 0.7rem;
+      color: #555;
     }
   </style>
 </head>
@@ -126,52 +65,36 @@
 <body>
 
 <header>
-  <div class="nav-container">
+  <h1>THE FREE</h1>
 
-    <div>
-      <h1>THE FREE</h1>
-      <div class="tagline">menselijkheid, toujours</div>
-    </div>
-
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="boek.html">Boek</a>
-      <a href="klanken.html">Klanken</a>
-      <a href="wie.html">Wie</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-  </div>
+  <nav>
+    <a href="boek.html">boek</a>
+    <a href="klanken.html">klanken</a>
+    <a href="wie.html">wie</a>
+    <a href="contact.html">contact</a>
+  </nav>
 </header>
 
 <main>
 
-  <div class="poem">
-    Er is een binnenwereld.<br>
-    Er is een buitenwereld.<br><br>
-    Daartussen:<br>
-    de mens.<br><br>
-    Wij werken in dat tussen.
-  </div>
+  <p>
+    Tussen denken en voelen<br>
+    ontstaat iets<br>
+    dat geen naam nodig heeft.
+  </p>
+
+  <div class="spacer"></div>
 
   <p>
-    Muziek en woorden<br>
-    als oefening.<br>
-    Niet om te verklaren,<br>
-    maar om aanwezig te blijven.
+    Soms is het een zin.<br>
+    Soms een toon.<br>
+    Soms alleen stilte.
   </p>
 
 </main>
 
 <footer>
-  © 2026 THE FREE — menselijkheid, toujours
+  menselijkheid, toujours
 </footer>
 
 </body>
