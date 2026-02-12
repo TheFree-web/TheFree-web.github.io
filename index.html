@@ -4,122 +4,175 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE FREE – menselijkheid, toujours</title>
+
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
-      background: #0f0f0f;
-      color: #e0e0e0;
-      line-height: 1.6;
+      font-family: Georgia, serif;
+      background: #111;
+      color: #ddd;
+      line-height: 1.7;
+      letter-spacing: 0.5px;
     }
+
     header {
-      background: linear-gradient(to bottom, #1a1a1a, #000);
-      padding: 20px;
-      border-bottom: 4px solid #444;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      padding: 30px 20px;
+      border-bottom: 1px solid #222;
     }
+
     .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
     }
-    h1 { margin: 0; font-size: 3em; color: #ff6b6b; text-shadow: 0 0 10px rgba(255,107,107,0.5); }
-    .tagline { font-size: 1.4em; margin: 10px 0 0; font-style: italic; color: #aaa; }
-    .main-nav { display: flex; gap: 30px; }
-    .main-nav a { color: #e0e0e0; text-decoration: none; font-size: 1.1em; transition: color 0.3s; }
-    .main-nav a:hover, .main-nav a:focus { color: #ff6b6b; }
-    .menu-toggle { display: none; }
-    .hamburger { display: none; flex-direction: column; cursor: pointer; }
-    .hamburger span { background: #e0e0e0; height: 3px; width: 25px; margin: 4px 0; transition: all 0.3s; }
+
+    h1 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 2.2em;
+      letter-spacing: 3px;
+    }
+
+    .tagline {
+      font-size: 0.9em;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 2px;
+      width: 22px;
+      background: #ccc;
+      margin: 4px 0;
+    }
+
     @media (max-width: 768px) {
-      .nav-container { position: relative; }
-      .main-nav { display: none; flex-direction: column; width: 100%; margin-top: 20px; background: #000; }
-      .main-nav a { padding: 15px; border-bottom: 1px solid #444; text-align: center; }
-      .hamburger { display: flex; position: absolute; right: 20px; top: 20px; }
-      .menu-toggle:checked ~ .main-nav { display: flex; }
-      .menu-toggle:checked + .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-      .menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
-      .menu-toggle:checked + .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: #111;
+        padding: 20px;
+        border: 1px solid #222;
+      }
+
+      .menu-toggle:checked ~ nav {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
     }
-    section { max-width: 900px; margin: 60px auto 40px; padding: 0 20px; }
+
+    main {
+      max-width: 700px;
+      margin: 120px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
     .poem {
-      font-size: 1.4em;
-      text-align: center;
-      margin: 60px 0;
-      padding: 40px;
-      background: rgba(30,30,30,0.8);
-      border-left: 6px solid #ff6b6b;
-      border-right: 6px solid #ff6b6b;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      font-size: 1.2em;
+      margin-bottom: 60px;
     }
-    .intro {
-      text-align: center;
-      font-size: 1.3em;
-      margin: 40px 0;
-    }
-    .intro a {
-      color: #ff6b6b;
-      text-decoration: underline;
-    }
+
     footer {
       text-align: center;
       padding: 60px 20px;
-      background: #000;
-      font-size: 0.9em;
-      color: #888;
-      border-top: 1px solid #444;
+      font-size: 0.8em;
+      color: #666;
+      border-top: 1px solid #222;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="nav-container">
-      <div>
-        <h1>THE FREE</h1>
-        <p class="tagline">menselijkheid, toujours</p>
-      </div>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
-      <label for="menu-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="klanken.html">Klanken</a>
-        <a href="wie.html">Wie wij zijn</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="nav-container">
 
-  <section>
-    <div class="poem">
-      Er is een binnenwereld<br>
-      en een buitenwereld.<br>
-      Daartussen:<br>
-      de mens.<br><br>
-      Wij werken in dat tussen.
+    <div>
+      <h1>THE FREE</h1>
+      <div class="tagline">menselijkheid, toujours</div>
     </div>
 
-    <div class="intro">
-      Welkom in de kier.<br>
-      Duik in <a href="klanken.html">onze klanken</a><br>
-      Of lees <a href="wie.html">wie wij zijn</a>.<br><br>
-      Luister. Voel. Wees.
-    </div>
-  </section>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
-  <footer>
-    <p>© THE FREE – 2026 – menselijkheid, toujours</p>
-  </footer>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="boek.html">Boek</a>
+      <a href="klanken.html">Klanken</a>
+      <a href="wie.html">Wie</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+  <div class="poem">
+    Er is een binnenwereld.<br>
+    Er is een buitenwereld.<br><br>
+    Daartussen:<br>
+    de mens.<br><br>
+    Wij werken in dat tussen.
+  </div>
+
+  <p>
+    Muziek en woorden<br>
+    als oefening.<br>
+    Niet om te verklaren,<br>
+    maar om aanwezig te blijven.
+  </p>
+
+</main>
+
+<footer>
+  © 2026 THE FREE — menselijkheid, toujours
+</footer>
 
 </body>
 </html>
