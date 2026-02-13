@@ -7,78 +7,81 @@
 
 <style>
 
-html, body {
+body {
   margin: 0;
-  padding: 0;
   background: #000;
-  color: #ddd;
-  height: 100%;
-  overflow: hidden;
+  color: #f2f2f2;
   font-family: Georgia, serif;
 }
 
-/* kamer */
-.room {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  opacity: 0;
-  animation: fadeIn 3s ease forwards;
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  border-bottom: 1px solid #111;
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
+.logo {
+  height: 50px;
 }
 
-/* centrale zin */
-.center-text {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: whisper 4s ease forwards;
-  animation-delay: 2s;
-}
-
-@keyframes whisper {
-  to { opacity: 0.5; }
-}
-
-/* zwevende woorden */
-.word {
-  position: absolute;
-  opacity: 0;
-  transition: opacity 2s ease;
+nav a {
+  color: #aaa;
   text-decoration: none;
-  color: #888;
+  margin-left: 40px;
   font-size: 0.9rem;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  transition: color 0.4s ease;
 }
 
-.room:hover .word {
-  opacity: 0.4;
+nav a:hover {
+  color: #fff;
 }
 
-.word:hover {
-  opacity: 1;
+/* hoofdinhoud */
+main {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 0 40px;
 }
 
-/* individuele posities */
-.w1 { top: 20%; left: 15%; }
-.w2 { top: 70%; left: 25%; }
-.w3 { top: 60%; left: 75%; }
-.w4 { top: 30%; left: 80%; }
+.intro {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  max-width: 600px;
+}
 
+.intro small {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* footer */
 footer {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
+  border-top: 1px solid #111;
+  padding: 40px 60px;
+  font-size: 0.8rem;
+  color: #555;
   text-align: center;
-  font-size: 0.7rem;
-  color: #333;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  nav a {
+    margin-left: 20px;
+  }
+
+  main {
+    margin: 80px auto;
+  }
 }
 
 </style>
@@ -86,22 +89,32 @@ footer {
 
 <body>
 
-<div class="room">
+<header>
+  <img src="logo.jpg" alt="The Free" class="logo">
 
-  <div class="center-text">
-    onder de huid beweegt iets
+  <nav>
+    <a href="klanken.html">Klanken</a>
+    <a href="teksten.html">Teksten</a>
+    <a href="wie.html">Wie</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <div class="intro">
+    Muziek als adem.<br>
+    Vrijheid als praktijk.<br>
+    Kwetsbaarheid als kracht.
+    
+    <small>
+      The Free brengt originele songs en herwerkingen.
+    </small>
   </div>
+</main>
 
-  <a href="klanken.html" class="word w1">klanken</a>
-  <a href="teksten.html" class="word w2">teksten</a>
-  <a href="wie.html" class="word w3">wie</a>
-  <a href="contact.html" class="word w4">contact</a>
-
-  <footer>
-    © R&amp;B
-  </footer>
-
-</div>
+<footer>
+  © R&amp;B
+</footer>
 
 </body>
 </html>
