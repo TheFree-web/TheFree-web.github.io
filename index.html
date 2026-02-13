@@ -1,88 +1,152 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Free</title>
-
-<style>
-body {
-  margin: 0;
-  background: #0d0d0d;
-  color: #e5e5e5;
-  font-family: Georgia, serif;
-  line-height: 1.9;
-}
-
-header {
-  padding: 50px 20px 30px;
-  text-align: center;
-}
-
-h1 {
-  font-weight: normal;
-  letter-spacing: 8px;
-  font-size: 1.4rem;
-  margin: 0;
-}
-
-nav {
-  margin-top: 25px;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-}
-
-nav a {
-  color: #777;
-  text-decoration: none;
-  margin: 0 14px;
-}
-
-nav a:hover {
-  color: #fff;
-}
-
-main {
-  max-width: 460px;
-  margin: 180px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-  padding: 100px 20px 60px;
-  font-size: 0.7rem;
-  color: #555;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE FREE – menselijkheid, toujours</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #000;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000;
+      border-bottom: 1px solid #222;
+      padding: 25px 0 15px;
+      text-align: center;
+    }
+    .logo-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .logo {
+      max-width: 380px;
+      height: auto;
+      display: block;
+      margin: 0 auto 12px;
+    }
+    .tagline {
+      font-size: 1.3em;
+      font-style: italic;
+      color: #777;
+      margin-top: 6px;
+    }
+    main {
+      max-width: 900px;
+      margin: 70px auto 100px;
+      padding: 0 20px;
+    }
+    .poem {
+      font-size: 1.55em;
+      text-align: center;
+      margin: 80px 0 100px;
+      padding: 60px 20px;
+      background: rgba(20,20,20,0.85);
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+    }
+    .intro-links {
+      text-align: center;
+      font-size: 1.45em;
+      margin: 70px 0 120px;
+    }
+    .intro-links a {
+      color: #ff6b6b;
+      text-decoration: none;
+      border-bottom: 2px solid #ff6b6b;
+      padding-bottom: 5px;
+      transition: all 0.3s;
+    }
+    .intro-links a:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+    section h2 {
+      text-align: center;
+      color: #ff6b6b;
+      margin: 100px 0 40px;
+      font-size: 2.4em;
+    }
+    .placeholder {
+      text-align: center;
+      color: #666;
+      font-size: 1.2em;
+      font-style: italic;
+    }
+    footer {
+      text-align: center;
+      padding: 80px 20px 60px;
+      color: #555;
+      font-size: 0.95em;
+      border-top: 1px solid #111;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <img src="images/logo.jpg"
+  <header>
+    <div class="logo-container">
+      <img src="logo.jpg" alt="The Free" class="logo">
+      <p class="tagline">menselijkheid, toujours</p>
+    </div>
+  </header>
 
-  <nav>
-    <a href="boek.html">teksten</a>
-    <a href="klanken.html">klanken</a>
-    <a href="wie.html">wie</a>
-    <a href="contact.html">contact</a>
-  </nav>
-</header>
+  <main>
+    <div class="poem">
+      Er is een binnenwereld<br>
+      en een buitenwereld.<br>
+      Daartussen:<br>
+      de mens.<br><br>
+      Wij werken in dat tussen.
+    </div>
 
+    <div class="intro-links">
+      Duik in <a href="#klanken">onze klanken</a><br>
+      Of lees <a href="#wie">wie wij zijn</a><br><br>
+      Stuur een noot via <a href="#contact">contact</a>
+    </div>
 
-<main>
-  <p>
-    Tussen wat gezegd wordt<br>
-    en wat verzwegen blijft<br>
-    ontstaat ruimte.
-  </p>
-</main>
+    <section id="klanken">
+      <h2>Onze klanken</h2>
+      <div class="placeholder">
+        (hier komt de SoundCloud player – zodra de tracks live zijn)<br>
+        Eerste riff wacht nog op upload...
+      </div>
+    </section>
 
-<footer>
-  © B&R
-</footer>
+    <section id="wie">
+      <h2>Wie wij zijn</h2>
+      <p style="text-align:center; max-width:640px; margin:0 auto; font-size:1.15em;">
+        Jeroen Bos: zang en gitaar – de dichter van de kier.<br>
+        Karlos Ramzak: bas – duwend tegen de duisternis van nu.<br>
+        + drummer die het hart weer laat bonzen.<br>
+        + snarenman die wind vangt in de stilte.<br><br>
+        Wij zijn psychiatrische zielen,<br>
+        vrij in het tussen, altijd menselijk.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="text-align:center; font-size:1.2em;">
+        Stuur een bericht via X: @jouwhandle<br>
+        Of mail: [jouw@email.com]<br><br>
+        We horen je in het tussen.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © THE FREE – 2026 – menselijkheid, toujours
+  </footer>
 
 </body>
 </html>
