@@ -11,83 +11,73 @@ html, body {
   margin: 0;
   padding: 0;
   background: #000;
-  color: #eaeaea;
-  font-family: Georgia, serif;
+  color: #ddd;
   height: 100%;
   overflow: hidden;
+  font-family: Georgia, serif;
 }
 
-/* volledige canvas */
-.stage {
+/* kamer */
+.room {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   opacity: 0;
-  animation: fadeIn 2.5s ease forwards;
+  animation: fadeIn 3s ease forwards;
 }
 
 @keyframes fadeIn {
   to { opacity: 1; }
 }
 
-/* logo */
-.logo {
-  width: 320px;
-  max-width: 80%;
-  opacity: 0;
-  animation: logoAppear 3s ease forwards;
-  animation-delay: 0.8s;
-}
-
-@keyframes logoAppear {
-  to { opacity: 1; }
-}
-
-/* onderhuidse zin */
-.whisper {
-  margin-top: 40px;
-  font-size: 0.9rem;
+/* centrale zin */
+.center-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
   letter-spacing: 2px;
   opacity: 0;
-  animation: whisperAppear 4s ease forwards;
+  animation: whisper 4s ease forwards;
   animation-delay: 2s;
 }
 
-@keyframes whisperAppear {
-  to { opacity: 0.4; }
+@keyframes whisper {
+  to { opacity: 0.5; }
 }
 
-/* navigatie verschijnt bij interactie */
-nav {
+/* zwevende woorden */
+.word {
   position: absolute;
-  bottom: 60px;
   opacity: 0;
   transition: opacity 2s ease;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
-}
-
-body:hover nav {
-  opacity: 0.6;
-}
-
-nav a {
-  color: #aaa;
   text-decoration: none;
-  margin: 0 18px;
-  transition: color 0.8s ease;
+  color: #888;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
 }
 
-nav a:hover {
-  color: #fff;
+.room:hover .word {
+  opacity: 0.4;
 }
+
+.word:hover {
+  opacity: 1;
+}
+
+/* individuele posities */
+.w1 { top: 20%; left: 15%; }
+.w2 { top: 70%; left: 25%; }
+.w3 { top: 60%; left: 75%; }
+.w4 { top: 30%; left: 80%; }
 
 footer {
   position: absolute;
   bottom: 20px;
-  font-size: 0.6rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
   color: #333;
 }
 
@@ -96,23 +86,22 @@ footer {
 
 <body>
 
-<div class="stage">
-  <img src="logo.jpg" alt="The Free" class="logo">
-  <div class="whisper">
-    onder de huid
+<div class="room">
+
+  <div class="center-text">
+    onder de huid beweegt iets
   </div>
+
+  <a href="klanken.html" class="word w1">klanken</a>
+  <a href="teksten.html" class="word w2">teksten</a>
+  <a href="wie.html" class="word w3">wie</a>
+  <a href="contact.html" class="word w4">contact</a>
+
+  <footer>
+    © R&amp;B
+  </footer>
+
 </div>
-
-<nav>
-  <a href="klanken.html">klanken</a>
-  <a href="teksten.html">teksten</a>
-  <a href="wie.html">wie</a>
-  <a href="contact.html">contact</a>
-</nav>
-
-<footer>
-  © R&amp;B
-</footer>
 
 </body>
 </html>
