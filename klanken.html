@@ -12,6 +12,7 @@ body {
   color: #fff;
   font-family: "Gill Sans", "Futura", "Trebuchet MS", sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -20,37 +21,65 @@ body {
 }
 
 .message {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   letter-spacing: 2px;
   opacity: 0.7;
   transition: opacity 0.5s ease;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="message">Klik om te luisteren</div>
+<div class="message">Klik ergens om te luisteren</div>
+<div class="error" id="error"></div>
 
-<audio id="track">
+<audio id="track" preload="auto">
   <source src="de-nacht-is-de-dag.mp3" type="audio/mpeg">
   Je browser ondersteunt geen audio.
 </audio>
 
 <script>
+const audio = document.getElementById('track');
+const message = document.querySelector('.message');
+const errorDiv = document.getElementById('error');
 let started = false;
 
-document.body.addEventListener("click", function () {
-  if (!started) {
-    const audio = document.getElementById("track");
-    audio.volume = 1;
-    audio.muted = false;
-    audio.play().catch(err => console.log(err));
-    started = true;
+// Controleer eerst of het bestand bereikbaar is
+fetch('de-nacht-is-de-dag.mp3', { method: 'HEAD' })
+  .then(res => {
+    if (!res.ok) {
+      throw new Error('Audio niet gevonden (controleer pad en bestandsnaam)');
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    errorDiv.textContent = err.message;
+  });
 
-    // Visueel subtiele feedback
-    document.querySelector(".message").style.opacity = "0.2";
-  }
+// Start audio bij eerste klik
+document.body.addEventListener('click', () => {
+  if (started) return;
+  started = true;
+
+  audio.muted = false;
+  audio.volume = 1;
+
+  audio.play()
+    .then(() => {
+      console.log('Audio gestart');
+      message.style.opacity = 0.2;
+    })
+    .catch(err => {
+      console.log('Audio niet gestart:', err);
+      errorDiv.textContent = 'Audio kon niet starten. Probeer het opnieuw of gebruik een andere browser.';
+    });
 });
 </script>
 
