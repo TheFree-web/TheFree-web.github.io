@@ -11,68 +11,67 @@ body {
   margin: 0;
   background: #000;
   color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Gill Sans", "Futura", "Trebuchet MS", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .wrapper {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 80px 30px;
+  padding: 90px 30px;
   text-align: center;
 }
 
-/* Logo */
+/* LOGO */
 
 .logo {
-  width: 520px;
-  max-width: 92%;
+  width: 560px;
+  max-width: 94%;
   height: auto;
-  margin: 0 auto 70px auto;
+  margin: 0 auto 80px auto;
   display: block;
 }
 
-/* Navigatie */
+/* NAVIGATIE */
 
 nav {
-  margin-bottom: 120px;
+  margin-bottom: 130px;
 }
 
 nav a {
   color: #cccccc;
   text-decoration: none;
-  margin: 0 28px;
+  margin: 0 30px;
   font-size: 0.9rem;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   transition: opacity 0.3s ease;
 }
 
 nav a:hover {
-  opacity: 1;
   color: #ffffff;
 }
 
-/* Intro */
+/* INTRO */
 
 .intro {
-  max-width: 600px;
-  margin: 0 auto 160px auto;
+  max-width: 620px;
+  margin: 0 auto 170px auto;
   font-size: 1.4rem;
   line-height: 1.7;
 }
 
 .intro small {
   display: block;
-  margin-top: 35px;
+  margin-top: 40px;
   font-size: 0.9rem;
   color: #888;
 }
 
-/* Footer */
+/* FOOTER */
 
 footer {
   border-top: 1px solid #111;
-  padding-top: 60px;
+  padding-top: 70px;
   font-size: 0.8rem;
   color: #555;
 }
@@ -85,24 +84,29 @@ footer {
 <div class="wrapper">
 
   <!-- LOGO -->
-  <svg viewBox="0 0 800 260" class="logo" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 1000 320" class="logo" xmlns="http://www.w3.org/2000/svg">
     
-    <text x="50%" y="120"
+    <!-- TEKST -->
+    <text x="50%" y="150"
           text-anchor="middle"
           fill="#ffffff"
-          font-size="110"
-          font-weight="700"
-          letter-spacing="8">
+          font-size="140"
+          font-weight="600"
+          letter-spacing="10">
       THE FREE
     </text>
 
-    <path d="M180 190 
-             C300 190, 320 230, 400 230
-             C480 230, 500 190, 620 190"
-          stroke="#ffffff"
-          stroke-width="5"
-          fill="none"
-          stroke-linecap="round"/>
+    <!-- ORIGINELE LANGERE GOLF -->
+    <path d="
+      M120 230
+      C260 230, 300 280, 500 280
+      C700 280, 740 230, 880 230
+    "
+      stroke="#ffffff"
+      stroke-width="6"
+      fill="none"
+      stroke-linecap="round"/>
+      
   </svg>
 
   <!-- NAVIGATIE -->
@@ -126,7 +130,7 @@ footer {
 
   <!-- FOOTER -->
   <footer>
-    © R&amp;B
+    © R&ampB
   </footer>
 
 </div>
