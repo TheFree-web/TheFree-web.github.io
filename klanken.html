@@ -1,34 +1,58 @@
-<section class="sound-space">
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Free – Klanken</title>
 
-  <div class="intro">
-    Onze klanken<br>
-    <span>luister naar het tussen</span>
-  </div>
+<style>
 
-  <div class="track">
-    <div class="title" onclick="toggleAudio('track1')">
-      Chaos
-    </div>
+body {
+  margin: 0;
+  background: #000;
+  color: #ffffff;
+  font-family: "Gill Sans", "Futura", "Trebuchet MS", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  cursor: pointer;
+}
 
-    <audio id="track1" preload="metadata">
-      <source src="audio/chaos.mp3" type="audio/mpeg">
-      <source src="audio/chaos.ogg" type="audio/ogg">
-    </audio>
-  </div>
+.message {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
 
-  <div class="soon">
-    nieuwe geluiden komen spoedig
-  </div>
+</style>
+</head>
 
-</section>
+<body>
+
+<div class="message">
+  klik om te luisteren
+</div>
+
+<audio id="track">
+  <source src="de-nacht-is-de-dag.mp3" type="audio/mpeg">
+  Je browser ondersteunt geen audio.
+</audio>
 
 <script>
-function toggleAudio(id) {
-  const audio = document.getElementById(id);
-  if (audio.paused) {
+let started = false;
+
+document.body.addEventListener("click", function () {
+  if (!started) {
+    const audio = document.getElementById("track");
     audio.play();
-  } else {
-    audio.pause();
+    started = true;
+    document.querySelector(".message").style.opacity = "0.2";
   }
-}
+});
 </script>
+
+</body>
+</html>
