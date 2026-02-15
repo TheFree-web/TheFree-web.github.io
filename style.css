@@ -1,0 +1,205 @@
+/* ===== Basis reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    color: #222;
+    background-color: #fff;
+}
+
+/* ===== Header / Navigatie ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #111;
+    color: white;
+}
+
+header .logo img {
+    max-height: 120px;
+    width: auto;
+    display: block;
+}
+
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #f04e30; /* hover-effect in rood */
+}
+
+/* ===== Hero Banner ===== */
+.hero {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+
+/* Achtergrondfoto zwart-wit + donkerder */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/hero_placeholder.jpg') center/cover no-repeat;
+    filter: grayscale(100%) brightness(60%);
+    z-index: 0;
+}
+
+/* Semi-transparante overlay voor leesbaarheid */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 0;
+}
+
+/* Tekst boven de achtergrond */
+.hero-text {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    margin-bottom: 20px;
+}
+
+/* Rood highlight voor belangrijke zinnen */
+.highlight-red {
+    color: #f04e30;
+    font-weight: bold;
+}
+
+/* Knoppen */
+.btn {
+    display: inline-block;
+    background-color: #f04e30;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #d03a1e;
+}
+
+/* ===== Secties ===== */
+.release, .shows, .news {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.release h2, .shows h2, .news h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.release-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.release-content img {
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+.release-info p {
+    max-width: 500px;
+}
+
+.stream-buttons {
+    margin-top: 10px;
+}
+
+/* Nieuws / updates lijst */
+.news ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.news ul li {
+    margin-bottom: 10px;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer .socials a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer .socials a:hover {
+    color: #f04e30;
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 768px) {
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .release-content {
+        flex-direction: column;
+    }
+
+    .release-info p {
+        max-width: 100%;
+    }
+}
+
