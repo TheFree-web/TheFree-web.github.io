@@ -12,3 +12,12 @@ hamburger.addEventListener('click', () => {
         navLinks.style.display = 'flex';
     }
 });
+
+// Luister nu knop
+const btnLuister = document.querySelector('.hero .btn');
+const audioPlayer = document.getElementById('audio-player');
+
+btnLuister.addEventListener('click', (e) => {
+    e.preventDefault(); // voorkom dat de link navigeert
+    audioPlayer.play(); // start de song
+});
