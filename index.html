@@ -144,8 +144,11 @@ footer {
       THE FREE
     </text>
 
-    <!-- Dynamische ademlijn -->
-    <path id="breathLine"
+    <!-- Exacte originele lijn -->
+    <path
+      d="M120 230
+         C260 230, 300 280, 500 280
+         C700 280, 740 230, 880 230"
       stroke="#ffffff"
       stroke-width="6"
       fill="none"
@@ -180,60 +183,10 @@ footer {
 </div>
 
 <script>
-
-/* MENU */
-
 function toggleMenu() {
   const menu = document.getElementById("menu");
   menu.classList.toggle("active");
 }
-
-
-/* ADEMENDE MORFENDE LIJN */
-
-const path = document.getElementById("breathLine");
-
-let time = 0;
-
-const startX = 120;
-const endX = 880;
-const baseY = 230;
-const segments = 24;
-
-const baseAmplitude = 30;
-const breathSpeed = 0.01;   // traag ademen
-const morphSpeed = 0.02;    // vormverandering
-
-function animateLine() {
-
-  let d = `M ${startX} ${baseY}`;
-  const width = endX - startX;
-
-  const breath = Math.sin(time * breathSpeed) * 0.5 + 0.5;
-
-  for (let i = 0; i <= segments; i++) {
-
-    const x = startX + (width / segments) * i;
-
-    const wave =
-      Math.sin(i * 0.7 + time * morphSpeed) *
-      Math.cos(time * morphSpeed * 0.8);
-
-    const y =
-      baseY +
-      wave * baseAmplitude * (0.4 + breath);
-
-    d += ` L ${x} ${y}`;
-  }
-
-  path.setAttribute("d", d);
-
-  time++;
-  requestAnimationFrame(animateLine);
-}
-
-animateLine();
-
 </script>
 
 </body>
