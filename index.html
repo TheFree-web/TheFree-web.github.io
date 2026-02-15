@@ -32,7 +32,7 @@ body {
   display: block;
 }
 
-/* NAVIGATIE */
+/* NAVIGATIE DESKTOP */
 
 nav {
   margin-bottom: 130px;
@@ -49,6 +49,49 @@ nav a {
 
 nav a:hover {
   color: #ffffff;
+}
+
+/* HAMBURGER */
+
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 2px;
+  background: #fff;
+  display: block;
+}
+
+/* MOBIEL */
+
+@media (max-width: 768px) {
+
+  nav {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+
+  nav a {
+    display: block;
+    margin: 20px 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav.active {
+    display: flex;
+  }
 }
 
 /* INTRO */
@@ -81,12 +124,16 @@ footer {
 
 <body>
 
+<div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 <div class="wrapper">
 
   <!-- LOGO -->
   <svg viewBox="0 0 1000 320" class="logo" xmlns="http://www.w3.org/2000/svg">
-    
-    <!-- TEKST -->
     <text x="50%" y="150"
           text-anchor="middle"
           fill="#ffffff"
@@ -95,8 +142,6 @@ footer {
           letter-spacing="10">
       THE FREE
     </text>
-
-    <!-- ORIGINELE LANGERE GOLF -->
     <path d="
       M120 230
       C260 230, 300 280, 500 280
@@ -106,11 +151,10 @@ footer {
       stroke-width="6"
       fill="none"
       stroke-linecap="round"/>
-      
   </svg>
 
   <!-- NAVIGATIE -->
-  <nav>
+  <nav id="menu">
     <a href="klanken.html">Klanken</a>
     <a href="teksten.html">Teksten</a>
     <a href="wie.html">Wie</a>
@@ -134,6 +178,13 @@ footer {
   </footer>
 
 </div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
