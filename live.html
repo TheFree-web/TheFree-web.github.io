@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live | Bandnaam</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header>
+        <div class="logo-text">
+            <a href="index.html">Bandnaam</a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="muziek.html">Muziek</a></li>
+                <li><a href="live.html" class="active">Live</a></li>
+                <li><a href="over-ons.html">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Live</h1>
+            <p class="highlight-red">Aankomende shows</p>
+        </div>
+    </section>
+
+    <!-- ===== Shows ===== -->
+    <section class="shows">
+
+        <h2>Upcoming Shows</h2>
+
+        <div class="show-list">
+
+            <!-- Show 1 -->
+            <div class="show-item">
+                <div class="show-date">
+                    <span class="day">12</span>
+                    <span class="month">APR 2026</span>
+                </div>
+
+                <div class="show-details">
+                    <h3>Amsterdam – Paradiso</h3>
+                    <p>Aanvang: 20:00</p>
+                </div>
+
+                <div class="show-ticket">
+                    <a href="#" class="btn">Tickets</a>
+                </div>
+            </div>
+
+            <!-- Show 2 -->
+            <div class="show-item">
+                <div class="show-date">
+                    <span class="day">25</span>
+                    <span class="month">MEI 2026</span>
+                </div>
+
+                <div class="show-details">
+                    <h3>Antwerpen – Trix</h3>
+                    <p>Aanvang: 19:30</p>
+                </div>
+
+                <div class="show-ticket">
+                    <a href="#" class="btn">Tickets</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <p>© 2026 Bandnaam</p>
+
+        <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Spotify</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+
+    <!-- ===== Scripts ===== -->
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.querySelector("nav ul");
+
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        // Header shrink bij scroll
+        window.addEventListener("scroll", function() {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+</body>
+</html>
