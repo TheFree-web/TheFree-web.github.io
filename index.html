@@ -6,6 +6,17 @@
     <title>The Free - Home</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+    <script>
+window.addEventListener("scroll", function() {
+    const header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+</script>
+
 <body>
    <!-- Header / Navigatie -->
 <header>
