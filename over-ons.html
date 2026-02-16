@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over Ons | Bandnaam</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header>
+        <div class="logo-text">
+            <a href="index.html">Bandnaam</a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="muziek.html">Muziek</a></li>
+                <li><a href="live.html">Live</a></li>
+                <li><a href="over-ons.html" class="active">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Over Ons</h1>
+            <p class="highlight-red">Het verhaal achter de muziek</p>
+        </div>
+    </section>
+
+    <!-- ===== Biografie ===== -->
+    <section class="release">
+
+        <h2>Onze Story</h2>
+
+        <div class="about-text">
+            <p>
+                Bandnaam ontstond uit een gedeelde passie voor eerlijke, energieke muziek.
+                Wat begon als een idee in een repetitieruimte groeide uit tot een
+                herkenbare sound met krachtige melodieën en intense liveshows.
+            </p>
+
+            <p>
+                Met invloeden uit rock, alternatieve muziek en moderne productie
+                bouwen we aan een eigen identiteit. Elke release vertelt een nieuw hoofdstuk
+                en elke show brengt ons dichter bij het publiek.
+            </p>
+
+            <p>
+                Onze missie is simpel: muziek maken die raakt, live momenten creëren
+                die blijven hangen en blijven groeien als band.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- ===== Bandleden ===== -->
+    <section class="release">
+
+        <h2>Bandleden</h2>
+
+        <div class="band-grid">
+
+            <div class="band-member">
+                <img src="images/member_placeholder.jpg" alt="Bandlid">
+                <h3>Naam Lid</h3>
+                <p>Vocalen / Gitaar</p>
+            </div>
+
+            <div class="band-member">
+                <img src="images/member_placeholder.jpg" alt="Bandlid">
+                <h3>Naam Lid</h3>
+                <p>Bas</p>
+            </div>
+
+            <div class="band-member">
+                <img src="images/member_placeholder.jpg" alt="Bandlid">
+                <h3>Naam Lid</h3>
+                <p>Drums</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <p>© 2026 Bandnaam</p>
+
+        <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Spotify</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+
+    <!-- ===== Scripts ===== -->
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.querySelector("nav ul");
+
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        // Header shrink bij scroll
+        window.addEventListener("scroll", function() {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+</body>
+</html>
