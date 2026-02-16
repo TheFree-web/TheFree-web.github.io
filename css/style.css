@@ -328,3 +328,42 @@ footer .socials a:hover {
         margin-left: 0;
     }
 }
+
+/* ===== Over Ons ===== */
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+/* Band grid */
+.band-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.band-member {
+    text-align: center;
+    max-width: 220px;
+}
+
+.band-member img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Mobiel */
+@media screen and (max-width: 768px) {
+    .band-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
