@@ -273,3 +273,58 @@ footer .socials a:hover {
         max-width: 100%;
     }
 }
+
+/* ===== Live shows layout ===== */
+.show-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.show-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.show-date {
+    text-align: center;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.show-date .day {
+    display: block;
+    font-size: 1.8rem;
+}
+
+.show-date .month {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.show-details h3 {
+    margin-bottom: 5px;
+}
+
+.show-ticket {
+    margin-left: 20px;
+}
+
+/* Mobiel */
+@media screen and (max-width: 768px) {
+    .show-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .show-ticket {
+        margin-left: 0;
+    }
+}
