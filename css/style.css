@@ -29,9 +29,9 @@ header {
 .logo-text a {
     color: white;
     text-decoration: none;
-    font-size: 1.8rem; /* groter en zichtbaar */
+    font-size: 1.8rem;
     font-weight: bold;
-    font-family: 'Arial', sans-serif; /* kan aangepast worden */
+    font-family: 'Arial', sans-serif;
 }
 
 /* Desktop menu */
@@ -96,21 +96,18 @@ nav ul li a:hover {
     }
 }
 
-
-
-/* ===== Hero Banner ===== */
+/* Hero */
 .hero {
     position: relative;
-    height: 70vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
     color: white;
+    overflow: hidden;
 }
 
-/* Achtergrondfoto zwart-wit + donkerder */
 .hero::before {
     content: "";
     position: absolute;
@@ -123,57 +120,34 @@ nav ul li a:hover {
     z-index: 0;
 }
 
-/* Semi-transparante overlay voor leesbaarheid */
-.hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.3);
-    z-index: 0;
-}
-
-/* Tekst boven de achtergrond */
 .hero-text {
     position: relative;
     z-index: 1;
-    max-width: 800px;
-    padding: 20px;
 }
 
-.hero-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.hero-text p {
-    margin-bottom: 20px;
-}
-
-/* Rood highlight voor belangrijke zinnen */
-.highlight-red {
+.hero .highlight-red {
     color: #f04e30;
     font-weight: bold;
+    font-size: 1.2rem;
+    margin: 15px 0;
 }
 
-/* Knoppen */
-.btn {
+.hero .btn {
     display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
     background-color: #f04e30;
     color: white;
-    padding: 10px 20px;
-    margin: 5px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #d03a1e;
+.hero .btn:hover {
+    background-color: #d03e20;
 }
+
 
 /* ===== Secties ===== */
 .release, .shows, .news {
