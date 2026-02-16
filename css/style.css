@@ -10,53 +10,85 @@ body {
     line-height: 1.5;
     color: #222;
     background-color: #fff;
+
+    /* Ruimte voor vaste header */
+    padding-top: 90px;
 }
 
-/* Header */
+/* ===== Header ===== */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 90px;                 /* START hoogte */
+    padding: 0 25px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
-    padding: 0 25px;
+
     background-color: #111;
     color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+    z-index: 9999;
+
+    transition: 
+        height 0.3s ease,
+        padding 0.3s ease,
+        background-color 0.3s ease;
 }
 
-/* Tekstlogo */
+/* ===== Verkleinde header bij scroll ===== */
+header.scrolled {
+    height: 65px;                 /* kleinere hoogte */
+    background-color: rgba(17,17,17,0.95);
+}
+
+/* ===== Logo ===== */
 .logo-text a {
     color: white;
     text-decoration: none;
     font-size: 1.8rem;
     font-weight: bold;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    transition: font-size 0.3s ease;
 }
 
-/* Desktop menu */
+/* Logo krimpt mee */
+header.scrolled .logo-text a {
+    font-size: 1.4rem;
+}
+
+/* ===== Desktop menu ===== */
 nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
-    margin: 0;
-    padding: 0;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    line-height: 70px;
-    transition: color 0.3s ease;
+
+    line-height: 90px;   /* gelijk aan header hoogte */
+    transition: 
+        color 0.3s ease,
+        line-height 0.3s ease;
+}
+
+/* Links aanpassen bij scroll */
+header.scrolled nav ul li a {
+    line-height: 65px;
 }
 
 nav ul li a:hover {
     color: #f04e30;
 }
 
-/* Hamburger knop */
+/* ===== Hamburger knop ===== */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -73,19 +105,26 @@ nav ul li a:hover {
     border-radius: 2px;
 }
 
-/* Mobiel menu */
+/* ===== Mobiel menu ===== */
 @media screen and (max-width: 768px) {
 
     nav ul {
         position: absolute;
-        top: 70px;
+        top: 90px;  /* start onder header */
         right: 0;
         background-color: #111;
         flex-direction: column;
-        width: 200px;
+        width: 220px;
         display: none;
         padding: 20px;
         gap: 10px;
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+        transition: top 0.3s ease;
+    }
+
+    /* Menu positie aanpassen bij scroll */
+    header.scrolled nav ul {
+        top: 65px;
     }
     
     nav ul.active {
@@ -102,8 +141,7 @@ nav ul li a:hover {
     }
 }
 
-
-/* Hero */
+/* ===== Hero ===== */
 .hero {
     position: relative;
     height: 80vh;
@@ -118,10 +156,7 @@ nav ul li a:hover {
 .hero::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: url('../images/hero_placeholder.jpg') center/cover no-repeat;
     filter: grayscale(100%) brightness(60%);
     z-index: 0;
@@ -155,15 +190,18 @@ nav ul li a:hover {
     background-color: #d03e20;
 }
 
-
 /* ===== Secties ===== */
-.release, .shows, .news {
+.release, 
+.shows, 
+.news {
     padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.release h2, .shows h2, .news h2 {
+.release h2, 
+.shows h2, 
+.news h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
@@ -190,7 +228,7 @@ nav ul li a:hover {
     margin-top: 10px;
 }
 
-/* Nieuws / updates lijst */
+/* ===== Nieuws ===== */
 .news ul {
     list-style: disc;
     margin-left: 20px;
@@ -220,8 +258,9 @@ footer .socials a:hover {
     color: #f04e30;
 }
 
-/* ===== Responsive ===== */
+/* ===== Extra responsive ===== */
 @media screen and (max-width: 768px) {
+
     .hero-text h2 {
         font-size: 2rem;
     }
