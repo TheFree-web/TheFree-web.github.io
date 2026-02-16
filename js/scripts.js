@@ -13,11 +13,12 @@ hamburger.addEventListener('click', () => {
     }
 });
 
-// Luister nu knop
-const btnLuister = document.querySelector('.hero .btn');
-const audioPlayer = document.getElementById('audio-player');
+document.addEventListener('DOMContentLoaded', () => {
+    const btnLuister = document.querySelector('.btn-luister');
+    const audioPlayer = document.getElementById('audio-player');
 
-btnLuister.addEventListener('click', (e) => {
-    e.preventDefault(); // voorkom dat de link navigeert
-    audioPlayer.play(); // start de song
+    btnLuister.addEventListener('click', (e) => {
+        e.preventDefault();
+        audioPlayer.play();
+    });
 });
