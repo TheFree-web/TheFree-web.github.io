@@ -10,9 +10,7 @@ body {
     line-height: 1.5;
     color: #222;
     background-color: #fff;
-
-    /* Ruimte voor vaste header */
-    padding-top: 90px;
+    padding-top: 90px; /* ruimte voor vaste header */
 }
 
 /* ===== Header ===== */
@@ -21,47 +19,36 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-
-    height: 90px;                 /* START hoogte */
+    height: 90px;
     padding: 0 25px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background-color: #111;
     color: white;
-
     z-index: 9999;
-
-    transition: 
-        height 0.3s ease,
-        padding 0.3s ease,
-        background-color 0.3s ease;
+    transition: height 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
 }
 
-/* ===== Verkleinde header bij scroll ===== */
 header.scrolled {
-    height: 65px;                 /* kleinere hoogte */
+    height: 65px;
     background-color: rgba(17,17,17,0.95);
 }
 
-/* ===== Logo ===== */
+/* Logo */
 .logo-text a {
     color: white;
     text-decoration: none;
     font-size: 1.8rem;
     font-weight: bold;
-    font-family: Arial, sans-serif;
     transition: font-size 0.3s ease;
 }
 
-/* Logo krimpt mee */
 header.scrolled .logo-text a {
     font-size: 1.4rem;
 }
 
-/* ===== Desktop menu ===== */
+/* Desktop menu */
 nav ul {
     list-style: none;
     display: flex;
@@ -72,14 +59,10 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-
-    line-height: 90px;   /* gelijk aan header hoogte */
-    transition: 
-        color 0.3s ease,
-        line-height 0.3s ease;
+    line-height: 90px;
+    transition: color 0.3s ease, line-height 0.3s ease;
 }
 
-/* Links aanpassen bij scroll */
 header.scrolled nav ul li a {
     line-height: 65px;
 }
@@ -88,7 +71,7 @@ nav ul li a:hover {
     color: #f04e30;
 }
 
-/* ===== Hamburger knop ===== */
+/* Hamburger knop */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -105,12 +88,11 @@ nav ul li a:hover {
     border-radius: 2px;
 }
 
-/* ===== Mobiel menu ===== */
+/* Mobiel menu */
 @media screen and (max-width: 768px) {
-
     nav ul {
         position: absolute;
-        top: 90px;  /* start onder header */
+        top: 90px;
         right: 0;
         background-color: #111;
         flex-direction: column;
@@ -122,11 +104,10 @@ nav ul li a:hover {
         transition: top 0.3s ease;
     }
 
-    /* Menu positie aanpassen bij scroll */
     header.scrolled nav ul {
         top: 65px;
     }
-    
+
     nav ul.active {
         display: flex;
     }
@@ -141,7 +122,7 @@ nav ul li a:hover {
     }
 }
 
-/* ===== Hero ===== */
+/* ===== Hero (generiek) ===== */
 .hero {
     position: relative;
     height: 80vh;
@@ -153,27 +134,49 @@ nav ul li a:hover {
     overflow: hidden;
 }
 
-}
-
-
-/* Hero generiek */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background: center/cover no-repeat;
     z-index: 0;
-    background-color: #333; /* fallback kleur als afbeelding niet laadt */
+    background-color: #333; /* fallback */
 }
 
-/* Home-pagina: achtergrond + filter */
+.hero-text, .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero .highlight-red {
+    color: #f04e30;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
+    background-color: #f04e30;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #d03e20;
+}
+
+/* Pagina-specifieke hero achtergronden */
 body.home .hero::before {
     background-image: url('../images/hero_home.jpg');
-    background-color: #666; /* fallback grijs voor Safari mobiel */
     filter: grayscale(100%) brightness(60%);
 }
 
-/* Andere pagina's: alleen afbeelding in kleur */
 body.muziek .hero::before {
     background-image: url('../images/hero_muziek.jpg');
 }
@@ -183,9 +186,15 @@ body.live .hero::before {
 }
 
 body.overons .hero::before {
-    
-    /* ===== Over Ons Hero ===== */
+    background-image: url('../images/hero_overons.jpg');
+}
 
+body.contact .hero::before {
+    background-image: url('../images/hero_contact.jpeg');
+    filter: grayscale(100%) brightness(60%);
+}
+
+/* ===== Over Ons Hero layout ===== */
 .hero-about {
     position: relative;
     min-height: 80vh;
@@ -220,7 +229,6 @@ body.overons .hero::before {
     transform: scale(1.05);
 }
 
-/* Mobiel */
 @media (max-width: 768px) {
     .hero-photos {
         flex-direction: column;
@@ -233,53 +241,14 @@ body.overons .hero::before {
     }
 }
 
-body.contact .hero::before {
-    background-image: url('../images/hero_contact.jpeg');
-    filter: grayscale(100%) brightness(60%);
-}
-
-
-
-.hero-text {
-    position: relative;
-    z-index: 1;
-}
-
-.hero .highlight-red {
-    color: #f04e30;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin: 15px 0;
-}
-
-.hero .btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 12px 25px;
-    background-color: #f04e30;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-}
-
-.hero .btn:hover {
-    background-color: #d03e20;
-}
-
 /* ===== Secties ===== */
-.release, 
-.shows, 
-.news {
+.release, .shows, .news {
     padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.release h2, 
-.shows h2, 
-.news h2 {
+.release h2, .shows h2, .news h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
@@ -306,7 +275,7 @@ body.contact .hero::before {
     margin-top: 10px;
 }
 
-/* ===== Nieuws ===== */
+/* Nieuws */
 .news ul {
     list-style: disc;
     margin-left: 20px;
@@ -316,7 +285,7 @@ body.contact .hero::before {
     margin-bottom: 10px;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 footer {
     background-color: #111;
     color: white;
@@ -336,78 +305,7 @@ footer .socials a:hover {
     color: #f04e30;
 }
 
-/* ===== Extra responsive ===== */
-@media screen and (max-width: 768px) {
-
-    .hero-text h2 {
-        font-size: 2rem;
-    }
-
-    .release-content {
-        flex-direction: column;
-    }
-
-    .release-info p {
-        max-width: 100%;
-    }
-}
-
-/* ===== Live shows layout ===== */
-.show-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.show-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fafafa;
-}
-
-.show-date {
-    text-align: center;
-    font-weight: bold;
-    min-width: 80px;
-}
-
-.show-date .day {
-    display: block;
-    font-size: 1.8rem;
-}
-
-.show-date .month {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.show-details h3 {
-    margin-bottom: 5px;
-}
-
-.show-ticket {
-    margin-left: 20px;
-}
-
-/* Mobiel */
-@media screen and (max-width: 768px) {
-    .show-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .show-ticket {
-        margin-left: 0;
-    }
-}
-
-/* ===== Over Ons ===== */
+/* ===== Over Ons secties ===== */
 .about-text {
     max-width: 800px;
     margin: 0 auto;
@@ -418,7 +316,6 @@ footer .socials a:hover {
     margin-bottom: 20px;
 }
 
-/* Band grid */
 .band-grid {
     display: flex;
     gap: 30px;
@@ -446,24 +343,23 @@ footer .socials a:hover {
     }
 }
 
-/* ===== Contact Formulier ===== */
+/* ===== Contact formulier ===== */
 .contact-form {
     display: flex;
-    flex-direction: column; /* verticale stapeling */
-    gap: 15px;              /* ruimte tussen velden */
-    max-width: 600px;       /* breedte van het formulier */
-    margin: 0 auto;         /* gecentreerd */
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;            /* vul de beschikbare breedte */
+    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-    box-sizing: border-box;
-    resize: vertical;       /* alleen verticaal resizebaar voor textarea */
+    resize: vertical;
 }
 
 .contact-form button {
@@ -486,17 +382,8 @@ footer .socials a:hover {
     text-align: center;
     font-size: 0.95rem;
 }
-.booking-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
 
-.booking-list li {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
+/* ===== Booking knop ===== */
 .booking-button {
     display: inline-block;
     margin-top: 20px;
@@ -512,9 +399,11 @@ footer .socials a:hover {
 .booking-button:hover {
     background-color: #d03e20;
 }
+
+/* ===== Video wrapper ===== */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     margin-top: 20px;
@@ -527,8 +416,8 @@ footer .socials a:hover {
     width: 100%;
     height: 100%;
 }
-/* ===== Video Hero ===== */
 
+/* ===== Video Hero ===== */
 .hero-video {
     position: relative;
     height: 100vh;
@@ -558,12 +447,13 @@ footer .socials a:hover {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .hero-content h1 {
@@ -575,4 +465,19 @@ footer .socials a:hover {
 .hero-content p {
     font-size: 1.3rem;
     color: #f04e30;
+}
+
+/* ===== Algemene responsive ===== */
+@media screen and (max-width: 768px) {
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .release-content {
+        flex-direction: column;
+    }
+
+    .release-info p {
+        max-width: 100%;
+    }
 }
