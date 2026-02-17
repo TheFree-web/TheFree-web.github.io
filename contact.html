@@ -58,12 +58,36 @@
 
         <h2>Stuur een bericht</h2>
 
-        <form action="contact-form.php" method="POST" class="contact-form">
-    <input type="text" name="naam" placeholder="Naam" required>
+        <form id="contact-form" action="contact-form.php" method="POST">
+    <input type="text" name="name" placeholder="Naam" required>
     <input type="email" name="email" placeholder="E-mail" required>
-    <textarea name="bericht" placeholder="Bericht" required></textarea>
+    <textarea name="message" placeholder="Bericht" required></textarea>
     <button type="submit">Verstuur</button>
+    <p class="form-note" id="form-response"></p>
 </form>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const responseEl = document.getElementById('form-response');
+
+    try {
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData
+        });
+
+        const text = await response.text();
+        responseEl.textContent = text;
+        this.reset();
+    } catch (err) {
+        responseEl.textContent = 'Er is een fout opgetreden. Probeer opnieuw.';
+        console.error(err);
+    }
+});
+</script>
+
 
 
         <p class="form-note">
