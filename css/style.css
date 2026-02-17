@@ -436,3 +436,29 @@ footer .socials a:hover {
     text-align: center;
     font-size: 0.95rem;
 }
+.booking-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.booking-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.booking-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #f04e30;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.booking-button:hover {
+    background-color: #d03e20;
+}
