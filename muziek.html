@@ -9,7 +9,6 @@
 
 <body class="muziek">
 
-<!-- ===== Header ===== -->
 <header>
     <div class="logo-text">
         <a href="index.html">The Free</a>
@@ -32,18 +31,16 @@
     </div>
 </header>
 
-<!-- ===== HERO MET VIDEO ===== -->
 <section class="hero-video">
 
     <div class="video-background">
         <iframe 
-    id="hero-video"
-    src="https://www.youtube.com/embed/t82VQhA-Bbg?autoplay=1&mute=1&controls=0&loop=1&playlist=t82VQhA-Bbg&playsinline=1&enablejsapi=1"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-</iframe>
-
+            id="hero-video"
+            src="https://www.youtube.com/embed/t82VQhA-Bbg?autoplay=1&mute=1&controls=0&loop=1&playlist=t82VQhA-Bbg&playsinline=1&enablejsapi=1"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
     </div>
 
     <div class="hero-overlay"></div>
@@ -55,7 +52,6 @@
 
 </section>
 
-<!-- ===== Releases ===== -->
 <section class="release">
 
     <h2>Laatste Release</h2>
@@ -74,7 +70,6 @@
 
 </section>
 
-<!-- ===== Footer ===== -->
 <footer>
     <p>© R&B</p>
 
@@ -86,6 +81,7 @@
 </footer>
 
 <!-- ===== Scripts ===== -->
+
 <script>
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.querySelector("nav ul");
@@ -102,6 +98,9 @@
             header.classList.remove("scrolled");
         }
     });
+</script>
+
+<!-- YouTube API -->
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
@@ -109,19 +108,29 @@ let player;
 let soundActivated = false;
 
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('hero-video');
+    player = new YT.Player('hero-video', {
+        events: {
+            'onReady': function() {
+                // Player is ready
+            }
+        }
+    });
 }
 
-// Zet geluid aan bij eerste klik
-document.addEventListener("click", function() {
-    if (!soundActivated && player) {
+function activateSound() {
+    if (!soundActivated && player && typeof player.unMute === "function") {
         player.unMute();
         player.setVolume(100);
         soundActivated = true;
-    }
-});
-</script>
 
+        document.removeEventListener("click", activateSound);
+        document.removeEventListener("touchstart", activateSound);
+    }
+}
+
+document.addEventListener("click", activateSound);
+document.addEventListener("touchstart", activateSound);
+</script>
 
 </body>
 </html>
