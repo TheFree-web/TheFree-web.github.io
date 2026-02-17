@@ -32,56 +32,41 @@
     </div>
 </header>
 
-<!-- ===== Hero ===== -->
-<section class="hero">
-    <div class="hero-text">
-        <h1>Muziek</h1>
-        <p class="highlight-red">Ontdek onze releases</p>
+<!-- ===== HERO MET VIDEO ===== -->
+<section class="hero-video">
+
+    <div class="video-background">
+        <iframe 
+            src="https://www.youtube.com/embed/t82VQhA-Bbg?autoplay=1&mute=1&controls=0&loop=1&playlist=t82VQhA-Bbg&playsinline=1&showinfo=0&modestbranding=1"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
     </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Free</h1>
+        <p>Onze sound. Onze energie.</p>
+    </div>
+
 </section>
 
-<!-- ===== Laatste Release ===== -->
+<!-- ===== Releases ===== -->
 <section class="release">
 
     <h2>Laatste Release</h2>
 
     <div class="release-content">
-        <img src="images/coversingel_placeholder.png" alt="The Free - De dag is de nacht">
+        <img src="images/coversingel_placeholder.png" alt="De dag is de nacht">
 
         <div class="release-info">
             <h3>De dag is de nacht</h3>
             <p>
-                Uitgebracht in 2026. Een krachtige track met energieke gitaren 
-                en een herkenbare sound. Met dank aan dEUS.
+                Uitgebracht in 2026. Een krachtige track met energieke gitaren
+                en een herkenbare sound.
             </p>
-        </div>
-    </div>
-
-</section>
-
-<!-- ===== Eerdere Releases ===== -->
-<section class="release">
-
-    <h2>Eerdere Releases</h2>
-
-    <div class="release-content">
-        <img src="images/cover1_placeholder.jpg" alt="Free - The Free">
-
-        <div class="release-info">
-            <h3>Free</h3>
-            <p>Een eerdere release die onze sound definieerde.</p>
-
-            <!-- YouTube embed -->
-            <div class="video-wrapper">
-                <iframe 
-                    src="https://www.youtube.com/embed/t82VQhA-Bbg?autoplay=1&mute=1&playsinline=1"
-                    title="Free - The Free"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
         </div>
     </div>
 
@@ -100,7 +85,6 @@
 
 <!-- ===== Scripts ===== -->
 <script>
-    // Hamburger toggle
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.querySelector("nav ul");
 
@@ -108,7 +92,6 @@
         navMenu.classList.toggle("active");
     });
 
-    // Header shrink bij scroll
     window.addEventListener("scroll", function() {
         const header = document.querySelector("header");
         if (window.scrollY > 50) {
