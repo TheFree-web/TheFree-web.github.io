@@ -5,30 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Free - Home</title>
     <link rel="stylesheet" href="css/style.css">
-
-    <script>
-    // Header verkleinen bij scroll
-    window.addEventListener("scroll", function() {
-        const header = document.querySelector("header");
-        if (window.scrollY > 50) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-    });
-
-    // Hamburger menu toggle
-    document.addEventListener("DOMContentLoaded", function() {
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("nav-links");
-
-        hamburger.addEventListener("click", function() {
-            navLinks.classList.toggle("active");
-        });
-    });
-    </script>
 </head>
-
 <body class="home">
 
     <!-- Header / Navigatie -->
@@ -109,6 +86,25 @@
         </div>
     </footer>
 
-    <script src="js/scripts.js"></script>
+    <!-- Scripts onderaan body -->
+    <script>
+        // Header verkleinen bij scroll
+        window.addEventListener("scroll", function() {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", function() {
+            navLinks.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
