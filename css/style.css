@@ -396,37 +396,43 @@ footer .socials a:hover {
     }
 }
 
-/* ===== Contact ===== */
-.contact-info {
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    line-height: 1.8;
-}
-
+/* ===== Contact Formulier ===== */
 .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: column; /* verticale stapeling */
+    gap: 15px;              /* ruimte tussen velden */
+    max-width: 600px;       /* breedte van het formulier */
+    margin: 0 auto;         /* gecentreerd */
 }
 
 .contact-form input,
 .contact-form textarea {
+    width: 100%;            /* vul de beschikbare breedte */
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    box-sizing: border-box;
+    resize: vertical;       /* alleen verticaal resizebaar voor textarea */
 }
 
 .contact-form button {
-    align-self: flex-start;
+    padding: 12px 25px;
+    background-color: #f04e30;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.form-note {
+.contact-form button:hover {
+    background-color: #d03e20;
+}
+
+#form-response {
+    margin-top: 10px;
     text-align: center;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.95rem;
 }
-
