@@ -6,9 +6,7 @@
     <title>Contact | The Free</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
-    <body class="contact">
-
+<body class="contact">
 
     <!-- ===== Header ===== -->
     <header>
@@ -43,70 +41,28 @@
 
     <!-- ===== Contact Informatie ===== -->
     <section class="release">
-
         <h2>Contactinformatie</h2>
-
         <div class="contact-info">
             <p><strong>Boekingen:</strong> booking@thefree.be</p>
-            
         </div>
-
     </section>
 
     <!-- ===== Contact Formulier ===== -->
     <section class="release">
-
         <h2>Stuur een bericht</h2>
 
         <form id="contact-form" action="https://formspree.io/f/xaqdjgln" method="POST">
-    <input type="text" name="name" placeholder="Naam" required>
-    <input type="email" name="email" placeholder="E-mail" required>
-    <textarea name="message" placeholder="Bericht" required></textarea>
-    <button type="submit">Verstuur</button>
-</form>
-<p id="form-response"></p>
-
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const responseEl = document.getElementById('form-response');
-
-    try {
-        const response = await fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
-
-        if (response.ok) {
-            responseEl.textContent = "Bedankt! Je bericht is verzonden.";
-            this.reset();
-        } else {
-            responseEl.textContent = "Er is iets misgegaan. Probeer opnieuw.";
-        }
-    } catch (err) {
-        responseEl.textContent = "Er is een fout opgetreden. Probeer opnieuw.";
-        console.error(err);
-    }
-});
-</script>
-
-
-
-        <p class="form-note">
-            *Dit formulier is momenteel statisch en verzendt nog geen e-mails.
-        </p>
-
+            <input type="text" name="name" placeholder="Naam" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <textarea name="message" placeholder="Bericht" required></textarea>
+            <button type="submit">Verstuur</button>
+        </form>
+        <p class="form-note" id="form-response"></p>
     </section>
 
     <!-- ===== Footer ===== -->
     <footer>
         <p>© R&B </p>
-
         <div class="socials">
             <a href="#">Instagram</a>
             <a href="#">Spotify</a>
@@ -116,7 +72,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
     <!-- ===== Scripts ===== -->
     <script>
-        // Hamburger toggle
+        // Hamburger menu toggle
         const hamburger = document.getElementById("hamburger");
         const navMenu = document.querySelector("nav ul");
 
@@ -124,13 +80,43 @@ document.getElementById('contact-form').addEventListener('submit', async functio
             navMenu.classList.toggle("active");
         });
 
-        // Header shrink bij scroll
+        // Header verkleinen bij scroll
         window.addEventListener("scroll", function() {
             const header = document.querySelector("header");
             if (window.scrollY > 50) {
                 header.classList.add("scrolled");
             } else {
                 header.classList.remove("scrolled");
+            }
+        });
+
+        // Formspree AJAX submit
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const responseEl = document.getElementById('form-response');
+
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    responseEl.textContent = "Bedankt! Je bericht is verzonden.";
+                    responseEl.style.color = "green";
+                    this.reset();
+                } else {
+                    responseEl.textContent = "Er is iets misgegaan. Probeer opnieuw.";
+                    responseEl.style.color = "red";
+                }
+            } catch (err) {
+                responseEl.textContent = "Er is een fout opgetreden. Probeer opnieuw.";
+                responseEl.style.color = "red";
+                console.error(err);
             }
         });
     </script>
