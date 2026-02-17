@@ -160,22 +160,17 @@ nav ul li a:hover {
     inset: 0;
     background: center/cover no-repeat;
     z-index: 0;
+    background-color: #333; /* fallback kleur als afbeelding niet laadt */
 }
 
 /* Home-pagina: achtergrond + filter */
-
 body.home .hero::before {
     background-image: url('../images/hero_home.jpg');
-    content: "";
-    position: absolute;
-    inset: 0;
+    background-color: #666; /* fallback grijs voor Safari mobiel */
     filter: grayscale(100%) brightness(60%);
-    z-index: 0;
 }
 
-}
-
-/* Andere pagina's: alleen achtergrond in kleur */
+/* Andere pagina's: alleen afbeelding in kleur */
 body.muziek .hero::before {
     background-image: url('../images/hero_muziek.jpg');
 }
@@ -191,6 +186,7 @@ body.overons .hero::before {
 body.contact .hero::before {
     background-image: url('../images/hero_contact.jpg');
 }
+
 
 
 .hero-text {
