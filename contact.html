@@ -58,12 +58,13 @@
 
         <h2>Stuur een bericht</h2>
 
-        <form class="contact-form">
-            <input type="text" placeholder="Naam" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Bericht" rows="6" required></textarea>
-            <button type="submit" class="btn">Versturen</button>
-        </form>
+        <form action="contact-form.php" method="POST" class="contact-form">
+    <input type="text" name="naam" placeholder="Naam" required>
+    <input type="email" name="email" placeholder="E-mail" required>
+    <textarea name="bericht" placeholder="Bericht" required></textarea>
+    <button type="submit">Verstuur</button>
+</form>
+
 
         <p class="form-note">
             *Dit formulier is momenteel statisch en verzendt nog geen e-mails.
