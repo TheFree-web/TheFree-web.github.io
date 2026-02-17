@@ -185,7 +185,7 @@ body.overons .hero::before {
 
 body.contact .hero::before {
     background-image: url('../images/hero_contact.jpeg');
-    filter: greyscale(100%) brightness(60%);
+    filter: grayscale(100%) brightness(60%);
 }
 
 
