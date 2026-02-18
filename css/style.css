@@ -193,6 +193,23 @@ body.muziek .hero::before {
 body.live .hero::before {
     background-image: url('../images/hero_live.jpg');
 }
+
+.about-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.about-images img {
+    width: 45%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
 .about-images {
     display: flex;
     gap: 1.5rem;
