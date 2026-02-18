@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Free | Home</title>
+    <title>The Free - Home</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="home">
 
 <!-- ===== Header ===== -->
 <header>
-    <div class="logo-text"><a href="index.html">The Free</a></div>
+    <div class="logo-text">
+        <a href="index.html">The Free</a>
+    </div>
+
     <nav>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
@@ -20,49 +23,94 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </header>
 
-<!-- ===== Hero ===== -->
+<!-- ===== Hero Banner ===== -->
 <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1>Welkom bij The Free</h1>
-        <p class="highlight-red">Onze energie. Onze muziek.</p>
+    <div class="hero-text">
+        <h2>Vrije muziek, vrije geest</h2>
+        <p class="highlight-red">Ontdek The Free – rustige gitaren, introspectieve teksten, echte vrijheid.</p>
+        <a href="muziek.html" class="btn">Luister nu</a>
+        <a href="live.html" class="btn">Bekijk aankomende shows</a>
     </div>
 </section>
 
-<!-- ===== Releases ===== -->
+<!-- ===== Nieuwste Release ===== -->
 <section class="release">
-    <h2>Laatste Release</h2>
+    <h2>Nieuwste single: de dag is de nacht</h2>
     <div class="release-content">
-        <img src="images/coversingel_placeholder.png" alt="De dag is de nacht">
+        <img src="images/coversingel_placeholder.png" alt="Cover de dag is de nacht">
         <div class="release-info">
-            <h3>De dag is de nacht</h3>
-            <p>Uitgebracht in 2026. Een krachtige track met energieke gitaren en herkenbare sound.</p>
+            <p>Uitgebracht in 2026.  Een krachtige track met energieke gitaren en herkenbare sound.</p>
+            <div class="stream-buttons">
+                <!--  <a href="#" class="btn">Spotify</a>
+                <a href="#" class="btn">Bandcamp</a>
+                <a href="#" class="btn">SoundCloud</a>  -->
+            </div>
         </div>
     </div>
 </section>
 
+<!-- ===== Volgende Show ===== -->
+<section class="shows">
+    <h2>Volgende optreden</h2>
+    <div class="show-list">
+        <div class="show-item">
+            <div class="show-date">
+                <span class="day">exacte datum volgt</span>
+                <span class="month">AUG</span>
+            </div>
+            <div class="show-details">
+                <h3>Bar Divers - Boterhammen in ons park</h3>
+                <p>Een unieke live ervaring vol energie en emotie.</p>
+            </div>
+            <div class="show-ticket">
+                <a href="#" class="btn">Gratis</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Nieuws / Updates ===== -->
+<section class="news">
+    <h2>Nieuws & Updates</h2>
+    <ul>
+        <li>Studio-update: nieuwe nummers in voorbereiding.</li>
+        <li>Volgende single komt in maart uit!</li>
+    </ul>
+</section>
+
 <!-- ===== Footer ===== -->
 <footer>
-    <p>© R&B</p>
+    <p>© R&B Alle rechten voorbehouden.</p>
     <div class="socials">
-        <a href="#">Instagram</a>
-        <a href="#">Spotify</a>
-        <a href="#">YouTube</a>
+        <a href="#">Instagram</a> | <a href="#">YouTube</a> | <a href="#">Spotify</a>
     </div>
 </footer>
 
+<!-- ===== Scripts ===== -->
 <script>
     // Hamburger toggle
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.querySelector("nav ul");
-    hamburger.addEventListener("click", () => navMenu.classList.toggle("active"));
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
 
-    // Header scroll effect
+    // Header shrink bij scroll
     window.addEventListener("scroll", function() {
-        document.querySelector("header").classList.toggle("scrolled", window.scrollY > 50);
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
     });
 </script>
 
