@@ -214,21 +214,6 @@ body.contact .hero::before {
     object-fit: cover;
 }
 
-.about-images {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap; /* zorgt dat ze onder elkaar gaan op mobiel */
-}
-
-.about-images img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 8px;
-}
-
-
 /* Hero tekst & knoppen */
 .hero-text, .hero-content {
     position: relative;
