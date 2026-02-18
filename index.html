@@ -63,7 +63,7 @@
     <div class="show-list">
         <div class="show-item">
             <div class="show-date">
-                <span class="day"></span>
+                <span class="day">12</span>
                 <span class="month">Aug</span>
             </div>
             <div class="show-details">
@@ -74,8 +74,64 @@
                 <a href="#" class="booking-button">Gratis</a>
             </div>
         </div>
+        <!-- eventueel meerdere show-items hieronder -->
     </div>
 </section>
+
+<style>
+.shows {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.show-list {
+    display: flex;
+    flex-direction: column; /* alles in één kolom */
+    gap: 1.5rem;
+}
+
+.show-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.show-date {
+    text-align: center;
+    margin-right: 1rem;
+    min-width: 60px;
+}
+
+.show-date .day {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.show-ticket .booking-button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.show-ticket .booking-button:hover {
+    background-color: #555;
+}
+</style>
+
+<script>
+document.querySelectorAll('.booking-button').forEach(button => {
+    if (button.textContent.trim().toLowerCase() === 'gratis') {
+        button.href = 'booking.html';
+    }
+});
+</script>
+
 
 <!-- ===== Nieuws / Updates ===== -->
 <section class="news">
