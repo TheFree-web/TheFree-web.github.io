@@ -22,56 +22,43 @@
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </header>
 
-<section class="hero">
+<body class="contact">
+
+<header>
+    <!-- jouw bestaande header -->
+</header>
+
+<!-- ===== Hero afbeelding ===== -->
+<section class="contact-hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>Contact</h1>
-        <p class="highlight-red">Neem contact op</p>
+        <p>Boekingen & vragen</p>
     </div>
 </section>
 
-<!-- ===== Contact ===== -->
-<section class="contact">
-    <h2>Contact</h2>
+<!-- ===== Contact inhoud ===== -->
+<section class="contact-content">
 
     <div class="contact-direct">
+        <h2>Boek ons</h2>
         <p>
-            Wil je ons boeken?
-            Mail naar 
+            Voor boekingen of vragen mail naar<br>
             <a href="mailto:booking@thefree.be">booking@thefree.be</a>
         </p>
     </div>
 
-    <!-- eventueel daarna je bestaand contactformulier -->
-</section>
-
-    
-<section class="release">
-    <h2>Stuur ons een bericht</h2>
-    <form class="contact-form" id="contactForm">
-        <input type="text" name="name" placeholder="Naam" required>
-        <input type="email" name="email" placeholder="E-mail" required>
-        <textarea name="message" rows="5" placeholder="Bericht" required></textarea>
+    <form class="contact-form">
+        <input type="text" placeholder="Naam" required>
+        <input type="email" placeholder="E-mail" required>
+        <textarea rows="5" placeholder="Bericht" required></textarea>
         <button type="submit">Verstuur</button>
-        <div id="form-response"></div>
     </form>
+
 </section>
 
 <footer>
-    <p>© R&B</p>
-    <div class="socials">
-        <a href="#">Instagram</a>
-        <a href="#">Spotify</a>
-        <a href="#">YouTube</a>
-    </div>
+    <!-- jouw bestaande footer -->
 </footer>
 
-<script>
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.querySelector("nav ul");
-hamburger.addEventListener("click", () => navMenu.classList.toggle("active"));
-window.addEventListener("scroll", () => document.querySelector("header").classList.toggle("scrolled", window.scrollY > 50));
-</script>
-
 </body>
-</html>
