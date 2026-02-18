@@ -6,101 +6,64 @@
     <title>Live | The Free</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+<body class="live">
 
-    <body class="live">
+<header>
+    <div class="logo-text"><a href="index.html">The Free</a></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="muziek.html">Muziek</a></li>
+            <li><a href="live.html" class="active">Live</a></li>
+            <li><a href="over-ons.html">Over Ons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
 
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Live Shows</h1>
+        <p class="highlight-red">Mis geen enkele show</p>
+    </div>
+</section>
 
-    <!-- ===== Header ===== -->
-    <header>
-        <div class="logo-text">
-            <a href="index.html">The Free</a>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="muziek.html">Muziek</a></li>
-                <li><a href="live.html" class="active">Live</a></li>
-                <li><a href="over-ons.html">Over Ons</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
-
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Live</h1>
-            <p class="highlight-red">Aankomende shows</p>
-        </div>
-    </section>
-
-    <!-- ===== Shows ===== -->
-    <section class="shows">
-
-        <h2>Upcoming Shows</h2>
-
-        <div class="show-list">
-
-            <!-- Show 1 -->
-            <div class="show-item">
-                <div class="show-date">
-                    <span class="day">Stay tuned!</span>
-                    <span class="month">   </span>
-                </div>
-
-                <div class="show-details">
-                    <h3> Bar Divers - Boterhammen in ons park  </h3>
-                    <p><!Aanvang:>  </p>
-                </div>
-
-                <div class="show-ticket">
-                    <a>Gratis</a>
-
-                </div>
+<section class="shows">
+    <h2>Aankomende shows</h2>
+    <div class="show-list">
+        <div class="show-item">
+            <div class="show-date">
+                <span class="day">18</span>
+                <span class="month">Feb</span>
             </div>
-
+            <div class="show-details">
+                <h3>Het Depot, Leuven</h3>
+                <p>Live optreden met volledige band</p>
+            </div>
+            <div class="show-ticket">
+                <a href="#" class="booking-button">Tickets</a>
+            </div>
         </div>
+    </div>
+</section>
 
-    </section>
+<footer>
+    <p>© R&B</p>
+    <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Spotify</a>
+        <a href="#">YouTube</a>
+    </div>
+</footer>
 
-    <!-- ===== Footer ===== -->
-    <footer>
-        <p>© R&B </p>
-
-        <div class="socials">
-            <a href="#">Instagram</a>
-            <a href="#">Spotify</a>
-            <a href="#">YouTube</a>
-        </div>
-    </footer>
-
-    <!-- ===== Scripts ===== -->
-    <script>
-        // Hamburger toggle
-        const hamburger = document.getElementById("hamburger");
-        const navMenu = document.querySelector("nav ul");
-
-        hamburger.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
-
-        // Header shrink bij scroll
-        window.addEventListener("scroll", function() {
-            const header = document.querySelector("header");
-            if (window.scrollY > 50) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-    </script>
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.querySelector("nav ul");
+hamburger.addEventListener("click", () => navMenu.classList.toggle("active"));
+window.addEventListener("scroll", () => document.querySelector("header").classList.toggle("scrolled", window.scrollY > 50));
+</script>
 
 </body>
 </html>
