@@ -512,3 +512,26 @@ body.live .show-ticket {
     pointer-events: none;
     cursor: not-allowed;
 }
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-direct {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.contact-direct a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.contact-direct a:hover {
+    text-decoration: underline;
+}
