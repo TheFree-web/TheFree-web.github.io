@@ -10,63 +10,74 @@ body {
     line-height: 1.5;
     color: #222;
     background-color: #fff;
+    padding-top: 90px; /* Ruimte voor vaste header */
 }
 
 /* ===== Header ===== */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    padding: 0 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px;
     background-color: #111;
     color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
+    z-index: 9999;
+    transition: height 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
 }
 
 header.scrolled {
-    padding: 10px 30px;
+    height: 65px;
     background-color: rgba(17,17,17,0.95);
 }
 
+/* ===== Logo ===== */
 .logo-text a {
     color: white;
     text-decoration: none;
     font-size: 1.8rem;
     font-weight: bold;
+    transition: font-size 0.3s ease;
 }
 
 header.scrolled .logo-text a {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
-header nav ul {
+/* ===== Desktop menu ===== */
+nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
-header nav ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    line-height: 90px;
+    transition: color 0.3s ease, line-height 0.3s ease;
 }
 
-header nav ul li a:hover {
+header.scrolled nav ul li a {
+    line-height: 65px;
+}
+
+nav ul li a:hover {
     color: #f04e30;
 }
 
-/* Hamburger menu */
+/* ===== Hamburger knop ===== */
 .hamburger {
     display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 25px;
-    height: 18px;
+    height: 20px;
     cursor: pointer;
 }
 
@@ -77,98 +88,144 @@ header nav ul li a:hover {
     border-radius: 2px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    header nav ul {
+/* ===== Mobiel menu ===== */
+@media screen and (max-width: 768px) {
+    nav ul {
         position: absolute;
-        top: 70px;
+        top: 90px;
         right: 0;
         background-color: #111;
         flex-direction: column;
-        width: 200px;
+        width: 220px;
         display: none;
-        padding: 15px;
+        padding: 20px;
         gap: 10px;
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
     }
 
-    header nav ul.active {
+    header.scrolled nav ul {
+        top: 65px;
+    }
+
+    nav ul.active {
         display: flex;
     }
 
     .hamburger {
         display: flex;
     }
+
+    nav ul li a {
+        line-height: normal;
+        padding: 10px 0;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .release-content {
+        flex-direction: column;
+    }
+
+    .release-info p {
+        max-width: 100%;
+    }
+
+    .hero-photos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-photos img {
+        width: 90%;
+        height: auto;
+    }
+
+    body.live .show-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    body.live .show-details,
+    body.live .show-ticket {
+        margin-left: 0;
+    }
+
+    .band-grid {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-/* ===== Hero Banner ===== */
+/* ===== Hero generiek ===== */
 .hero {
     position: relative;
-    height: 70vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
     color: white;
-    margin-top: 70px; /* ruimte voor header */
+    overflow: hidden;
 }
 
 .hero::before {
     content: "";
     position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height:100%;
-    background: url('../images/hero_placeholder.jpg') center/cover no-repeat;
-    filter: grayscale(100%) brightness(60%);
-    z-index: 0;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.3);
+    background: center/cover no-repeat;
     z-index: 0;
+    background-color: #333;
 }
 
-.hero-text {
+/* Hero per pagina */
+body.home .hero::before {
+    background-image: url('../images/hero_home.jpg');
+    filter: grayscale(100%) brightness(60%);
+}
+
+body.muziek .hero::before {
+    background-image: url('../images/hero_muziek.jpg');
+}
+
+body.live .hero::before {
+    background-image: url('../images/hero_live.jpg');
+}
+
+body.contact .hero::before {
+    background-image: url('../images/hero_contact.jpeg');
+    filter: grayscale(100%) brightness(60%);
+}
+
+/* Hero tekst & knoppen */
+.hero-text, .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 800px;
-    padding: 20px;
 }
 
-.hero-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.hero-text p {
-    margin-bottom: 20px;
-}
-
-.highlight-red {
+.hero .highlight-red {
     color: #f04e30;
     font-weight: bold;
+    font-size: 1.2rem;
+    margin: 15px 0;
 }
 
-/* Knoppen */
-.btn {
+.hero .btn {
     display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
     background-color: #f04e30;
     color: white;
-    padding: 12px 25px;
-    margin: 5px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #d03a1e;
+.hero .btn:hover {
+    background-color: #d03e20;
 }
 
 /* ===== Secties ===== */
@@ -205,7 +262,7 @@ header nav ul li a:hover {
     margin-top: 10px;
 }
 
-/* Nieuws / Updates */
+/* Nieuws */
 .news ul {
     list-style: disc;
     margin-left: 20px;
@@ -213,48 +270,6 @@ header nav ul li a:hover {
 
 .news ul li {
     margin-bottom: 10px;
-}
-
-/* Shows layout */
-.show-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.show-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fafafa;
-}
-
-.show-date {
-    text-align: center;
-    font-weight: bold;
-    min-width: 60px;
-}
-
-.show-date .day {
-    display: block;
-    font-size: 1.8rem;
-}
-
-.show-date .month {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.show-details h3 {
-    margin-bottom: 5px;
-}
-
-.show-ticket {
-    margin-left: 15px;
 }
 
 /* Footer */
@@ -270,29 +285,230 @@ footer .socials a {
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 footer .socials a:hover {
     color: #f04e30;
 }
 
-/* ===== Responsive ===== */
-@media screen and (max-width: 768px) {
-    .hero-text h2 {
-        font-size: 2rem;
-    }
+/* Live pagina */
+body.live .show-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
 
-    .release-content, .show-item {
-        flex-direction: column;
-        align-items: center;
-    }
+body.live .show-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
 
-    .release-info p {
-        max-width: 100%;
-    }
+body.live .show-date {
+    text-align: center;
+    font-weight: bold;
+    min-width: 80px;
+}
 
-    .show-ticket {
-        margin-left: 0;
-        margin-top: 10px;
-    }
+body.live .show-date .day {
+    display: block;
+    font-size: 1.8rem;
+}
+
+body.live .show-date .month {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+body.live .show-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+body.live .show-details h3 {
+    margin-bottom: 5px;
+}
+
+body.live .show-ticket {
+    margin-left: 20px;
+}
+
+/* Over Ons secties */
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.band-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.band-member {
+    text-align: center;
+    max-width: 220px;
+}
+
+.band-member img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Contact formulier */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 12px 25px;
+    background-color: #f04e30;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #d03e20;
+}
+
+#form-response {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Booking buttons */
+.booking-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.booking-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.booking-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #f04e30;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.booking-button:hover {
+    background-color: #d03e20;
+}
+
+/* Video Hero Muziek */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 177.77vh;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.video-background iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    color: #f04e30;
+}
+
+/* ===== Uitgeschakelde knoppen ===== */
+.btn.disabled,
+.booking-button.disabled,
+.contact-form button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
 }
