@@ -43,4 +43,16 @@
 .hero-sound-button.playing {
     animation: pulseRed 1s infinite;
 }
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+    nav.active ul {
+        display: flex;
+    }
+    .hamburger {
+        display: block;
+    }
+}
 
