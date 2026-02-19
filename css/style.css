@@ -110,3 +110,13 @@ body.contact .contact-direct a{color:#f04e30;text-decoration:none;font-size:1.3r
 body.contact .contact-direct a:hover{opacity:.8;}
 .red-button{background-color:#e74c3c;color:#fff;border:none;padding:12px 24px;font-size:1rem;font-weight:bold;cursor:pointer;border-radius:5px;transition:background-color .3s ease;}
 .red-button:hover{background-color:#c0392b;}
+.highlight-red {
+    color: var(--main-red);
+    font-weight: bold;
+
+    text-shadow:
+        -2px -2px 0 black,
+         2px -2px 0 black,
+        -2px  2px 0 black,
+         2px  2px 0 black;
+}
