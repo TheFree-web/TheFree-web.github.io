@@ -44,15 +44,11 @@
     animation: pulseRed 1s infinite;
 }
 @media (max-width: 768px) {
-    nav ul {
-        display: none;
-        flex-direction: column;
-    }
-    nav.active ul {
-        display: flex;
-    }
-    .hamburger {
-        display: block;
-    }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 25px; height: 3px; background: #fff; display: block; }
+    
+    nav ul { display: none; flex-direction: column; background: #000; position: absolute; top: 80px; right: 0; width: 100%; padding: 20px; }
+    nav ul.active { display: flex; }
 }
+
 
