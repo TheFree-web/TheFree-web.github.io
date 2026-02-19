@@ -139,3 +139,13 @@ body.contact .contact-direct a:hover{opacity:.8;}
         -2px  2px 0 black,
          2px  2px 0 black;
 }
+.qr-section{
+    margin-top:40px;
+    text-align:center;
+}
+
+.qr-code{
+    width:180px;   /* pas aan indien nodig */
+    height:auto;
+}
+
