@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    document.querySelector('.menu-toggle').addEventListener('click', function(){
-document.querySelector('nav ul').classList.toggle('active');
-});
-
     // ===== Hamburger Menu =====
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.querySelector('nav ul');
