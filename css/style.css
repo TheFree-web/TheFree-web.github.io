@@ -169,3 +169,10 @@ body.contact .contact-direct a:hover{opacity:.8;}
     width: 180px;  /* pas aan indien nodig */
     height: auto;
 }
+@media (max-width: 768px) {
+
+    .hero-content {
+        padding-top: 60px;
+    }
+
+}
