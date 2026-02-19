@@ -87,4 +87,25 @@ button.addEventListener('click', () => {
         button.classList.remove('knipper');
     }
 });
+const video = document.getElementById('hero-video');
+const button = document.getElementById('sound-toggle');
+
+function updateSoundButton() {
+    if (video.muted) {
+        button.textContent = "🔇 Geluid uit";
+        button.classList.remove("pulse");
+    } else {
+        button.textContent = "🔊 Geluid aan";
+        button.classList.add("pulse");
+    }
+}
+
+// klik-event
+button.addEventListener("click", () => {
+    video.muted = !video.muted;
+    updateSoundButton();
+});
+
+// juiste status instellen bij laden pagina
+updateSoundButton();
 
