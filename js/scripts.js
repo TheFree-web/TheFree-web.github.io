@@ -20,42 +20,55 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!contactForm.checkValidity()) {
                 e.preventDefault();
                 alert('Vul alle velden correct in.');
-                return;
             }
         });
     }
 
-    // ===== Hero Video =====
-    const heroVideo = document.getElementById('hero-video');
-    const heroButton = document.getElementById('sound-toggle');
-    const soundPrompt = document.getElementById('sound-prompt');
+    // ===== Hero Video / Audio =====
+    const heroVideo = document.getElementById("hero-video");
+    const heroButton = document.getElementById("sound-toggle");
+    const soundPrompt = document.getElementById("sound-prompt");
 
-    if(heroVideo){
-        // Eerste click start audio op homepagina
-        if(document.body.classList.contains('home')){
+    if (heroVideo) {
+
+        // Functie om knopstatus bij te werken (alleen als knop bestaat)
+        function updateSoundButton() {
+            if (!heroButton) return;
+            if (heroVideo.muted || heroVideo.volume === 0) {
+                heroButton.textContent = "🔇 Geluid uit";
+                heroButton.classList.remove("pulse");
+            } else {
+                heroButton.textContent = "🔊 Geluid aan";
+                heroButton.classList.add("pulse");
+            }
+        }
+
+        // --- HOME PAGINA: click overal start geluid ---
+        if (document.body.classList.contains('home')) {
             const initHeroAudio = () => {
                 heroVideo.muted = false;
                 heroVideo.volume = 1;
                 heroVideo.play().catch(err => console.error(err));
-                if(soundPrompt) soundPrompt.style.display = 'none';
-                document.body.removeEventListener('click', initHeroAudio);
+                if (soundPrompt) soundPrompt.style.display = 'none';
             };
-            document.body.addEventListener('click', initHeroAudio);
+            document.body.addEventListener('click', initHeroAudio, { once: true });
         }
 
-        // Hero-knop aan/uit
-        if(heroButton){
-            heroButton.addEventListener('click', () => {
-                if(heroButton.classList.contains('playing')){
-                    heroVideo.muted = true;
-                    heroButton.classList.remove('playing'); // groen
-                } else {
-                    heroVideo.muted = false;
-                    heroVideo.volume = 1;
-                    heroVideo.play().catch(err => console.error(err));
-                    heroButton.classList.add('playing'); // rood
-                }
+        // --- PAGINA MET KNOP: togglen geluid ---
+        if (heroButton) {
+            // init status bij laden
+            updateSoundButton();
+
+            // togglen bij click
+            heroButton.addEventListener("click", () => {
+                heroVideo.muted = !heroVideo.muted;
+                if (!heroVideo.muted) heroVideo.play().catch(err => console.error(err));
+                updateSoundButton();
             });
+
+            // update knop als volume of mute verandert
+            heroVideo.addEventListener('volumechange', updateSoundButton);
+            heroVideo.addEventListener('canplay', updateSoundButton);
         }
     }
 
