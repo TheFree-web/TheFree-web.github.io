@@ -1,11 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // ===== Hamburger Menu =====
-    const hamburger = document.getElementById('hamburger');
+    document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById('hamburger'); // correct
     const navMenu = document.querySelector('nav ul');
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active'); // toggle op ul, want CSS kijkt naar ul.active
+        });
     }
+});
+
 
     // ===== Scrolled Header =====
     const header = document.querySelector('header');
