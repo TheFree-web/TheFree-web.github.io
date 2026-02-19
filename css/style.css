@@ -31,20 +31,33 @@ display:block;
 /* ================= MOBILE NAV ================= */
 
 @media (max-width:768px){
-.hamburger{display:flex;}
+
+.hamburger{
+    display:flex;
+}
+
 nav ul{
-position:absolute;
-top:80px;
-right:0;
-width:100%;
-background:#000;
-flex-direction:column;
-padding:20px;
-display:none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    flex-direction: column;
+    padding: 20px;
+    display: none;
+    z-index: 1000;
 }
-nav ul.active{display:flex;}
-nav ul li{padding:10px 0;}
+
+nav ul.active{
+    display:flex;
 }
+
+nav ul li{
+    padding:10px 0;
+}
+
+}
+
 
 .hero{position:relative;min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;padding:20px;}
 .video-background{position:relative;width:100%;height:auto;display:flex;justify-content:center;align-items:center;overflow:hidden;}
