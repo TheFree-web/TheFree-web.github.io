@@ -181,3 +181,52 @@ text-shadow:-2px -2px 0 black,2px -2px 0 black,-2px 2px 0 black,2px 2px 0 black;
 
 .qr-full-section{position:relative;z-index:2;display:flex;justify-content:center;padding-top:40px;}
 .qr-full{width:180px;height:auto;}
+.hero-video {
+    position: relative;
+}
+
+/* ================= HERO-SOUND BUTTON ================= */
+
+.hero-sound-button {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: #f04e30;   /* vuilrood */
+    color: #fff;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.95;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.hero-sound-button:hover {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* ================= PULSE ANIMATIE ================= */
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: #ff6b4e; /* Lichter rood bij start */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.07);
+        background-color: #d03e20; /* Donkerder rood in het midden */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: #ff6b4e; /* Terug naar lichter rood */
+    }
+}
+
+.hero-sound-button.pulse {
+    animation: pulse 1.4s ease-in-out infinite;
+}
