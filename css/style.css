@@ -139,24 +139,33 @@ body.contact .contact-direct a:hover{opacity:.8;}
         -2px  2px 0 black,
          2px  2px 0 black;
 }
-.qr-full-section{
-    position: relative;
-    z-index: 2;          /* hoger dan overlay */
-    display: flex;
-    justify-content: center;
-    padding-top: 40px;
-}
-.hero-overlay{
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.7);
-    z-index:1;           /* overlay achter QR-code */
+.contact-hero {
+    position: relative;  /* nodig zodat overlay en QR-code relatief zijn */
 }
 
-.qr-full{
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;   /* overlay achter QR-code */
+}
+
+.qr-full-section {
+    position: relative;
+    z-index: 2;  /* hoger dan overlay */
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;  /* afstand van bovenkant */
+}
+
+.qr-full {
+    width: 180px;   /* pas aan indien nodig */
+    height: auto;
+}
+
     width: 180px;  /* pas aan indien nodig */
     height: auto;
 }
