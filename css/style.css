@@ -181,3 +181,12 @@ text-shadow:-2px -2px 0 black,2px -2px 0 black,-2px 2px 0 black,2px 2px 0 black;
 
 .qr-full-section{position:relative;z-index:2;display:flex;justify-content:center;padding-top:40px;}
 .qr-full{width:180px;height:auto;}
+@keyframes knipperen {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero-sound-button.knipper {
+    animation: knipperen 1s infinite;
+}
+
