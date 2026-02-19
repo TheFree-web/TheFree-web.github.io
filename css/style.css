@@ -176,3 +176,9 @@ body.contact .contact-direct a:hover{opacity:.8;}
     }
 
 }
+.hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
