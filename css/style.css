@@ -139,13 +139,15 @@ body.contact .contact-direct a:hover{opacity:.8;}
         -2px  2px 0 black,
          2px  2px 0 black;
 }
-.qr-section{
-    margin-top:10px;
-    text-align:center;
+.qr-full-section{
+    display: flex;
+    justify-content: center;  /* horizontaal centreren */
+    align-items: flex-start;  /* verticaal: bovenkant van de sectie */
+    padding-top: 40px;        /* afstand van bovenkant pagina */
+    height: auto;             /* sectiehoogte volgt inhoud */
 }
 
-.qr-code{
-    width:180px;   /* pas aan indien nodig */
-    height:auto;
+.qr-full{
+    width: 180px;  /* pas aan indien nodig */
+    height: auto;
 }
-
