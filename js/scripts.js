@@ -73,4 +73,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+const video = document.getElementById('hero-video');
+const button = document.getElementById('sound-toggle');
+
+button.addEventListener('click', () => {
+    // geluid aan/uit togglen
+    video.muted = !video.muted;
+
+    // knipper-class toevoegen als geluid aan is
+    if (!video.muted) {
+        button.classList.add('knipper');
+    } else {
+        button.classList.remove('knipper');
+    }
+});
 
