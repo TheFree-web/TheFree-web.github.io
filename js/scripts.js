@@ -1,39 +1,56 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // ===== Hamburger Menu =====
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('nav ul');
+    /* =========================================================
+       BASIS UI
+    ========================================================== */
+
+    // ===== Hamburger =====
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.querySelector("nav ul");
+
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
     }
 
     // ===== Scrolled Header =====
-    const header = document.querySelector('header');
+    const header = document.querySelector("header");
+
     if (header) {
-        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 50);
+        });
     }
 
-    // ===== Contact Form Validation =====
-    const contactForm = document.getElementById('contactForm');
+    // ===== Contact Form =====
+    const contactForm = document.getElementById("contactForm");
+
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener("submit", (e) => {
             if (!contactForm.checkValidity()) {
                 e.preventDefault();
-                alert('Vul alle velden correct in.');
+                alert("Vul alle velden correct in.");
             }
         });
     }
 
-    // ===== Hero Video / Audio =====
-    const heroVideo = document.getElementById("hero-video");
+    /* =========================================================
+       HERO VIDEO
+    ========================================================== */
+
+    const heroVideo  = document.getElementById("hero-video");
     const heroButton = document.getElementById("sound-toggle");
     const soundPrompt = document.getElementById("sound-prompt");
 
+    const isHome = document.body.classList.contains("home");
+
     if (heroVideo) {
 
-        // Functie om knopstatus bij te werken (alleen als knop bestaat)
-        function updateSoundButton() {
+        // --- Helper: update button state ---
+        const updateHeroButton = () => {
             if (!heroButton) return;
+
             if (heroVideo.muted || heroVideo.volume === 0) {
                 heroButton.textContent = "🔇 Geluid uit";
                 heroButton.classList.remove("pulse");
@@ -41,49 +58,91 @@ document.addEventListener("DOMContentLoaded", function() {
                 heroButton.textContent = "🔊 Geluid aan";
                 heroButton.classList.add("pulse");
             }
-        }
+        };
 
-        // --- HOME PAGINA: click overal start geluid ---
-        if (document.body.classList.contains('home')) {
-            const initHeroAudio = () => {
+        // --- HOME: eerste klik activeert geluid ---
+        if (isHome) {
+            document.body.addEventListener("click", () => {
                 heroVideo.muted = false;
                 heroVideo.volume = 1;
-                heroVideo.play().catch(err => console.error(err));
-                if (soundPrompt) soundPrompt.style.display = 'none';
-            };
-            document.body.addEventListener('click', initHeroAudio, { once: true });
+                heroVideo.play().catch(() => {});
+                if (soundPrompt) soundPrompt.style.display = "none";
+                updateHeroButton();
+            }, { once: true });
         }
 
-        // --- PAGINA MET KNOP: togglen geluid ---
+        // --- Toggle knop ---
         if (heroButton) {
-            // init status bij laden
-            updateSoundButton();
+            updateHeroButton();
 
-            // togglen bij click
-            heroButton.addEventListener("click", () => {
+            heroButton.addEventListener("click", (e) => {
+                e.stopPropagation(); // voorkomt home-trigger
                 heroVideo.muted = !heroVideo.muted;
-                if (!heroVideo.muted) heroVideo.play().catch(err => console.error(err));
-                updateSoundButton();
+
+                if (!heroVideo.muted) {
+                    heroVideo.play().catch(() => {});
+                }
+
+                updateHeroButton();
             });
 
-            // update knop als volume of mute verandert
-            heroVideo.addEventListener('volumechange', updateSoundButton);
-            heroVideo.addEventListener('canplay', updateSoundButton);
+            heroVideo.addEventListener("volumechange", updateHeroButton);
         }
     }
 
-    // ===== Audio-only: stop andere audio's als één wordt afgespeeld =====
-    const audios = document.querySelectorAll("audio");
-    audios.forEach(audio => {
-        audio.addEventListener("play", () => {
-            audios.forEach(otherAudio => {
-                if (otherAudio !== audio) {
-                    otherAudio.pause();
-                    otherAudio.currentTime = 0;
+    /* =========================================================
+       MUZIEKPLAYER (centrale audio)
+    ========================================================== */
+
+    const audioPlayer = new Audio();
+    let currentButton = null;
+
+    const playButtons = document.querySelectorAll(".play-btn");
+
+    playButtons.forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            const src = btn.dataset.src;
+            if (!src) return;
+
+            // --- Hero pauzeren bij muziekstart ---
+            if (heroVideo) {
+                heroVideo.muted = true;
+                heroVideo.pause();
+                if (heroButton) {
+                    heroButton.textContent = "🔇 Geluid uit";
+                    heroButton.classList.remove("pulse");
                 }
-            });
+            }
+
+            // --- Zelfde knop = pauze ---
+            if (currentButton === btn) {
+                audioPlayer.pause();
+                btn.classList.remove("playing");
+                currentButton = null;
+                return;
+            }
+
+            // --- Andere knop actief ---
+            if (currentButton) {
+                currentButton.classList.remove("playing");
+            }
+
+            audioPlayer.src = src;
+            audioPlayer.play().catch(() => {});
+            btn.classList.add("playing");
+            currentButton = btn;
         });
+
+    });
+
+    // Reset state wanneer nummer eindigt
+    audioPlayer.addEventListener("ended", () => {
+        if (currentButton) {
+            currentButton.classList.remove("playing");
+            currentButton = null;
+        }
     });
 
 });
-
