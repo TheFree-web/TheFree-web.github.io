@@ -35,49 +35,28 @@
         cursor: pointer;
         border-radius: 5px;
         transition: background-color 0.3s ease;
-        position: absolute; /* Zorg voor positionering */
+        /* Positionering: pas aan als nodig voor je layout */
+        position: absolute;
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 2;
+        z-index: 2; /* Zorg dat hij boven de overlay ligt */
     }
     .hero-sound-button.playing {
         background-color: #e74c3c; /* rood wanneer geluid aan */
-        animation: pulse 1.5s infinite ease-in-out; /* Snellere, vloeiendere pulse */
+        animation: pulse 2s infinite; /* Pulse-animatie alleen wanneer playing */
     }
 
-    /* Keyframes voor pulse-effect met vendor prefixes */
+    /* Keyframes voor pulse-effect */
     @keyframes pulse {
         0% {
             transform: scale(1);
         }
         50% {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         100% {
             transform: scale(1);
-        }
-    }
-    @-webkit-keyframes pulse {
-        0% {
-            -webkit-transform: scale(1);
-        }
-        50% {
-            -webkit-transform: scale(1.05);
-        }
-        100% {
-            -webkit-transform: scale(1);
-        }
-    }
-    @-moz-keyframes pulse {
-        0% {
-            -moz-transform: scale(1);
-        }
-        50% {
-            -moz-transform: scale(1.05);
-        }
-        100% {
-            -moz-transform: scale(1);
         }
     }
 </style>
