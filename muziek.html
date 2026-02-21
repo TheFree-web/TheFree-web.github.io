@@ -5,25 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Muziek | The Free</title>
 <link rel="stylesheet" href="css/style.css">
+
 <style>
-    /* Knoppenstijl */
-    .play-btn {
-        background-color: #27ae60; /* groen */
-        color: #fff;
-        border: none;
-        padding: 12px 24px;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-        margin: 5px;
-    }
-    .play-btn.playing {
-        background-color: #e74c3c; /* rood */
-    }
+.play-btn {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+.play-btn.playing {
+    background-color: #e74c3c;
+}
 </style>
 </head>
+
 <body class="music">
 
 <header>
@@ -37,32 +38,41 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
 </header>
 
+<!-- HERO -->
 <section class="hero-video">
     <video id="hero-video" muted loop playsinline preload="auto" style="width:100%; height:auto;">
         <source src="videos/hero.mp4" type="video/mp4">
         Je browser ondersteunt geen video.
     </video>
+
     <button id="sound-toggle" class="hero-sound-button">
-        🔇 Geluid uit</button>
+        🔇 Geluid uit
+    </button>
+
     <div class="hero-overlay"></div>
+
     <div class="hero-content">
         <h1>Free</h1>
         <p class="highlight-red">Onze sound. Onze energie.</p>
     </div>
 </section>
 
-<!-- ===== Releases ===== -->
+<!-- RELEASES -->
 <section class="release">
     <h2>Laatste Release</h2>
     <div class="release-content">
         <img src="images/de-dag-is-de-nacht.webp" alt="De dag is de nacht">
         <div class="release-info">
             <h3>De dag is de nacht</h3>
-            <p>Een introspectieve reis door donker en licht, waar stilte en hoop elkaar raken. Dank aan dEUS.</p>
-            <button class="play-btn" data-src="audio/de_dag_is_de_nacht.mp3">PLAY/PAUZE</button>
+            <p>Een introspectieve reis door donker en licht.</p>
+            <button class="play-btn" data-src="audio/de_dag_is_de_nacht.mp3">
+                PLAY / PAUZE
+            </button>
         </div>
     </div>
 </section>
@@ -74,150 +84,133 @@
         <div class="release-info">
             <h3>Free</h3>
             <p>Waarmee het allemaal begon. Onze sound.</p>
-            <!--  <button class="play-btn" data-src="audio/free.mp3">PLAY/PAUZE</button>  -->
         </div>
     </div>
 </section>
 
 <footer>
     <p>© 2026 R&B. Met liefde in België gemaakt.</p>
-    <div class="socials">
-        <a href="https://instagram.com/ramzak_en_bos" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://spotify.com/artist/thefree" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
-        <a href="https://www.youtube.com/@MrCarlfilm" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-    </div>
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    try {
-        // Hamburger
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.querySelector('nav ul');
-        if(hamburger && navMenu){
-            hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
-        }
-        // Header scroll
-        const header = document.querySelector('header');
-        if(header){
-            window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
-        }
-        // Contact form
-        const contactForm = document.getElementById('contactForm');
-        if(contactForm){
-            contactForm.addEventListener('submit', e => {
-                if(!contactForm.checkValidity()){
-                    e.preventDefault();
-                    alert('Vul alle velden correct in.');
-                }
-            });
-        }
-        // Hero-video knop
-        const heroVideo = document.getElementById('hero-video');
-        const heroButton = document.getElementById('sound-toggle');
-        if(heroVideo && heroButton){
-            // Log init status
-            console.log('Video init: src=', heroVideo.src, 'autoplay=', heroVideo.autoplay, 'muted=', heroVideo.muted);
+document.addEventListener("DOMContentLoaded", () => {
 
-            // Functie om knopstatus bij te werken
-            function updateSoundButton() {
-                if (heroVideo.muted || heroVideo.volume === 0) {
-                    heroButton.textContent = "🔇 Geluid uit";
-                    heroButton.classList.remove("pulse");
-                } else {
-                    heroButton.textContent = "🔊 Geluid aan";
-                    heroButton.classList.add("pulse");
-                }
-                console.log('Knop bijgewerkt: muted=', heroVideo.muted, 'volume=', heroVideo.volume, 'paused=', heroVideo.paused);
-            }
+    /* =============================
+       BASIS UI
+    ============================== */
 
-            // Functie om geluid te activeren en af te spelen
-            function activateAudio() {
-                heroVideo.muted = false;
-                heroVideo.volume = 1;
-                heroVideo.play().then(() => {
-                    console.log('Video speelt nu met geluid na activatie.');
-                }).catch(err => {
-                    console.error('Play error bij activatie:', err.message);
-                });
-                updateSoundButton();
-            }
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.querySelector("nav ul");
 
-            // Start audio bij eerste click op de hele pagina
-            const initHeroAudio = (event) => {
-                if (!event.target.closest('#sound-toggle')) {
-                    activateAudio();
-                    console.log('First click gedetecteerd op pagina (niet op knop).');
-                }
-            };
-            document.addEventListener('click', initHeroAudio, { once: true, capture: true });
-
-            // Klik-event op de knop (toggle mute)
-            heroButton.addEventListener('click', (event) => {
-                event.stopPropagation();
-                heroVideo.muted = !heroVideo.muted;
-                if (!heroVideo.muted) {
-                    activateAudio();
-                } else {
-                    heroVideo.play().catch(err => console.error('Play error bij mute toggle:', err.message)); // Force play als gepauzeerd
-                    updateSoundButton();
-                }
-                console.log('Knop geklikt: muted=', heroVideo.muted);
-            });
-
-            // Extra video event logs
-            heroVideo.addEventListener('loadedmetadata', () => console.log('Video metadata geladen. Duration:', heroVideo.duration));
-            heroVideo.addEventListener('canplay', () => { console.log('Video kan spelen.'); updateSoundButton(); });
-            heroVideo.addEventListener('playing', () => console.log('Video is aan het spelen.'));
-            heroVideo.addEventListener('pause', () => console.log('Video is gepauzeerd.'));
-            heroVideo.addEventListener('error', (e) => console.error('Video error:', e.target.error ? e.target.error.message : 'Onbekend'));
-            heroVideo.addEventListener('volumechange', updateSoundButton);
-            heroVideo.addEventListener('loadeddata', updateSoundButton);
-
-            // Init status en force muted play bij laden
-            updateSoundButton();
-            heroVideo.play().then(() => {
-                console.log('Muted autoplay gestart bij page load.');
-            }).catch(err => {
-                console.error('Init muted play error:', err.message);
-            });
-        }
-        // Centrale audio-player
-        const audioPlayer = new Audio();
-        let currentButton = null;
-        const buttons = document.querySelectorAll('.play-btn');
-        buttons.forEach(btn => {
-            if(btn.id === 'sound-toggle') return; // hero skip
-            btn.addEventListener('click', () => {
-                const src = btn.getAttribute('data-src');
-                if(!src) return;
-                if(currentButton === btn){
-                    audioPlayer.pause();
-                    currentButton.classList.remove('playing');
-                    currentButton = null;
-                } else {
-                    if(currentButton){
-                        audioPlayer.pause();
-                        currentButton.classList.remove('playing');
-                    }
-                    audioPlayer.src = src;
-                    audioPlayer.play().catch(err => console.error(err));
-                    btn.classList.add('playing');
-                    currentButton = btn;
-                }
-            });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
         });
-        audioPlayer.addEventListener('ended', () => {
-            if(currentButton){
-                currentButton.classList.remove('playing');
-                currentButton = null;
-            }
-        });
-    } catch(e) {
-        console.error('Fout in script:', e);
     }
+
+    const header = document.querySelector("header");
+
+    if (header) {
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 50);
+        });
+    }
+
+    /* =============================
+       HERO (MUSIC PAGE SAFE)
+    ============================== */
+
+    const heroVideo  = document.getElementById("hero-video");
+    const heroButton = document.getElementById("sound-toggle");
+
+    if (heroVideo) {
+
+        // Geen autoplay forceren
+        heroVideo.pause();
+        heroVideo.currentTime = 0;
+        heroVideo.muted = true;
+
+        const updateHeroButton = () => {
+            if (!heroButton) return;
+
+            if (heroVideo.muted) {
+                heroButton.textContent = "🔇 Geluid uit";
+                heroButton.classList.remove("pulse");
+            } else {
+                heroButton.textContent = "🔊 Geluid aan";
+                heroButton.classList.add("pulse");
+            }
+        };
+
+        if (heroButton) {
+            updateHeroButton();
+
+            heroButton.addEventListener("click", () => {
+                heroVideo.muted = !heroVideo.muted;
+
+                if (!heroVideo.muted) {
+                    heroVideo.play().catch(() => {});
+                }
+
+                updateHeroButton();
+            });
+        }
+    }
+
+    /* =============================
+       MUZIEKPLAYER
+    ============================== */
+
+    const audioPlayer = new Audio();
+    let currentButton = null;
+
+    const buttons = document.querySelectorAll(".play-btn");
+
+    buttons.forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            const src = btn.dataset.src;
+            if (!src) return;
+
+            // Hero volledig stoppen bij muziek
+            if (heroVideo) {
+                heroVideo.pause();
+                heroVideo.currentTime = 0;
+                heroVideo.muted = true;
+                if (heroButton) {
+                    heroButton.textContent = "🔇 Geluid uit";
+                }
+            }
+
+            if (currentButton === btn) {
+                audioPlayer.pause();
+                btn.classList.remove("playing");
+                currentButton = null;
+                return;
+            }
+
+            if (currentButton) {
+                currentButton.classList.remove("playing");
+            }
+
+            audioPlayer.src = src;
+            audioPlayer.play().catch(() => {});
+            btn.classList.add("playing");
+            currentButton = btn;
+        });
+
+    });
+
+    audioPlayer.addEventListener("ended", () => {
+        if (currentButton) {
+            currentButton.classList.remove("playing");
+            currentButton = null;
+        }
+    });
+
 });
 </script>
-<body class="music">
-</html>
 
+</body>
+</html>
