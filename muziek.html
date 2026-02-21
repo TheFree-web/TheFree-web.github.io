@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Free - De Dag is de Nacht | Luister nu | Indie Release 2026</title>
-<meta name="description" content="Luister naar de nieuwste single 'De Dag is de Nacht' van The Free – een introspectieve reis door donker en licht, geïnspireerd door dEUS. Gratis stream of download.">
+<title>Muziek | The Free</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
     /* Knoppenstijl */
@@ -22,66 +21,6 @@
     }
     .play-btn.playing {
         background-color: #e74c3c; /* rood */
-    }
-
-    /* Styling voor hero-sound-button – vaste breedte om verspringen te voorkomen */
-    .hero-sound-button {
-        background-color: transparent; /* Geen achtergrond voor icoon-stijl */
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: color 0.3s ease;
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 2;
-        width: 180px; /* Vaste breedte aangepast om beide teksten te passen zonder verspringen */
-        text-align: center; /* Centreer tekst */
-        white-space: nowrap; /* Voorkom line breaks */
-    }
-    .hero-sound-button.playing {
-        color: #e74c3c; /* Rood icoon wanneer aan */
-        animation: pulse 2s infinite; /* Box-shadow pulse voor visueel effect zonder beweging */
-    }
-
-    /* Keyframes voor pulse-effect (box-shadow in plaats van scale om positie stabiel te houden) */
-    @keyframes pulse {
-        0% {
-            box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
-        }
-        70% {
-            box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
-        }
-        100% {
-            box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
-        }
-    }
-    @-webkit-keyframes pulse {
-        0% {
-            -webkit-box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
-        }
-        70% {
-            -webkit-box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
-        }
-        100% {
-            -webkit-box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
-        }
-    }
-    @-moz-keyframes pulse {
-        0% {
-            -moz-box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
-        }
-        70% {
-            -moz-box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
-        }
-        100% {
-            -moz-box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
-        }
     }
 </style>
 </head>
@@ -143,8 +82,8 @@
 <footer>
     <p>© 2026 R&B. Met liefde in België gemaakt.</p>
     <div class="socials">
-        <a href="https://instagram.com/thefree.be" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://spotify.com/jeroen bos" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
+        <a href="https://instagram.com/ramzak_en_bos" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://spotify.com/artist/thefree" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
         <a href="https://www.youtube.com/@MrCarlfilm" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 </footer>
@@ -158,13 +97,11 @@ document.addEventListener("DOMContentLoaded", function() {
         if(hamburger && navMenu){
             hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
         }
-
         // Header scroll
         const header = document.querySelector('header');
         if(header){
             window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
         }
-
         // Contact form
         const contactForm = document.getElementById('contactForm');
         if(contactForm){
@@ -175,35 +112,76 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }
-
         // Hero-video knop
         const heroVideo = document.getElementById('hero-video');
         const heroButton = document.getElementById('sound-toggle');
         if(heroVideo && heroButton){
-            heroButton.innerHTML = '🔇 Geluid aan'; // Initieel icoon (muted)
-            heroButton.addEventListener('click', () => {
-                if(heroButton.classList.contains('playing')){
-                    heroVideo.muted = true;
-                    heroButton.classList.remove('playing');
-                    heroButton.innerHTML = '🔇 Geluid aan';
+            // Log init status
+            console.log('Video init: src=', heroVideo.src, 'autoplay=', heroVideo.autoplay, 'muted=', heroVideo.muted);
+
+            // Functie om knopstatus bij te werken
+            function updateSoundButton() {
+                if (heroVideo.muted || heroVideo.volume === 0) {
+                    heroButton.textContent = "🔇 Geluid uit";
+                    heroButton.classList.remove("pulse");
                 } else {
-                    heroVideo.muted = false;
-                    heroVideo.volume = 1;
-                    heroVideo.play().catch(err => console.error(err));
-                    heroButton.classList.add('playing');
-                    heroButton.innerHTML = '🔊 Geluid uit';
-                    // Pauzeer het audio-liedje als de video-sound aan gaat
-                    if (audioPlayer && !audioPlayer.paused) {
-                        audioPlayer.pause();
-                        if (currentButton) {
-                            currentButton.classList.remove('playing');
-                            currentButton = null;
-                        }
-                    }
+                    heroButton.textContent = "🔊 Geluid aan";
+                    heroButton.classList.add("pulse");
                 }
+                console.log('Knop bijgewerkt: muted=', heroVideo.muted, 'volume=', heroVideo.volume, 'paused=', heroVideo.paused);
+            }
+
+            // Functie om geluid te activeren en af te spelen
+            function activateAudio() {
+                heroVideo.muted = false;
+                heroVideo.volume = 1;
+                heroVideo.play().then(() => {
+                    console.log('Video speelt nu met geluid na activatie.');
+                }).catch(err => {
+                    console.error('Play error bij activatie:', err.message);
+                });
+                updateSoundButton();
+            }
+
+            // Start audio bij eerste click op de hele pagina
+            const initHeroAudio = (event) => {
+                if (!event.target.closest('#sound-toggle')) {
+                    activateAudio();
+                    console.log('First click gedetecteerd op pagina (niet op knop).');
+                }
+            };
+            document.addEventListener('click', initHeroAudio, { once: true, capture: true });
+
+            // Klik-event op de knop (toggle mute)
+            heroButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                heroVideo.muted = !heroVideo.muted;
+                if (!heroVideo.muted) {
+                    activateAudio();
+                } else {
+                    heroVideo.play().catch(err => console.error('Play error bij mute toggle:', err.message)); // Force play als gepauzeerd
+                    updateSoundButton();
+                }
+                console.log('Knop geklikt: muted=', heroVideo.muted);
+            });
+
+            // Extra video event logs
+            heroVideo.addEventListener('loadedmetadata', () => console.log('Video metadata geladen. Duration:', heroVideo.duration));
+            heroVideo.addEventListener('canplay', () => { console.log('Video kan spelen.'); updateSoundButton(); });
+            heroVideo.addEventListener('playing', () => console.log('Video is aan het spelen.'));
+            heroVideo.addEventListener('pause', () => console.log('Video is gepauzeerd.'));
+            heroVideo.addEventListener('error', (e) => console.error('Video error:', e.target.error ? e.target.error.message : 'Onbekend'));
+            heroVideo.addEventListener('volumechange', updateSoundButton);
+            heroVideo.addEventListener('loadeddata', updateSoundButton);
+
+            // Init status en force muted play bij laden
+            updateSoundButton();
+            heroVideo.play().then(() => {
+                console.log('Muted autoplay gestart bij page load.');
+            }).catch(err => {
+                console.error('Init muted play error:', err.message);
             });
         }
-
         // Centrale audio-player
         const audioPlayer = new Audio();
         let currentButton = null;
@@ -213,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function() {
             btn.addEventListener('click', () => {
                 const src = btn.getAttribute('data-src');
                 if(!src) return;
-
                 if(currentButton === btn){
                     audioPlayer.pause();
                     currentButton.classList.remove('playing');
@@ -227,26 +204,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     audioPlayer.play().catch(err => console.error(err));
                     btn.classList.add('playing');
                     currentButton = btn;
-                    
-                    // Mute de hero-video automatisch als het liedje start
-                    if (heroVideo) {
-                        heroVideo.muted = true;
-                    }
-                    if (heroButton) {
-                        heroButton.classList.remove('playing');
-                        heroButton.innerHTML = '🔇 Geluid aan';
-                    }
                 }
             });
         });
-
         audioPlayer.addEventListener('ended', () => {
             if(currentButton){
                 currentButton.classList.remove('playing');
                 currentButton = null;
             }
         });
-
     } catch(e) {
         console.error('Fout in script:', e);
     }
