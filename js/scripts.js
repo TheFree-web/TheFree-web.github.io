@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
        BASIS UI
     ========================================================== */
 
-    // ===== Hamburger =====
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.querySelector("nav ul");
 
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ===== Scrolled Header =====
     const header = document.querySelector("header");
 
     if (header) {
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ===== Contact Form =====
     const contactForm = document.getElementById("contactForm");
 
     if (contactForm) {
@@ -47,7 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (heroVideo) {
 
-        // --- Helper: update button state ---
+        // Veiligheid: autoplay enkel op home
+        if (!isHome) {
+            heroVideo.pause();
+            heroVideo.currentTime = 0;
+            heroVideo.muted = true;
+            heroVideo.removeAttribute("autoplay");
+        }
+
         const updateHeroButton = () => {
             if (!heroButton) return;
 
@@ -60,8 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        // --- HOME: eerste klik activeert geluid ---
+        // HOME: autoplay muted starten
         if (isHome) {
+            heroVideo.play().catch(() => {});
+
             document.body.addEventListener("click", () => {
                 heroVideo.muted = false;
                 heroVideo.volume = 1;
@@ -71,12 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }, { once: true });
         }
 
-        // --- Toggle knop ---
         if (heroButton) {
             updateHeroButton();
 
             heroButton.addEventListener("click", (e) => {
-                e.stopPropagation(); // voorkomt home-trigger
+                e.stopPropagation();
                 heroVideo.muted = !heroVideo.muted;
 
                 if (!heroVideo.muted) {
@@ -91,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =========================================================
-       MUZIEKPLAYER (centrale audio)
+       MUZIEKPLAYER
     ========================================================== */
 
     const audioPlayer = new Audio();
@@ -106,17 +111,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const src = btn.dataset.src;
             if (!src) return;
 
-            // --- Hero pauzeren bij muziekstart ---
+            // Hero volledig uitschakelen bij muziekstart
             if (heroVideo) {
-                heroVideo.muted = true;
                 heroVideo.pause();
+                heroVideo.currentTime = 0;
+                heroVideo.muted = true;
+
                 if (heroButton) {
                     heroButton.textContent = "🔇 Geluid uit";
                     heroButton.classList.remove("pulse");
                 }
             }
 
-            // --- Zelfde knop = pauze ---
             if (currentButton === btn) {
                 audioPlayer.pause();
                 btn.classList.remove("playing");
@@ -124,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // --- Andere knop actief ---
             if (currentButton) {
                 currentButton.classList.remove("playing");
             }
@@ -137,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    // Reset state wanneer nummer eindigt
     audioPlayer.addEventListener("ended", () => {
         if (currentButton) {
             currentButton.classList.remove("playing");
