@@ -1,6 +1,1346 @@
-<!-- NIEUWE KNOP NAAR AFFICHE / NUTRANGE.COM -->
-<div style="display: flex; justify-content: center; margin-top: 2rem;">
-    <a href="https://www.nutrange.com" target="_blank" class="btn" style="background: rgba(255,31,143,0.2); border: 2px solid var(--orange); color: var(--orange); backdrop-filter: blur(8px);">
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Free Nutz | Neon Indie Punk Band uit België</title>
+
+<meta
+    name="description"
+    content="The Free Nutz — Belgische neon indie punk band. Live shows, chaos, melancholie en rauwe energie. Nieuwe release 'De Dag is de Nacht' nu op Spotify. Vernissage 8 mei in Westmalle."
+>
+
+<meta name="keywords" content="The Free Nutz, indie punk, Belgische band, neon rock, live muziek, Zoersel, Westmalle, alternative">
+<meta name="author" content="The Free Nutz">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:
+    radial-gradient(circle at top,#2c003e 0%,#120018 40%,#050008 100%);
+
+    color:white;
+
+    overflow-x:hidden;
+}
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root{
+
+    --pink:#ff1f8f;
+    --cyan:#11d9d9;
+    --orange:#ff9800;
+    --dark:#050008;
+
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+section{
+    padding:7rem 0;
+}
+
+h1,h2,h3{
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:2px;
+}
+
+.section-title{
+
+    font-size:4rem;
+
+    color:var(--orange);
+
+    margin-bottom:1rem;
+
+    text-shadow:
+    0 0 15px rgba(255,152,0,.5);
+
+}
+
+.section-sub{
+
+    color:#d4d4d4;
+    max-width:700px;
+    margin-bottom:3rem;
+
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.glow{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.glow::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:var(--pink);
+
+    filter:blur(150px);
+
+    opacity:.18;
+
+    top:-100px;
+    left:-100px;
+}
+
+.glow::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:var(--cyan);
+
+    filter:blur(150px);
+
+    opacity:.16;
+
+    right:-120px;
+    bottom:-120px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    z-index:999;
+
+    background:rgba(5,0,8,.72);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,.06);
+
+}
+
+.navbar{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:1rem 0;
+}
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:1rem;
+
+    text-decoration:none;
+}
+
+.logo img{
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:
+    2px solid var(--pink);
+
+    box-shadow:
+    0 0 18px var(--pink);
+}
+
+.logo-text{
+
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-main{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:2rem;
+
+    color:var(--orange);
+
+    line-height:1;
+
+    text-shadow:
+    0 0 10px var(--orange),
+    0 0 25px var(--pink);
+}
+
+.logo-sub{
+
+    color:var(--cyan);
+
+    letter-spacing:2px;
+
+    font-size:.8rem;
+}
+
+.nav-links{
+
+    display:flex;
+    align-items:center;
+    gap:2rem;
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+
+    color:var(--pink);
+
+    text-shadow:
+    0 0 10px var(--pink);
+}
+
+.mobile-btn{
+
+    display:none;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding-top:6rem;
+}
+
+.hero-grid{
+
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+
+    gap:4rem;
+
+    align-items:center;
+}
+
+.hero h1{
+
+    font-size:8rem;
+
+    line-height:.88;
+
+    color:var(--orange);
+
+    text-shadow:
+    0 0 12px var(--orange),
+    0 0 30px var(--pink),
+    0 0 60px var(--pink);
+}
+
+.hero h1 span{
+
+    color:var(--pink);
+}
+
+.hero-tag{
+
+    margin-top:1rem;
+
+    color:var(--cyan);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    0 0 12px var(--cyan);
+}
+
+.hero p{
+
+    margin:2rem 0;
+
+    max-width:620px;
+
+    color:#d9d9d9;
+
+    font-size:1.08rem;
+}
+
+.hero-buttons{
+
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    display:inline-flex;
+    align-items:center;
+    gap:.8rem;
+
+    padding:1rem 1.8rem;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.btn-primary{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--pink),
+        var(--orange)
+    );
+
+    color:white;
+
+    box-shadow:
+    0 0 20px rgba(255,31,143,.4);
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 0 20px var(--pink),
+    0 0 40px var(--orange);
+}
+
+.btn-outline{
+
+    border:2px solid var(--cyan);
+
+    color:var(--cyan);
+}
+
+.btn-outline:hover{
+
+    background:var(--cyan);
+
+    color:black;
+}
+
+/* Speciale affiche knop */
+.btn-affiche {
+    background: rgba(255,31,143,0.15);
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    backdrop-filter: blur(8px);
+}
+
+.btn-affiche:hover {
+    background: var(--orange);
+    color: black;
+    border-color: var(--orange);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px var(--orange);
+}
+
+.hero-image img{
+
+    width:100%;
+
+    border-radius:30px;
+
+    border:
+    2px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 0 30px rgba(255,31,143,.35),
+    0 0 60px rgba(17,217,217,.15);
+}
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music-grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:3rem;
+
+    align-items:center;
+}
+
+.music-card{
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:2rem;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 0 25px rgba(255,31,143,.08);
+}
+
+.music-card h3{
+
+    font-size:3rem;
+
+    color:var(--pink);
+
+    margin-bottom:1rem;
+}
+
+.streaming{
+
+    margin-top:2rem;
+
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+
+.streaming a{
+
+    color:var(--cyan);
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.streaming a:hover{
+    color:var(--pink);
+    text-shadow: 0 0 8px var(--pink);
+}
+
+/* =========================================================
+   SHOWS
+========================================================= */
+
+.shows{
+
+    display:flex;
+    flex-direction:column;
+    gap:1.2rem;
+}
+
+.show{
+
+    background:
+    rgba(255,255,255,.05);
+
+    border-left:
+    6px solid var(--pink);
+
+    border-radius:24px;
+
+    padding:1.5rem;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:2rem;
+
+    flex-wrap:wrap;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 0 20px rgba(255,31,143,.08);
+
+    transition: .25s;
+}
+
+.show:hover{
+    transform: translateX(8px);
+    border-left-color: var(--cyan);
+    box-shadow: 0 0 30px rgba(17,217,217,.3);
+}
+
+.show-date{
+
+    font-size:1.5rem;
+
+    color:var(--orange);
+
+    font-weight:800;
+}
+
+.show-location{
+
+    color:#d5d5d5;
+}
+
+/* Affiche callout box */
+.affiche-callout {
+    background: linear-gradient(135deg, rgba(255,31,143,0.2), rgba(255,152,0,0.1));
+    border: 1px solid var(--orange);
+    border-radius: 32px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: .25s;
+}
+
+.affiche-callout:hover {
+    border-color: var(--pink);
+    box-shadow: 0 0 30px rgba(255,31,143,.3);
+}
+
+.affiche-callout p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:2rem;
+}
+
+.video-card{
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.video-card:hover{
+    transform: scale(1.02);
+}
+
+.video-grid iframe{
+
+    width:100%;
+    aspect-ratio:16/9;
+
+    border:none;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 0 25px rgba(255,31,143,.15);
+
+    transition: .25s;
+}
+
+.video-grid iframe:hover{
+    box-shadow: 0 0 35px rgba(255,31,143,.5);
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:32px;
+
+    padding:3rem;
+
+    backdrop-filter:blur(12px);
+
+    transition: .25s;
+}
+
+.about:hover{
+    border-color: var(--pink);
+    box-shadow: 0 0 40px rgba(255,31,143,.2);
+}
+
+.about p{
+
+    max-width:850px;
+
+    color:#d5d5d5;
+
+    font-size:1.08rem;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+
+    text-align:center;
+}
+
+.contact-icons{
+
+    margin-top:2rem;
+
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+
+.contact-icons a{
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    rgba(255,255,255,.06);
+
+    color:white;
+
+    font-size:1.5rem;
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+.contact-icons a:hover{
+
+    background:var(--pink);
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 0 20px var(--pink);
+}
+
+/* Contact formulier */
+.contact-form{
+    max-width: 600px;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea{
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 24px;
+    padding: 1rem 1.2rem;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    transition: .25s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+.contact-form textarea{
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form button{
+    align-self: center;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:3rem 0;
+
+    text-align:center;
+
+    color:#aaa;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:980px){
+
+    .hero-grid,
+    .music-grid,
+    .video-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+
+        font-size:5rem;
+    }
+}
+
+@media(max-width:760px){
+
+    .nav-links{
+
+        position:absolute;
+
+        top:100%;
+        left:0;
+        right:0;
+
+        background:#090010;
+
+        flex-direction:column;
+
+        padding:2rem;
+
+        display:none;
+    }
+
+    .nav-links.active{
+
+        display:flex;
+    }
+
+    .mobile-btn{
+
+        display:block;
+    }
+
+    .hero h1{
+
+        font-size:4rem;
+    }
+
+    .section-title{
+
+        font-size:3rem;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<header>
+
+<div class="container navbar">
+
+<a href="#home" class="logo">
+
+<!-- ⚠️ VERVANG 'logo.jpg' DOOR JE ECHTE BANDFOTO ⚠️ -->
+<img src="logo.jpg" alt="The Free Nutz">
+
+<div class="logo-text">
+
+<div class="logo-main">
+THE FREE NUTZ
+</div>
+
+<div class="logo-sub">
+NEON INDIE PUNK
+</div>
+
+</div>
+
+</a>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="#music">Muziek</a></li>
+<li><a href="#shows">Shows</a></li>
+<li><a href="#videos">Video</a></li>
+<li><a href="#about">Over</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="mobile-btn" id="mobileBtn">
+<i class="fas fa-bars"></i>
+</div>
+
+</div>
+
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div>
+
+<h1>
+
+THE FREE
+<span>NUTZ</span>
+
+</h1>
+
+<div class="hero-tag">
+
+Belgische neon indie punk
+
+</div>
+
+<p>
+
+Rauwe energie,
+nachtelijke melancholie,
+vreemde humor,
+casino-chaos
+en live shows.
+
+The Free Nutz mixt indie,
+punk,
+kleinkunst
+en neon nostalgie
+tot één universum.
+
+</p>
+
+<div class="hero-buttons">
+
+<!-- ⚠️ VERVANG '#' DOOR JULLIE ECHTE SPOTIFY LINK ⚠️ -->
+<a href="https://open.spotify.com/artist/jullie-link" target="_blank" class="btn btn-primary">
+
+<i class="fab fa-spotify"></i>
+Luister nu
+
+</a>
+
+<a href="#shows" class="btn btn-outline">
+
+<i class="fas fa-ticket"></i>
+Shows
+
+</a>
+
+</div>
+
+<!-- =========================================================
+     KNOOP NAAR AFFICHE OP NUTRANGE.COM
+========================================================= -->
+<div style="margin-top: 2rem;">
+    <a href="https://www.nutrange.com" target="_blank" class="btn btn-affiche">
         <i class="fas fa-image"></i> Bekijk de affiche (8 mei · Westmalle)
     </a>
 </div>
+
+</div>
+
+<div class="hero-image">
+
+<!-- ⚠️ VERVANG 'logo.jpg' DOOR EEN ECHTE BANDFOTO ⚠️ -->
+<img src="logo.jpg" alt="The Free Nutz band">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MUSIC -->
+
+<section id="music">
+
+<div class="container">
+
+<h2 class="section-title">
+
+NIEUWSTE RELEASE
+
+</h2>
+
+<p class="section-sub">
+
+Nieuwe tracks,
+nieuwe chaos,
+nieuwe nachten.
+
+</p>
+
+<div class="music-grid">
+
+<div class="music-card">
+
+<h3>
+DE DAG IS DE NACHT
+</h3>
+
+<p>
+
+Een neonreis tussen introspectie,
+absurditeit,
+melancholie
+en overstuurde gitaren.
+
+</p>
+
+<div class="streaming">
+
+<!-- ⚠️ VERVANG '#' DOOR JULLIE ECHTE STREAMING LINKS ⚠️ -->
+<a href="https://open.spotify.com/track/jullie-link" target="_blank">
+<i class="fab fa-spotify"></i> Spotify
+</a>
+
+<a href="https://youtube.com/jullie-link" target="_blank">
+<i class="fab fa-youtube"></i> YouTube
+</a>
+
+<a href="https://jullie.bandcamp.com" target="_blank">
+<i class="fab fa-bandcamp"></i> Bandcamp
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<!-- ⚠️ VERVANG DOOR ALBUM ARTWORK ⚠️ -->
+<img src="logo.jpg" alt="De Dag is de Nacht album">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SHOWS met extra affiche callout -->
+
+<section id="shows">
+
+<div class="container">
+
+<h2 class="section-title">
+
+LIVE SHOWS
+
+</h2>
+
+<p class="section-sub">
+
+Kom verdwalen in neon,
+feedback
+en vreemde verhalen.
+
+</p>
+
+<!-- AFFICHE CALLOUT - extra zichtbaar boven shows -->
+<div class="affiche-callout">
+    <p><i class="fas fa-calendar-alt" style="color: var(--orange);"></i> <strong style="color: var(--cyan);">Vernissage met The Free Nutz</strong><br>
+    8 mei 2026 · Oude Pastorij Westmalle</p>
+    <a href="https://www.nutrange.com" target="_blank" class="btn btn-affiche">
+        <i class="fas fa-image"></i> Bekijk de affiche op nutrange.com
+    </a>
+</div>
+
+<div class="shows">
+
+<div class="show">
+
+<div>
+
+<div class="show-date">
+8 MEI 2026
+</div>
+
+<div class="show-location">
+Oude Pastorij · Westmalle
+</div>
+
+</div>
+
+<!-- ⚠️ VERVANG '#' DOOR ECHTE TICKET LINK ⚠️ -->
+<a href="#" class="btn btn-primary">
+Tickets
+</a>
+
+</div>
+
+<div class="show">
+
+<div>
+
+<div class="show-date">
+18 JUNI 2026
+</div>
+
+<div class="show-location">
+Trix · Antwerpen
+</div>
+
+</div>
+
+<a href="#" class="btn btn-primary">
+Tickets
+</a>
+
+</div>
+
+<div class="show">
+
+<div>
+
+<div class="show-date">
+4 JULI 2026
+</div>
+
+<div class="show-location">
+De Casino · Sint-Niklaas
+</div>
+
+</div>
+
+<a href="#" class="btn btn-primary">
+Tickets
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- VIDEOS -->
+
+<section id="videos">
+
+<div class="container">
+
+<h2 class="section-title">
+
+VIDEO
+
+</h2>
+
+<p class="section-sub">
+
+Live fragmenten,
+visuals
+en nachtelijke chaos.
+
+</p>
+
+<div class="video-grid">
+
+<!-- ⚠️ VERVANG 'src' DOOR JULLIE ECHTE YOUTUBE LINKS ⚠️ -->
+<div class="video-card">
+<iframe
+src="https://www.youtube.com/embed/JA1B0isVdLs"
+title="The Free Nutz live clip"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="video-card">
+<iframe
+src="https://www.youtube.com/embed/OV6eZ8ySNaE"
+title="The Free Nutz lyric video"
+allowfullscreen>
+</iframe>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about">
+
+<h2 class="section-title">
+
+ONS VERHAAL
+
+</h2>
+
+<p>
+
+The Free Nutz ontstond uit muziek,
+herstel,
+nachtelijke gesprekken,
+feedback,
+chaos
+en vriendschap.
+
+Geen perfecte mensen.
+Geen perfecte songs.
+
+Alleen eerlijke energie,
+vreemde humor
+en veel neonlicht.
+
+Karlos, Jeroen, Kamiel en Sander — twee werelden, één band.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container contact">
+
+<h2 class="section-title">
+
+CONTACT
+
+</h2>
+
+<p class="section-sub">
+
+Boekingen,
+samenwerkingen
+of gewoon hallo zeggen.
+
+</p>
+
+<div class="contact-icons">
+
+<!-- ⚠️ VERVANG '#' DOOR JULLIE ECHTE SOCIAL LINKS ⚠️ -->
+<a href="https://instagram.com/jullieaccount" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://facebook.com/jullieaccount" target="_blank">
+<i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://youtube.com/jullieaccount" target="_blank">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="https://open.spotify.com/artist/jullielink" target="_blank">
+<i class="fab fa-spotify"></i>
+</a>
+
+<a href="mailto:info@thefree.be">
+<i class="fas fa-envelope"></i>
+</a>
+
+</div>
+
+<!-- Contactformulier -->
+<form class="contact-form" action="mailto:info@thefree.be" method="post" enctype="text/plain">
+<input type="text" name="name" placeholder="Jouw naam" required>
+<input type="email" name="email" placeholder="E-mailadres" required>
+<textarea name="message" placeholder="Jouw bericht..." required></textarea>
+<button type="submit" class="btn btn-primary">Verstuur <i class="fas fa-paper-plane"></i></button>
+</form>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+© 2026 THE FREE NUTZ · BELGIUM · <span style="color:var(--cyan)">thefree.be</span> · <a href="https://www.nutrange.com" target="_blank" style="color:var(--orange); text-decoration: none;">affiche 8 mei</a>
+
+</div>
+
+</footer>
+
+<script>
+
+/* MOBILE MENU */
+
+const mobileBtn =
+document.getElementById("mobileBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+mobileBtn.addEventListener("click",()=>{
+
+navLinks.classList.toggle("active");
+
+});
+
+/* CLOSE MENU */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+navLinks.classList.remove("active");
+
+});
+
+});
+
+/* HEADER GLOW */
+
+window.addEventListener("scroll",()=>{
+
+const header =
+document.querySelector("header");
+
+if(window.scrollY > 40){
+
+header.style.boxShadow =
+"0 0 35px rgba(255,31,143,.35)";
+
+}else{
+
+header.style.boxShadow =
+"0 0 15px rgba(255,31,143,.12)";
+}
+
+});
+
+/* NEON FLICKER */
+
+const logo =
+document.querySelector(".logo-main");
+
+setInterval(()=>{
+
+logo.style.opacity =
+(Math.random() > .93)
+? ".7"
+: "1";
+
+},120);
+
+</script>
+
+</body>
+</html>
