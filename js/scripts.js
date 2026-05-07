@@ -1,152 +1,247 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    /* =========================================================
-       BASIS UI
-    ========================================================== */
+const mobileBtn =
+    document.getElementById("mobileBtn");
 
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.querySelector("nav ul");
+const navLinks =
+    document.getElementById("navLinks");
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
-    }
+mobileBtn.addEventListener("click", () => {
 
-    const header = document.querySelector("header");
+    navLinks.classList.toggle("active");
 
-    if (header) {
-        window.addEventListener("scroll", () => {
-            header.classList.toggle("scrolled", window.scrollY > 50);
-        });
-    }
+});
 
-    const contactForm = document.getElementById("contactForm");
+/* =========================================================
+   CLOSE MOBILE MENU AFTER CLICK
+========================================================= */
 
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            if (!contactForm.checkValidity()) {
-                e.preventDefault();
-                alert("Vul alle velden correct in.");
-            }
-        });
-    }
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
 
-    /* =========================================================
-       HERO VIDEO
-    ========================================================== */
+    link.addEventListener("click", () => {
 
-    const heroVideo  = document.getElementById("hero-video");
-    const heroButton = document.getElementById("sound-toggle");
-    const soundPrompt = document.getElementById("sound-prompt");
+        navLinks.classList.remove("active");
 
-    const isHome = document.body.classList.contains("home");
-
-    if (heroVideo) {
-
-        // Veiligheid: autoplay enkel op home
-        if (!isHome) {
-            heroVideo.pause();
-            heroVideo.currentTime = 0;
-            heroVideo.muted = true;
-            heroVideo.removeAttribute("autoplay");
-        }
-
-        const updateHeroButton = () => {
-            if (!heroButton) return;
-
-            if (heroVideo.muted || heroVideo.volume === 0) {
-                heroButton.textContent = "🔇 Geluid uit";
-                heroButton.classList.remove("pulse");
-            } else {
-                heroButton.textContent = "🔊 Geluid aan";
-                heroButton.classList.add("pulse");
-            }
-        };
-
-        // HOME: autoplay muted starten
-        if (isHome) {
-            heroVideo.play().catch(() => {});
-
-            document.body.addEventListener("click", () => {
-                heroVideo.muted = false;
-                heroVideo.volume = 1;
-                heroVideo.play().catch(() => {});
-                if (soundPrompt) soundPrompt.style.display = "none";
-                updateHeroButton();
-            }, { once: true });
-        }
-
-        if (heroButton) {
-            updateHeroButton();
-
-            heroButton.addEventListener("click", (e) => {
-                e.stopPropagation();
-                heroVideo.muted = !heroVideo.muted;
-
-                if (!heroVideo.muted) {
-                    heroVideo.play().catch(() => {});
-                }
-
-                updateHeroButton();
-            });
-
-            heroVideo.addEventListener("volumechange", updateHeroButton);
-        }
-    }
-
-    /* =========================================================
-       MUZIEKPLAYER
-    ========================================================== */
-
-    const audioPlayer = new Audio();
-    let currentButton = null;
-
-    const playButtons = document.querySelectorAll(".play-btn");
-
-    playButtons.forEach(btn => {
-
-        btn.addEventListener("click", () => {
-
-            const src = btn.dataset.src;
-            if (!src) return;
-
-            // Hero volledig uitschakelen bij muziekstart
-            if (heroVideo) {
-                heroVideo.pause();
-                heroVideo.currentTime = 0;
-                heroVideo.muted = true;
-
-                if (heroButton) {
-                    heroButton.textContent = "🔇 Geluid uit";
-                    heroButton.classList.remove("pulse");
-                }
-            }
-
-            if (currentButton === btn) {
-                audioPlayer.pause();
-                btn.classList.remove("playing");
-                currentButton = null;
-                return;
-            }
-
-            if (currentButton) {
-                currentButton.classList.remove("playing");
-            }
-
-            audioPlayer.src = src;
-            audioPlayer.play().catch(() => {});
-            btn.classList.add("playing");
-            currentButton = btn;
-        });
-
-    });
-
-    audioPlayer.addEventListener("ended", () => {
-        if (currentButton) {
-            currentButton.classList.remove("playing");
-            currentButton = null;
-        }
     });
 
 });
+
+/* =========================================================
+   HEADER GLOW ON SCROLL
+========================================================= */
+
+window.addEventListener("scroll", () => {
+
+    const header =
+        document.querySelector("header");
+
+    if(window.scrollY > 40){
+
+        header.style.boxShadow =
+            "0 0 35px rgba(255,31,143,.35)";
+
+        header.style.borderBottom =
+            "1px solid rgba(255,31,143,.45)";
+
+    } else {
+
+        header.style.boxShadow =
+            "0 0 20px rgba(255,31,143,.12)";
+
+        header.style.borderBottom =
+            "1px solid rgba(255,31,143,.25)";
+    }
+
+});
+
+/* =========================================================
+   HERO PARALLAX EFFECT
+========================================================= */
+
+const heroImage =
+    document.querySelector(".hero-image");
+
+window.addEventListener("mousemove", (e) => {
+
+    const x =
+        (window.innerWidth / 2 - e.pageX) / 40;
+
+    const y =
+        (window.innerHeight / 2 - e.pageY) / 40;
+
+    heroImage.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+/* =========================================================
+   FADE IN ON SCROLL
+========================================================= */
+
+const fadeElements =
+    document.querySelectorAll(
+        ".card, .show, .album, .contact-box"
+    );
+
+const observer =
+    new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform =
+                    "translateY(0px)";
+            }
+
+        });
+
+    }, {
+        threshold:0.15
+    });
+
+fadeElements.forEach(el => {
+
+    el.style.opacity = "0";
+
+    el.style.transform =
+        "translateY(40px)";
+
+    el.style.transition =
+        "all .8s ease";
+
+    observer.observe(el);
+
+});
+
+/* =========================================================
+   BUTTON GLOW PULSE
+========================================================= */
+
+const buttons =
+    document.querySelectorAll(".btn-primary");
+
+buttons.forEach(button => {
+
+    setInterval(() => {
+
+        button.animate([
+
+            {
+                boxShadow:
+                "0 0 10px rgba(255,31,143,.2)"
+            },
+
+            {
+                boxShadow:
+                "0 0 30px rgba(255,31,143,.9)"
+            },
+
+            {
+                boxShadow:
+                "0 0 10px rgba(255,31,143,.2)"
+            }
+
+        ], {
+
+            duration:1800
+
+        });
+
+    }, 2500);
+
+});
+
+/* =========================================================
+   RANDOM NEON FLICKER
+========================================================= */
+
+const logo =
+    document.querySelector(".logo-main");
+
+setInterval(() => {
+
+    logo.style.opacity =
+        (Math.random() > 0.92)
+        ? "0.75"
+        : "1";
+
+}, 120);
+
+/* =========================================================
+   SMOOTH ACTIVE NAV LINK
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop;
+
+        if(window.scrollY >= sectionTop - 180){
+
+            current =
+                section.getAttribute("id");
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(
+            link.getAttribute("href") ===
+            `#${current}`
+        ){
+
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+/* =========================================================
+   CONSOLE EASTER EGG
+========================================================= */
+
+console.log(`
+████████╗██╗  ██╗███████╗
+╚══██╔══╝██║  ██║██╔════╝
+   ██║   ███████║█████╗
+   ██║   ██╔══██║██╔══╝
+   ██║   ██║  ██║███████╗
+   ╚═╝   ╚═╝  ╚═╝╚══════╝
+
+███████╗██████╗ ███████╗███████╗
+██╔════╝██╔══██╗██╔════╝██╔════╝
+█████╗  ██████╔╝█████╗  █████╗
+██╔══╝  ██╔══██╗██╔══╝  ██╔══╝
+██║     ██║  ██║███████╗███████╗
+╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝
+
+███╗   ██╗██╗   ██╗████████╗███████╗
+████╗  ██║██║   ██║╚══██╔══╝╚══███╔╝
+██╔██╗ ██║██║   ██║   ██║     ███╔╝
+██║╚██╗██║██║   ██║   ██║    ███╔╝
+██║ ╚████║╚██████╔╝   ██║   ███████╗
+╚═╝  ╚═══╝ ╚═════╝    ╚═╝   ╚══════╝
+
+NEON INDIE PUNK FROM BELGIUM
+`);
