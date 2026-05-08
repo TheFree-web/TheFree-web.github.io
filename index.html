@@ -452,6 +452,21 @@ header{
     box-shadow: 0 0 40px rgba(255,31,143,.6), 0 0 80px rgba(17,217,217,.3);
 }
 
+/* YouTube iframe styling - Werkt op iPhone */
+.youtube-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 2px solid rgba(255,255,255,.08);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(255,31,143,.35), 0 0 60px rgba(17,217,217,.15);
+    transition: .3s;
+}
+
+.youtube-video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(255,31,143,.6), 0 0 80px rgba(17,217,217,.3);
+}
+
 /* =========================================================
    MUSIC
 ========================================================= */
@@ -614,29 +629,6 @@ header{
 .video-card{
     transition: .3s;
     border-radius: 24px;
-}
-
-.video-card:hover{
-    transform: scale(1.02);
-}
-
-.video-grid iframe{
-
-    width:100%;
-    aspect-ratio:16/9;
-
-    border:none;
-
-    border-radius:24px;
-
-    box-shadow:
-    0 0 25px rgba(255,31,143,.15);
-
-    transition: .25s;
-}
-
-.video-grid iframe:hover{
-    box-shadow: 0 0 35px rgba(255,31,143,.5);
 }
 
 /* =========================================================
@@ -967,7 +959,7 @@ Shows
 
 </section>
 
-<!-- MUSIC - met JULLIE EIGEN MP4 video -->
+<!-- MUSIC - met MP4 video -->
 
 <section id="music">
 
@@ -1023,15 +1015,14 @@ en overstuurde gitaren.
 
 </div>
 
-<!-- ✅ VIDEO IN PLAATS VAN FOTO -->
-<!-- Zorg dat 'de-dag-is-de-nacht-720p.mp4' in dezelfde map staat als index.html -->
+<!-- MP4 VIDEO - Werkt op alle apparaten -->
 <video class="music-video" 
        controls 
        autoplay 
        muted 
        loop 
        playsinline>
-    <source src="de-dag-is-de-nacht-720p.mp4" type="video/mp4">
+    <source src="de-dag-is-de-nacht-klein.mp4" type="video/mp4">
     Je browser ondersteunt geen video tag.
 </video>
 
@@ -1139,7 +1130,7 @@ Tickets
 
 </section>
 
-<!-- VIDEOS SECTIE (extra video's) -->
+<!-- VIDEOS SECTIE - YouTube video's (werken nu op iPhone) -->
 
 <section id="videos">
 
@@ -1161,21 +1152,24 @@ en nachtelijke chaos.
 
 <div class="video-grid">
 
-<!-- ✅ VERVANG DE 'src' LINKS DOOR JULLIE ECHTE YOUTUBE VIDEO's -->
 <div class="video-card">
-<iframe
-src="https://www.youtube.com/embed/watch?v=t82VQhA-Bbg?playsinline=1&controls=1&rel=0&enablejsapi=1"
-title="The Free Nutz live clip"
-allowfullscreen>
-</iframe>
+    <iframe class="youtube-video"
+            src="https://www.youtube.com/embed/t82VQhA-Bbg?playsinline=1&controls=1&rel=0&enablejsapi=1"
+            title="The Free Nutz live clip"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+    </iframe>
 </div>
 
 <div class="video-card">
-<iframe
-src="https://www.youtube.com/embed/watch?v=YXNEMJ0DJIw?playsinline=1&controls=1&rel=0&enablejsapi=1"
-title="The Free Nutz lyric video"
-allowfullscreen>
-</iframe>
+    <iframe class="youtube-video"
+            src="https://www.youtube.com/embed/YXNEMJ0DJIw?playsinline=1&controls=1&rel=0&enablejsapi=1"
+            title="The Free Nutz lyric video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+    </iframe>
 </div>
 
 </div>
