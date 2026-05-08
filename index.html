@@ -438,6 +438,20 @@ header{
     0 0 60px rgba(17,217,217,.15);
 }
 
+/* Video styling voor in de music sectie */
+.music-video {
+    width: 100%;
+    border-radius: 30px;
+    border: 2px solid rgba(255,255,255,.08);
+    box-shadow: 0 0 30px rgba(255,31,143,.35), 0 0 60px rgba(17,217,217,.15);
+    transition: .3s;
+}
+
+.music-video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(255,31,143,.6), 0 0 80px rgba(17,217,217,.3);
+}
+
 /* =========================================================
    MUSIC
 ========================================================= */
@@ -586,7 +600,7 @@ header{
 }
 
 /* =========================================================
-   VIDEO
+   VIDEO SECTIE
 ========================================================= */
 
 .video-grid{
@@ -840,7 +854,7 @@ footer{
 
 <a href="#home" class="logo">
 
-<!-- ⚠️ VERVANG 'logo.jpg' DOOR JE ECHTE BANDFOTO ⚠️ -->
+<!-- ✅ VERVANG 'logo.JPG' DOOR JE ECHTE BANDFOTO -->
 <img src="logo.JPG" alt="The Free Nutz">
 
 <div class="logo-text">
@@ -916,7 +930,7 @@ tot één universum.
 
 <div class="hero-buttons">
 
-<!-- ⚠️ VERVANG '#' DOOR JULLIE ECHTE SPOTIFY LINK ⚠️ -->
+<!-- ✅ VERVANG LINK DOOR JULLIE ECHTE SPOTIFY URL -->
 <a href="https://open.spotify.com/artist/jullie-link" target="_blank" class="btn btn-primary">
 
 <i class="fab fa-spotify"></i>
@@ -933,9 +947,7 @@ Shows
 
 </div>
 
-<!-- =========================================================
-     KNOOP NAAR AFFICHE OP NUTRANGE.COM
-========================================================= -->
+<!-- KNOOP NAAR AFFICHE OP NUTRANGE.COM -->
 <div style="margin-top: 2rem;">
     <a href="https://www.nutrange.com" target="_blank" class="btn btn-affiche">
         <i class="fas fa-image"></i> Bekijk de affiche (nutrange.com)
@@ -946,7 +958,7 @@ Shows
 
 <div class="hero-image">
 
-<!-- ⚠️ VERVANG 'logo.jpg' DOOR EEN ECHTE BANDFOTO ⚠️ -->
+<!-- ✅ VERVANG 'band.JPG' DOOR EEN ECHTE BANDFOTO -->
 <img src="band.JPG" alt="The Free Nutz band">
 
 </div>
@@ -955,7 +967,7 @@ Shows
 
 </section>
 
-<!-- MUSIC -->
+<!-- MUSIC - met JULLIE EIGEN MP4 video -->
 
 <section id="music">
 
@@ -994,16 +1006,16 @@ en overstuurde gitaren.
 
 <div class="streaming">
 
-<!-- ⚠️ VERVANG '#' DOOR JULLIE ECHTE STREAMING LINKS ⚠️ -->
-<a href="https://open.spotify.com/track/jullie-link" target="_blank">
+<!-- ✅ VERVANG DEZE LINKS DOOR JULLIE ECHTE STREAMING LINKS -->
+<a href="#" target="_blank">
 <i class="fab fa-spotify"></i> Spotify
 </a>
 
-<a href="https://youtube.com/jullie-link" target="_blank">
+<a href="#" target="_blank">
 <i class="fab fa-youtube"></i> YouTube
 </a>
 
-<a href="https://jullie.bandcamp.com" target="_blank">
+<a href="#" target="_blank">
 <i class="fab fa-bandcamp"></i> Bandcamp
 </a>
 
@@ -1011,12 +1023,17 @@ en overstuurde gitaren.
 
 </div>
 
-<div class="hero-image">
-
-<!-- ⚠️ VERVANG DOOR ALBUM ARTWORK ⚠️ -->
-<img src="De dag is de Nacht.MP4" alt="De Dag is de Nacht album">
-
-</div>
+<!-- ✅ VIDEO IN PLAATS VAN FOTO -->
+<!-- Zorg dat 'de-dag-is-de-nacht-720p.mp4' in dezelfde map staat als index.html -->
+<video class="music-video" 
+       controls 
+       autoplay 
+       muted 
+       loop 
+       playsinline>
+    <source src="de-dag-is-de-nacht-720p.mp4" type="video/mp4">
+    Je browser ondersteunt geen video tag.
+</video>
 
 </div>
 
@@ -1069,7 +1086,7 @@ Oude Pastorij · Westmalle
 
 </div>
 
-<!-- ⚠️ VERVANG '#' DOOR ECHTE TICKET LINK ⚠️ -->
+<!-- ✅ VERVANG '#' DOOR ECHTE TICKET LINK -->
 <a href="#" class="btn btn-primary">
 Tickets
 </a>
@@ -1122,7 +1139,7 @@ Tickets
 
 </section>
 
-<!-- VIDEOS -->
+<!-- VIDEOS SECTIE (extra video's) -->
 
 <section id="videos">
 
@@ -1144,10 +1161,10 @@ en nachtelijke chaos.
 
 <div class="video-grid">
 
-<!-- ⚠️ VERVANG 'src' DOOR JULLIE ECHTE YOUTUBE LINKS ⚠️ -->
+<!-- ✅ VERVANG DE 'src' LINKS DOOR JULLIE ECHTE YOUTUBE VIDEO's -->
 <div class="video-card">
 <iframe
-src="https://www.youtube.com/embed/JA1B0isVdLs"
+src="https://www.youtube.com/embed/jullie-video-id-1"
 title="The Free Nutz live clip"
 allowfullscreen>
 </iframe>
@@ -1155,7 +1172,7 @@ allowfullscreen>
 
 <div class="video-card">
 <iframe
-src="https://www.youtube.com/embed/OV6eZ8ySNaE"
+src="https://www.youtube.com/embed/jullie-video-id-2"
 title="The Free Nutz lyric video"
 allowfullscreen>
 </iframe>
@@ -1229,7 +1246,7 @@ of gewoon hallo zeggen.
 
 <div class="contact-icons">
 
-<!-- ⚠️ VERVANG '#' DOOR JULLIE ECHTE SOCIAL LINKS ⚠️ -->
+<!-- ✅ VERVANG '#' DOOR JULLIE ECHTE SOCIAL MEDIA LINKS -->
 <a href="https://instagram.com/jullieaccount" target="_blank">
 <i class="fab fa-instagram"></i>
 </a>
