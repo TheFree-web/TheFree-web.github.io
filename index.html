@@ -718,6 +718,11 @@ header{
     0 0 20px var(--pink);
 }
 
+/* Verborgen social media knoppen - nog in code voor later gebruik */
+.contact-icons .hidden-social {
+    display: none;  /* VERBORGEN - verwijder deze class of deze regel om zichtbaar te maken */
+}
+
 /* Contact formulier */
 .contact-form{
     max-width: 600px;
@@ -1240,23 +1245,25 @@ of gewoon hallo zeggen.
 
 <div class="contact-icons">
 
+<!-- Instagram knop - zichtbaar -->
 <a href="https://www.instagram.com/thefree.be" target="_blank">
 <i class="fab fa-instagram"></i>
 </a>
 
-<!-- ⚠️ VERVANG DEZE LINKS DOOR JULLIE ECHTE SOCIAL MEDIA LINKS -->
-<a href="https://facebook.com/jullieaccount" target="_blank">
+<!-- Facebook, YouTube en Spotify tijdelijk verborgen - staan klaar in de code met hidden-social class -->
+<a href="https://facebook.com/jullieaccount" target="_blank" class="hidden-social">
 <i class="fab fa-facebook"></i>
 </a>
 
-<a href="https://youtube.com/jullieaccount" target="_blank">
+<a href="https://youtube.com/jullieaccount" target="_blank" class="hidden-social">
 <i class="fab fa-youtube"></i>
 </a>
 
-<a href="https://open.spotify.com/artist/jullielink" target="_blank">
+<a href="https://open.spotify.com/artist/jullielink" target="_blank" class="hidden-social">
 <i class="fab fa-spotify"></i>
 </a>
 
+<!-- Email knop - zichtbaar -->
 <a href="mailto:booking@thefree.be">
 <i class="fas fa-envelope"></i>
 </a>
