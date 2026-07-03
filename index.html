@@ -1,1394 +1,349 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>The Free Nutz | Indie Kleinkunst Band uit België</title>
-
-<meta
-    name="description"
-    content="The Free Nutz — Belgische indie Kleinkunst band. Live shows, chaos, melancholie en rauwe energie. Nieuwe release 'De Dag is de Nacht' nu beschikbaar. Vernissage 8 mei in Westmalle."
->
-
-<meta name="keywords" content="The Free Nutz, indie kleinkunst, Belgische band, live muziek, Zoersel, Westmalle, alternative">
-<meta name="author" content="The Free Nutz">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-/>
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-
-    font-family:'Inter',sans-serif;
-
-    background:
-    radial-gradient(circle at top,#2c003e 0%,#120018 40%,#050008 100%);
-
-    color:white;
-
-    overflow-x:hidden;
-}
-
-/* =========================================================
-   COLORS
-========================================================= */
-
-:root{
-
-    --pink:#ff1f8f;
-    --cyan:#11d9d9;
-    --orange:#ff9800;
-    --dark:#050008;
-
-}
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-.container{
-    width:min(1200px,92%);
-    margin:auto;
-}
-
-section{
-    padding:7rem 0;
-}
-
-h1,h2,h3{
-    font-family:'Bebas Neue',sans-serif;
-    letter-spacing:2px;
-}
-
-.section-title{
-
-    font-size:4rem;
-
-    color:var(--orange);
-
-    margin-bottom:1rem;
-
-    text-shadow:
-    0 0 15px rgba(255,152,0,.5);
-
-}
-
-.section-sub{
-
-    color:#d4d4d4;
-    max-width:700px;
-    margin-bottom:3rem;
-
-}
-
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
-
-.glow{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    pointer-events:none;
-    overflow:hidden;
-}
-
-.glow::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-    height:450px;
-
-    background:var(--pink);
-
-    filter:blur(150px);
-
-    opacity:.18;
-
-    top:-100px;
-    left:-100px;
-}
-
-.glow::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-    height:450px;
-
-    background:var(--cyan);
-
-    filter:blur(150px);
-
-    opacity:.16;
-
-    right:-120px;
-    bottom:-120px;
-}
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-header{
-
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-
-    z-index:999;
-
-    background:rgba(5,0,8,.72);
-
-    backdrop-filter:blur(12px);
-
-    border-bottom:
-    1px solid rgba(255,255,255,.06);
-
-}
-
-.navbar{
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:1rem 0;
-}
-
-.logo{
-
-    display:flex;
-    align-items:center;
-    gap:1rem;
-
-    text-decoration:none;
-}
-
-.logo img{
-
-    width:62px;
-    height:62px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:
-    2px solid var(--pink);
-
-    box-shadow:
-    0 0 18px var(--pink);
-}
-
-.logo-text{
-
-    display:flex;
-    flex-direction:column;
-}
-
-.logo-main{
-
-    font-family:'Bebas Neue',sans-serif;
-
-    font-size:2rem;
-
-    color:var(--orange);
-
-    line-height:1;
-
-    text-shadow:
-    0 0 10px var(--orange),
-    0 0 25px var(--pink);
-}
-
-.logo-sub{
-
-    color:var(--cyan);
-
-    letter-spacing:2px;
-
-    font-size:.8rem;
-}
-
-.nav-links{
-
-    display:flex;
-    align-items:center;
-    gap:2rem;
-
-    list-style:none;
-}
-
-.nav-links a{
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    transition:.25s;
-}
-
-.nav-links a:hover{
-
-    color:var(--pink);
-
-    text-shadow:
-    0 0 10px var(--pink);
-}
-
-.mobile-btn{
-
-    display:none;
-
-    font-size:1.5rem;
-
-    cursor:pointer;
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-
-    padding-top:6rem;
-}
-
-.hero-grid{
-
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-
-    gap:4rem;
-
-    align-items:center;
-}
-
-.hero h1{
-
-    font-size:8rem;
-
-    line-height:.88;
-
-    color:var(--orange);
-
-    text-shadow:
-    0 0 12px var(--orange),
-    0 0 30px var(--pink),
-    0 0 60px var(--pink);
-}
-
-.hero h1 span{
-
-    color:var(--pink);
-}
-
-.hero-tag{
-
-    margin-top:1rem;
-
-    color:var(--cyan);
-
-    text-transform:uppercase;
-
-    letter-spacing:3px;
-
-    text-shadow:
-    0 0 12px var(--cyan);
-}
-
-.hero p{
-
-    margin:2rem 0;
-
-    max-width:620px;
-
-    color:#d9d9d9;
-
-    font-size:1.08rem;
-}
-
-.hero-buttons{
-
-    display:flex;
-    gap:1rem;
-    flex-wrap:wrap;
-}
-
-.btn{
-
-    display:inline-flex;
-    align-items:center;
-    gap:.8rem;
-
-    padding:1rem 1.8rem;
-
-    border-radius:999px;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    transition:.25s;
-}
-
-.btn-primary{
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--pink),
-        var(--orange)
-    );
-
-    color:white;
-
-    box-shadow:
-    0 0 20px rgba(255,31,143,.4);
-}
-
-.btn-primary:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:
-    0 0 20px var(--pink),
-    0 0 40px var(--orange);
-}
-
-.btn-outline{
-
-    border:2px solid var(--cyan);
-
-    color:var(--cyan);
-}
-
-.btn-outline:hover{
-
-    background:var(--cyan);
-
-    color:black;
-}
-
-.btn-affiche {
-    background: rgba(255,31,143,0.15);
-    border: 2px solid var(--orange);
-    color: var(--orange);
-    backdrop-filter: blur(8px);
-}
-
-.btn-affiche:hover {
-    background: var(--orange);
-    color: black;
-    border-color: var(--orange);
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px var(--orange);
-}
-
-.hero-image img{
-
-    width:100%;
-
-    border-radius:30px;
-
-    border:
-    2px solid rgba(255,255,255,.08);
-
-    box-shadow:
-    0 0 30px rgba(255,31,143,.35),
-    0 0 60px rgba(17,217,217,.15);
-}
-
-.music-video {
-    width: 100%;
-    border-radius: 30px;
-    border: 2px solid rgba(255,255,255,.08);
-    box-shadow: 0 0 30px rgba(255,31,143,.35), 0 0 60px rgba(17,217,217,.15);
-    transition: .3s;
-}
-
-.music-video:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 40px rgba(255,31,143,.6), 0 0 80px rgba(17,217,217,.3);
-}
-
-.youtube-video {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: 2px solid rgba(255,255,255,.08);
-    border-radius: 30px;
-    box-shadow: 0 0 30px rgba(255,31,143,.35), 0 0 60px rgba(17,217,217,.15);
-    transition: .3s;
-}
-
-.youtube-video:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 40px rgba(255,31,143,.6), 0 0 80px rgba(17,217,217,.3);
-}
-
-/* =========================================================
-   MUSIC
-========================================================= */
-
-.music-grid{
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-
-    gap:3rem;
-
-    align-items:center;
-}
-
-.music-card{
-
-    background:
-    rgba(255,255,255,.05);
-
-    border:
-    1px solid rgba(255,255,255,.08);
-
-    border-radius:28px;
-
-    padding:2rem;
-
-    backdrop-filter:blur(12px);
-
-    box-shadow:
-    0 0 25px rgba(255,31,143,.08);
-}
-
-.music-card h3{
-
-    font-size:3rem;
-
-    color:var(--pink);
-
-    margin-bottom:1rem;
-}
-
-.streaming{
-    margin-top:2rem;
-    display:flex;
-    gap:1rem;
-    flex-wrap:wrap;
-    display: none;
-}
-
-.streaming a{
-    color:var(--cyan);
-    text-decoration:none;
-    font-weight:700;
-    transition:.2s;
-}
-
-.streaming a:hover{
-    color:var(--pink);
-    text-shadow: 0 0 8px var(--pink);
-}
-
-/* =========================================================
-   SHOWS
-========================================================= */
-
-.shows{
-
-    display:flex;
-    flex-direction:column;
-    gap:1.2rem;
-}
-
-.show{
-
-    background:
-    rgba(255,255,255,.05);
-
-    border-left:
-    6px solid var(--pink);
-
-    border-radius:24px;
-
-    padding:1.5rem;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:2rem;
-
-    flex-wrap:wrap;
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:
-    0 0 20px rgba(255,31,143,.08);
-
-    transition: .25s;
-}
-
-.show:hover{
-    transform: translateX(8px);
-    border-left-color: var(--cyan);
-    box-shadow: 0 0 30px rgba(17,217,217,.3);
-}
-
-.show-date{
-
-    font-size:1.5rem;
-
-    color:var(--orange);
-
-    font-weight:800;
-}
-
-.show-location{
-
-    color:#d5d5d5;
-}
-
-.affiche-callout {
-    background: linear-gradient(135deg, rgba(255,31,143,0.2), rgba(255,152,0,0.1));
-    border: 1px solid var(--orange);
-    border-radius: 32px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    backdrop-filter: blur(8px);
-    transition: .25s;
-}
-
-.affiche-callout:hover {
-    border-color: var(--pink);
-    box-shadow: 0 0 30px rgba(255,31,143,.3);
-}
-
-.affiche-callout p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-/* =========================================================
-   VIDEO SECTIE
-========================================================= */
-
-.video-grid{
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-
-    gap:2rem;
-}
-
-.video-card{
-    transition: .3s;
-    border-radius: 24px;
-}
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about{
-
-    background:
-    rgba(255,255,255,.04);
-
-    border:
-    1px solid rgba(255,255,255,.08);
-
-    border-radius:32px;
-
-    padding:3rem;
-
-    backdrop-filter:blur(12px);
-
-    transition: .25s;
-}
-
-.about:hover{
-    border-color: var(--pink);
-    box-shadow: 0 0 40px rgba(255,31,143,.2);
-}
-
-.about p{
-
-    max-width:850px;
-
-    color:#d5d5d5;
-
-    font-size:1.08rem;
-}
-
-/* =========================================================
-   CONTACT & NIEUWSBRIEF
-========================================================= */
-
-.contact{
-
-    text-align:center;
-}
-
-.contact-icons{
-
-    margin-top:2rem;
-
-    display:flex;
-    justify-content:center;
-    gap:1rem;
-    flex-wrap:wrap;
-}
-
-.contact-icons a{
-
-    width:65px;
-    height:65px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-    rgba(255,255,255,.06);
-
-    color:white;
-
-    font-size:1.5rem;
-
-    text-decoration:none;
-
-    transition:.25s;
-}
-
-.contact-icons a:hover{
-
-    background:var(--pink);
-
-    transform:translateY(-4px);
-
-    box-shadow:
-    0 0 20px var(--pink);
-}
-
-.contact-icons .hidden-social {
-    display: none;
-}
-
-/* NIEUWSBRIEF FORMULIER - Eigen styling */
-.newsletter-box {
-    max-width: 500px;
-    margin: 2rem auto 0;
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 28px;
-    padding: 2rem;
-    backdrop-filter: blur(12px);
-}
-
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.newsletter-form input {
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 24px;
-    padding: 1rem 1.2rem;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    transition: .25s;
-}
-
-.newsletter-form input:focus {
-    outline: none;
-    border-color: var(--cyan);
-    box-shadow: 0 0 15px var(--cyan);
-}
-
-.newsletter-form input::placeholder {
-    color: rgba(255,255,255,0.5);
-}
-
-.newsletter-form button {
-    cursor: pointer;
-    border: none;
-    justify-content: center;
-}
-
-.form-message {
-    margin-top: 1rem;
-    padding: 0.75rem;
-    border-radius: 16px;
-    font-size: 0.9rem;
-    display: none;
-}
-
-.form-message.success {
-    background: rgba(19,206,102,0.15);
-    border: 1px solid #13ce66;
-    color: #13ce66;
-    display: block;
-}
-
-.form-message.error {
-    background: rgba(255,73,73,0.15);
-    border: 1px solid #ff4949;
-    color: #ff4949;
-    display: block;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-
-    padding:3rem 0;
-
-    text-align:center;
-
-    color:#aaa;
-
-    border-top:
-    1px solid rgba(255,255,255,.08);
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width:980px){
-
-    .hero-grid,
-    .music-grid,
-    .video-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .hero h1{
-
-        font-size:5rem;
-    }
-}
-
-@media(max-width:760px){
-
-    .nav-links{
-
-        position:absolute;
-
-        top:100%;
-        left:0;
-        right:0;
-
-        background:#090010;
-
-        flex-direction:column;
-
-        padding:2rem;
-
-        display:none;
-    }
-
-    .nav-links.active{
-
-        display:flex;
-    }
-
-    .mobile-btn{
-
-        display:block;
-    }
-
-    .hero h1{
-
-        font-size:4rem;
-    }
-
-    .section-title{
-
-        font-size:3rem;
-    }
-}
-
-</style>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thefree · Steun Spiegellicht</title>
+    
+    <!-- Google Fonts voor een artistieke, heldere uitstraling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        /* ===== RESET & BASIS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0c0b0a;
+            color: #edece7;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .site-wrapper {
+            max-width: 880px;
+            width: 100%;
+            background: #141211;
+            border-radius: 2.5rem;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8);
+            border: 1px solid #2a2825;
+            transition: all 0.2s ease;
+        }
+
+        /* ===== TYPOGRAFIE ===== */
+        h1, h2, h3, .button, .price-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #f5f0e8 0%, #c0b7ab 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.2rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #b5aaa0;
+            margin-bottom: 2.2rem;
+            border-left: 4px solid #b89b7b;
+            padding-left: 1.2rem;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #e5ddd4;
+            margin: 2rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        /* ===== BADGE ===== */
+        .crowdfunding-badge {
+            display: inline-block;
+            background: #2a4b3c;
+            color: #d4e8de;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            border: 1px solid #3d6b56;
+        }
+
+        /* ===== TEKST & LAYOUT ===== */
+        p {
+            color: #d3cbc2;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box {
+            background: #1f1c19;
+            padding: 1.8rem 2rem;
+            border-radius: 1.8rem;
+            margin: 2rem 0 2.2rem 0;
+            border-left: 6px solid #b89b7b;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-tag {
+            display: inline-block;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f0e8de;
+            background: #28221e;
+            padding: 0.2rem 1.6rem;
+            border-radius: 60px;
+            margin: 0.8rem 0 1rem 0;
+            border: 1px solid #3f3832;
+        }
+
+        /* ===== BUTTON ===== */
+        .button {
+            display: inline-block;
+            background: #b89b7b;
+            color: #141211;
+            font-weight: 700;
+            font-size: 1.25rem;
+            padding: 1rem 2.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            box-shadow: 0 4px 12px rgba(184, 155, 123, 0.25);
+            letter-spacing: 0.3px;
+        }
+
+        .button:hover {
+            background: #d4b89b;
+            transform: scale(1.01);
+            box-shadow: 0 8px 24px rgba(184, 155, 123, 0.35);
+        }
+
+        .button-wrap {
+            margin: 2rem 0 1.2rem 0;
+        }
+
+        /* ===== STAPPEN ===== */
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.6rem 0 1.8rem 0;
+            counter-reset: step;
+        }
+
+        .step-item {
+            flex: 1 1 150px;
+            background: #1c1917;
+            padding: 1.2rem 1.2rem;
+            border-radius: 1.4rem;
+            border: 1px solid #2e2a26;
+            counter-increment: step;
+        }
+
+        .step-item::before {
+            content: "0" counter(step);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #b89b7b;
+            display: block;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .step-item strong {
+            color: #edece7;
+            display: block;
+            font-size: 1.05rem;
+        }
+
+        .step-item span {
+            color: #b0a59a;
+            font-size: 0.95rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #2a2622;
+            font-size: 0.9rem;
+            color: #887e74;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-note a {
+            color: #c0b2a2;
+            text-decoration: none;
+            border-bottom: 1px dotted #4a413a;
+        }
+
+        .footer-note a:hover {
+            color: #edece7;
+            border-bottom: 1px solid #b89b7b;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .site-wrapper {
+                padding: 1.8rem 1.2rem;
+                border-radius: 1.8rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .subhead {
+                font-size: 1rem;
+                padding-left: 0.8rem;
+            }
+            .highlight-box {
+                padding: 1.2rem;
+            }
+            .button {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 1.2rem;
+            }
+            .steps {
+                flex-direction: column;
+            }
+            .price-tag {
+                font-size: 1.8rem;
+            }
+            .footer-note {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="glow"></div>
+<div class="site-wrapper">
 
-<header>
+    <!-- BADGE -->
+    <div class="crowdfunding-badge">🎭 crowdfunding · vroege medestander</div>
 
-<div class="container navbar">
+    <!-- TITEL -->
+    <h1>Spiegellicht</h1>
+    <div class="subhead">De eerste adem &mdash; een ruwe, ongefilterde registratie</div>
 
-<a href="#home" class="logo">
+    <!-- INTRO -->
+    <p>
+        Dit is de allereerste opname van de voorstelling, nog ruw en onbewerkt, 
+        precies zoals hij op een avond in de studio ontstond. De voorstelling zelf groeit nog, 
+        maar dit is het begin. Een uniek inkijkje in de zoektocht naar klank, tekst en sfeer.
+    </p>
 
-<img src="logo.JPG" alt="The Free Nutz">
+    <!-- HIGHLIGHT / CALL TO ACTION -->
+    <div class="highlight-box">
+        <p style="font-size: 1.1rem; font-weight: 500; color: #edece7;">
+            ⚡ Door deze registratie te kopen, word je een <strong>vroege medestander</strong>.
+        </p>
+        <p>
+            Jouw bijdrage helpt om de voorstelling verder te brengen – naar een betere ruimte, 
+            meer repetitietijd en uiteindelijk een scherpere, rijkere versie.
+        </p>
+        <div class="price-tag">€10,-</div>
+        <div class="button-wrap">
+            <a href="https://thefreenutz.bandcamp.com/track/spiegellicht" class="button" target="_blank" rel="noopener noreferrer">
+                → Beluister &amp; steun op Bandcamp
+            </a>
+        </div>
+        <p style="font-size: 0.9rem; color: #a89c90; margin-top: 0.2rem;">
+            Includes unlimited streaming + high-quality download (MP3, FLAC, 16‑bit/48kHz).
+        </p>
+    </div>
 
-<div class="logo-text">
+    <!-- WAAROM STEUNEN? -->
+    <h2>📢 Waarom jouw steun telt</h2>
+    <ul style="list-style: none; margin-bottom: 1.6rem;">
+        <li style="padding: 0.4rem 0; display: flex; gap: 0.8rem; align-items: baseline; border-bottom: 1px solid #221f1c;">
+            <span style="color: #b89b7b;">◆</span> 
+            <span><strong>Directe impact</strong> — Elke aankoop gaat rechtstreeks naar de ontwikkeling van de voorstelling.</span>
+        </li>
+        <li style="padding: 0.4rem 0; display: flex; gap: 0.8rem; align-items: baseline; border-bottom: 1px solid #221f1c;">
+            <span style="color: #b89b7b;">◆</span> 
+            <span><strong>Uniek inkijkje</strong> — Je krijgt de rauwe, onbewerkte eerste versie die nergens anders te horen is.</span>
+        </li>
+        <li style="padding: 0.4rem 0; display: flex; gap: 0.8rem; align-items: baseline;">
+            <span style="color: #b89b7b;">◆</span> 
+            <span><strong>Word deel van het verhaal</strong> — Jij maakt mogelijk dat deze voorstelling kan groeien tot wat hij verdient te zijn.</span>
+        </li>
+    </ul>
 
-<div class="logo-main">
-THE FREE NUTZ
-</div>
+    <!-- HOE WERKT HET? -->
+    <h2>✅ Zo doe je mee</h2>
+    <div class="steps">
+        <div class="step-item">
+            <strong>Klik</strong>
+            <span>op de Bandcamp-link</span>
+        </div>
+        <div class="step-item">
+            <strong>Kies</strong>
+            <span>€10 of meer</span>
+        </div>
+        <div class="step-item">
+            <strong>Download</strong>
+            <span>de track en word medefinancier</span>
+        </div>
+    </div>
 
-<div class="logo-sub">
-INDIE KLEINKUNST
-</div>
+    <!-- EXTRA OPROEP -->
+    <p style="font-size: 1rem; background: #1a1715; padding: 0.8rem 1.4rem; border-radius: 2rem; display: inline-block; border: 1px solid #2f2a25;">
+        🕯️ <em>“Samen brengen we Spiegellicht tot leven.”</em>
+    </p>
 
-</div>
-
-</a>
-
-<ul class="nav-links" id="navLinks">
-
-<li><a href="#music">Muziek</a></li>
-<li><a href="#shows">Shows</a></li>
-<li><a href="#videos">Video</a></li>
-<li><a href="#about">Over</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<div class="mobile-btn" id="mobileBtn">
-<i class="fas fa-bars"></i>
-</div>
-
-</div>
-
-</header>
-
-<main>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<div class="container hero-grid">
-
-<div>
-
-<h1>
-
-THE FREE
-<span>NUTZ</span>
-
-</h1>
-
-<div class="hero-tag">
-
-Belgische indie kleinkunst
-
-</div>
-
-<p>
-
-Rauwe energie,
-nachtelijke melancholie,
-vreemde humor
-en onvoorspelbare live shows.
-
-The Free Nutz mixt indie,
-punk
-en kleinkunst
-tot één eigen universum.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="de-dag-is-de-nacht-720p.mp4" target="_blank" class="btn btn-primary">
-
-<i class="fab fa-spotify"></i>
-Luister nu
-
-</a>
-
-<a href="#shows" class="btn btn-outline">
-
-<i class="fas fa-ticket"></i>
-Shows
-
-</a>
+    <!-- FOOTER -->
+    <div class="footer-note">
+        <span>
+            Deze crowdfunding loopt tot <strong>31 augustus 2026</strong>.
+        </span>
+        <span>
+            Deel gerust met vrienden &amp; familie — 
+            <a href="#" onclick="alert('📤 Deel de pagina via jouw favoriete kanaal!'); return false;">deel dit initiatief</a>
+        </span>
+        <span style="opacity: 0.6;">
+            thefree · <a href="https://thefree.be" style="border-bottom: none;">home</a>
+        </span>
+    </div>
 
 </div>
-
-<div style="margin-top: 2rem;">
-    <a href="https://www.nutrange.com" target="_blank" class="btn btn-affiche">
-        <i class="fas fa-image"></i> Bekijk de affiche (nutrange.com)
-    </a>
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="band.JPG" alt="The Free Nutz band">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- MUSIC -->
-
-<section id="music">
-
-<div class="container">
-
-<h2 class="section-title">
-
-NIEUWSTE RELEASE
-
-</h2>
-
-<p class="section-sub">
-
-Nieuwe tracks,
-nieuwe energie,
-nieuwe nachten.
-
-</p>
-
-<div class="music-grid">
-
-<div class="music-card">
-
-<h3>
-DE DAG IS DE NACHT
-</h3>
-
-<p>
-
-Een reis tussen introspectie,
-absurditeit
-en donkere melancholie.
-
-Met dank aan dEUS.
-
-</p>
-
-<div class="streaming">
-
-<a href="#" target="_blank">
-<i class="fab fa-spotify"></i> Spotify
-</a>
-
-<a href="#" target="_blank">
-<i class="fab fa-youtube"></i> YouTube
-</a>
-
-<a href="#" target="_blank">
-<i class="fab fa-bandcamp"></i> Bandcamp
-</a>
-
-</div>
-
-</div>
-
-<video class="music-video" 
-       controls 
-       autoplay 
-       muted 
-       loop 
-       playsinline>
-    <source src="de-dag-is-de-nacht-720p.mp4" type="video/mp4">
-    Je browser ondersteunt geen video tag.
-</video>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SHOWS -->
-
-<section id="shows">
-
-<div class="container">
-
-<h2 class="section-title">
-
-LIVE SHOWS
-
-</h2>
-
-<p class="section-sub">
-
-Kom verdwalen in feedback,
-vreemde verhalen
-en rauwe energie.
-
-</p>
-
-<div class="affiche-callout">
-    <p><i class="fas fa-calendar-alt" style="color: var(--orange);"></i> <strong style="color: var(--cyan);">Woensdagen 2026 - Open repetities </strong><br>
-    BAR DIVERS · Handelslei 165</p>
-    <a href="https://www.nutrange.com" target="_blank" class="btn btn-affiche">
-        <i class="fas fa-image"></i> Bekijk de affiche op nutrange.com
-    </a>
-</div>
-
-<div class="shows">
-
-<div class="show">
-
-<div>
-
-<div class="show-date">
-8 MEI 2026
-</div>
-
-<div class="show-location">
-Oude Pastorij · Westmalle
-</div>
-
-</div>
-
-<a href="#" class="btn btn-primary">
-Tickets
-</a>
-
-</div>
-
-<div class="show">
-
-<div>
-
-<div class="show-date">
-13 MEI 2026
-</div>
-
-<div class="show-location">
-Privé
-</div>
-
-</div>
-
-<a href="#" class="btn btn-primary">
-Tickets
-</a>
-
-</div>
-
-<div class="show">
-
-<div>
-
-<div class="show-date">
-15 JUNI 2026
-</div>
-
-<div class="show-location">
-Het Meyhofke - Hoekstraat 18A, 2960 Brecht
-</div>
-
-</div>
-
-<a href="#" class="btn btn-primary">
-Tickets
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- VIDEOS -->
-
-<section id="videos">
-
-<div class="container">
-
-<h2 class="section-title">
-
-VIDEO
-
-</h2>
-
-<p class="section-sub">
-
-Live fragmenten,
-visuals
-en nachtelijke chaos.
-
-</p>
-
-<div class="video-grid">
-
-<div class="video-card">
-    <iframe class="youtube-video"
-            src="https://www.youtube.com/embed/t82VQhA-Bbg?playsinline=1&controls=1&rel=0&enablejsapi=1"
-            title="The Free Nutz live clip"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-    </iframe>
-</div>
-
-<div class="video-card">
-    <iframe class="youtube-video"
-            src="https://www.youtube.com/embed/YXNEMJ0DJIw?playsinline=1&controls=1&rel=0&enablejsapi=1"
-            title="The Free Nutz lyric video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-    </iframe>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container">
-
-<div class="about">
-
-<h2 class="section-title">
-
-ONS VERHAAL
-
-</h2>
-
-<p>
-
-The Free Nutz ontstond uit herstel,
-nachtelijke gesprekken,
-feedback,
-chaos
-en vooral vriendschap.
-
-Geen perfecte mensen.
-Geen perfecte songs.
-
-Alleen eerlijke energie,
-vreemde humor
-en een live-reputatie die je niet snel vergeet.
-
-Karlos, Jeroen, Kamiel en Sander — twee werelden, één band.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT & NIEUWSBRIEF -->
-
-<section id="contact">
-
-<div class="container contact">
-
-<h2 class="section-title">
-
-NIEUWSBRIEF
-
-</h2>
-
-<p class="section-sub">
-
-Blijf op de hoogte van nieuwe muziek, shows en releases.<br>
-Schrijf je in voor onze nieuwsbrief!
-
-</p>
-
-<div class="contact-icons">
-
-<a href="https://www.instagram.com/thefree.be" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
-
-<a href="https://facebook.com/jullieaccount" target="_blank" class="hidden-social">
-<i class="fab fa-facebook"></i>
-</a>
-
-<a href="https://youtube.com/jullieaccount" target="_blank" class="hidden-social">
-<i class="fab fa-youtube"></i>
-</a>
-
-<a href="https://open.spotify.com/artist/jullielink" target="_blank" class="hidden-social">
-<i class="fab fa-spotify"></i>
-</a>
-
-<a href="mailto:booking@thefree.be">
-<i class="fas fa-envelope"></i>
-</a>
-
-</div>
-
-<!-- EENVOUDIG WERKEND NIEUWSBRIEF FORMULIER -->
-<div class="newsletter-box">
-    <form id="newsletterForm" class="newsletter-form">
-        <input type="email" id="newsletterEmail" placeholder="Jouw e-mailadres" required>
-        <button type="submit" class="btn btn-primary">
-            <i class="fas fa-envelope"></i> Inschrijven
-        </button>
-    </form>
-    <div id="formMessage" class="form-message"></div>
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer>
-
-<div class="container">
-
-© 2026 THE FREE NUTZ · BELGIUM · <span style="color:var(--cyan)">thefree.be</span> · <a href="https://www.nutrange.com" target="_blank" style="color:var(--orange); text-decoration: none;">Nutrange.com</a>
-
-</div>
-
-</footer>
-
-<script>
-
-/* MOBILE MENU */
-const mobileBtn = document.getElementById("mobileBtn");
-const navLinks = document.getElementById("navLinks");
-
-mobileBtn.addEventListener("click",()=>{
-    navLinks.classList.toggle("active");
-});
-
-document.querySelectorAll(".nav-links a").forEach(link=>{
-    link.addEventListener("click",()=>{
-        navLinks.classList.remove("active");
-    });
-});
-
-/* HEADER GLOW */
-window.addEventListener("scroll",()=>{
-    const header = document.querySelector("header");
-    if(window.scrollY > 40){
-        header.style.boxShadow = "0 0 35px rgba(255,31,143,.35)";
-    }else{
-        header.style.boxShadow = "0 0 15px rgba(255,31,143,.12)";
-    }
-});
-
-/* NEON FLICKER */
-const logo = document.querySelector(".logo-main");
-setInterval(()=>{
-    logo.style.opacity = (Math.random() > .93) ? ".7" : "1";
-},120);
-
-/* NIEUWSBRIEF FORMULIER - stuurt naar Brevo via AJAX */
-const newsletterForm = document.getElementById('newsletterForm');
-const messageDiv = document.getElementById('formMessage');
-
-newsletterForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('newsletterEmail').value;
-    
-    // Toon ladende status
-    messageDiv.className = 'form-message';
-    messageDiv.style.display = 'block';
-    messageDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Bezig met inschrijven...';
-    messageDiv.style.background = 'rgba(255,255,255,0.1)';
-    messageDiv.style.border = '1px solid rgba(255,255,255,0.2)';
-    messageDiv.style.color = 'white';
-    
-    try {
-        // Stuur naar Brevo via hun API endpoint (JSONP om CORS te omzeilen)
-        const script = document.createElement('script');
-        const callbackName = 'brevoCallback_' + Date.now();
-        
-        window[callbackName] = function(response) {
-            delete window[callbackName];
-            document.body.removeChild(script);
-            
-            if (response && response.code === 'success') {
-                messageDiv.className = 'form-message success';
-                messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> Bedankt! Je bent ingeschreven voor de nieuwsbrief.';
-                document.getElementById('newsletterEmail').value = '';
-            } else {
-                messageDiv.className = 'form-message error';
-                messageDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Er ging iets mis. Probeer het later opnieuw.';
-            }
-        };
-        
-        // Brevo's JSONP endpoint - werkt zonder CORS problemen
-        script.src = `https://abeae9ef.sibforms.com/serve/MUIFADY5_-f7itelXuoQaviuwdvKP3bLmutBsE2cbG3EcDf7bZFnGDSmujMy__hriOfTDWsc65RpOZn7D4dnt-lPSExqQ2JzwoefAKY-kUqM40R9ePTGiYrm3Xghn81DGH2gwuNovkeH2p8Dpj5YHqOmUwFfH9VuKD89HXR1uFrZNxwz7hzFlsd1y2TnFQHi5SfGBJ9a5TyCqdNmOQ?callback=${callbackName}&EMAIL=${encodeURIComponent(email)}`;
-        script.async = true;
-        document.body.appendChild(script);
-        
-        // Timeout na 10 seconden
-        setTimeout(() => {
-            if (window[callbackName]) {
-                delete window[callbackName];
-                document.body.removeChild(script);
-                messageDiv.className = 'form-message error';
-                messageDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Timeout. Probeer het later opnieuw.';
-            }
-        }, 10000);
-        
-    } catch (error) {
-        messageDiv.className = 'form-message error';
-        messageDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Er ging iets mis. Probeer het later opnieuw.';
-    }
-});
-</script>
 
 </body>
 </html>
