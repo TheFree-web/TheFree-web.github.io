@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>thefree · Steun Spiegellicht</title>
+    <title>thefree · CROWDFUNDING Spiegellicht</title>
     
-    <!-- Google Fonts voor een artistieke, heldere uitstraling -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
     
     <style>
-        /* ===== RESET & BASIS ===== */
+        /* ===== ORIGINELE STIJL (behouden) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -31,174 +30,176 @@
         }
 
         .site-wrapper {
-            max-width: 880px;
+            max-width: 780px;
             width: 100%;
             background: #141211;
-            border-radius: 2.5rem;
-            padding: 2.8rem 2.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8);
+            border-radius: 2rem;
+            padding: 2.5rem 2.2rem;
             border: 1px solid #2a2825;
-            transition: all 0.2s ease;
         }
 
         /* ===== TYPOGRAFIE ===== */
-        h1, h2, h3, .button, .price-tag {
+        h1, h2, .button, .nav-link {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 700;
             line-height: 1.1;
             background: linear-gradient(135deg, #f5f0e8 0%, #c0b7ab 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
         }
 
         .subhead {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #b5aaa0;
-            margin-bottom: 2.2rem;
-            border-left: 4px solid #b89b7b;
-            padding-left: 1.2rem;
-            font-weight: 400;
+            margin-bottom: 2rem;
+            border-left: 3px solid #b89b7b;
+            padding-left: 1rem;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            color: #e5ddd4;
-            margin: 2rem 0 0.8rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        h2:first-of-type {
-            margin-top: 0.5rem;
-        }
-
-        /* ===== BADGE ===== */
-        .crowdfunding-badge {
-            display: inline-block;
-            background: #2a4b3c;
-            color: #d4e8de;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            padding: 0.25rem 1rem;
-            border-radius: 40px;
-            margin-bottom: 1.2rem;
-            border: 1px solid #3d6b56;
-        }
-
-        /* ===== TEKST & LAYOUT ===== */
         p {
             color: #d3cbc2;
             margin-bottom: 1.2rem;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
-        .highlight-box {
-            background: #1f1c19;
+        /* ===== NAVIGATIE (origineel) ===== */
+        .nav {
+            display: flex;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #2a2622;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #b5aaa0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-link:hover {
+            color: #edece7;
+        }
+
+        .nav-link.active {
+            color: #b89b7b;
+            font-weight: 600;
+        }
+
+        /* ===== CROWDFUNDING BADGE (nieuw) ===== */
+        .badge {
+            display: inline-block;
+            background: #2a4b3c;
+            color: #d4e8de;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+            border: 1px solid #3d6b56;
+        }
+
+        /* ===== CONTENT BLOK ===== */
+        .content-block {
+            background: #1a1816;
             padding: 1.8rem 2rem;
-            border-radius: 1.8rem;
-            margin: 2rem 0 2.2rem 0;
-            border-left: 6px solid #b89b7b;
+            border-radius: 1.5rem;
+            margin: 1.8rem 0 2rem 0;
+            border-left: 4px solid #b89b7b;
         }
 
-        .highlight-box p:last-child {
+        .content-block p:last-child {
             margin-bottom: 0;
         }
 
-        .price-tag {
-            display: inline-block;
-            font-size: 2.2rem;
+        .price {
+            font-size: 2rem;
             font-weight: 700;
             color: #f0e8de;
             background: #28221e;
-            padding: 0.2rem 1.6rem;
+            display: inline-block;
+            padding: 0.1rem 1.6rem;
             border-radius: 60px;
-            margin: 0.8rem 0 1rem 0;
+            margin: 0.5rem 0 1rem 0;
             border: 1px solid #3f3832;
         }
 
-        /* ===== BUTTON ===== */
+        /* ===== KNOP ===== */
         .button {
             display: inline-block;
             background: #b89b7b;
             color: #141211;
             font-weight: 700;
-            font-size: 1.25rem;
-            padding: 1rem 2.8rem;
+            font-size: 1.1rem;
+            padding: 0.9rem 2.8rem;
             border-radius: 60px;
             text-decoration: none;
             transition: all 0.2s ease;
-            border: none;
-            box-shadow: 0 4px 12px rgba(184, 155, 123, 0.25);
-            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(184, 155, 123, 0.2);
         }
 
         .button:hover {
             background: #d4b89b;
             transform: scale(1.01);
-            box-shadow: 0 8px 24px rgba(184, 155, 123, 0.35);
+            box-shadow: 0 8px 24px rgba(184, 155, 123, 0.3);
         }
 
         .button-wrap {
-            margin: 2rem 0 1.2rem 0;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .button-small {
+            font-size: 0.9rem;
+            padding: 0.6rem 1.8rem;
         }
 
         /* ===== STAPPEN ===== */
         .steps {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1.6rem 0 1.8rem 0;
-            counter-reset: step;
+            gap: 0.8rem;
+            margin: 1.2rem 0 1.5rem 0;
         }
 
-        .step-item {
-            flex: 1 1 150px;
+        .step {
+            flex: 1 1 120px;
             background: #1c1917;
-            padding: 1.2rem 1.2rem;
-            border-radius: 1.4rem;
+            padding: 0.8rem 1rem;
+            border-radius: 1.2rem;
             border: 1px solid #2e2a26;
-            counter-increment: step;
-        }
-
-        .step-item::before {
-            content: "0" counter(step);
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
             font-size: 0.9rem;
-            color: #b89b7b;
-            display: block;
-            margin-bottom: 0.3rem;
-            letter-spacing: 0.5px;
         }
 
-        .step-item strong {
+        .step strong {
             color: #edece7;
             display: block;
-            font-size: 1.05rem;
         }
 
-        .step-item span {
+        .step span {
             color: #b0a59a;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         /* ===== FOOTER ===== */
-        .footer-note {
-            margin-top: 2.8rem;
-            padding-top: 1.8rem;
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
             border-top: 1px solid #2a2622;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #887e74;
             display: flex;
             flex-wrap: wrap;
@@ -206,13 +207,13 @@
             align-items: center;
         }
 
-        .footer-note a {
-            color: #c0b2a2;
+        .footer a {
+            color: #b5aaa0;
             text-decoration: none;
             border-bottom: 1px dotted #4a413a;
         }
 
-        .footer-note a:hover {
+        .footer a:hover {
             color: #edece7;
             border-bottom: 1px solid #b89b7b;
         }
@@ -220,33 +221,28 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
             .site-wrapper {
-                padding: 1.8rem 1.2rem;
-                border-radius: 1.8rem;
+                padding: 1.5rem 1rem;
             }
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
-            .subhead {
-                font-size: 1rem;
-                padding-left: 0.8rem;
+            .nav {
+                gap: 1rem;
             }
-            .highlight-box {
+            .content-block {
                 padding: 1.2rem;
             }
             .button {
                 width: 100%;
                 text-align: center;
-                padding: 1rem 1.2rem;
+                padding: 0.9rem 1.2rem;
             }
             .steps {
                 flex-direction: column;
             }
-            .price-tag {
-                font-size: 1.8rem;
-            }
-            .footer-note {
+            .footer {
                 flex-direction: column;
-                gap: 0.8rem;
+                gap: 0.6rem;
                 align-items: flex-start;
             }
         }
@@ -256,90 +252,101 @@
 
 <div class="site-wrapper">
 
-    <!-- BADGE -->
-    <div class="crowdfunding-badge">🎭 crowdfunding · vroege medestander</div>
+    <!-- ===== NAVIGATIE ===== -->
+    <div class="nav">
+        <a href="#" class="nav-link">HOME</a>
+        <a href="#" class="nav-link active">CROWDFUNDING</a>
+        <a href="#" class="nav-link">OVER</a>
+        <a href="#" class="nav-link">CONTACT</a>
+    </div>
 
-    <!-- TITEL -->
+    <!-- ===== BADGE ===== -->
+    <div class="badge">🎭 crowdfunding · vroege medestander</div>
+
+    <!-- ===== TITEL ===== -->
     <h1>Spiegellicht</h1>
-    <div class="subhead">De eerste adem &mdash; een ruwe, ongefilterde registratie</div>
+    <div class="subhead">De eerste adem — een ruwe, ongefilterde registratie</div>
 
-    <!-- INTRO -->
+    <!-- ===== INTRO ===== -->
     <p>
         Dit is de allereerste opname van de voorstelling, nog ruw en onbewerkt, 
         precies zoals hij op een avond in de studio ontstond. De voorstelling zelf groeit nog, 
         maar dit is het begin. Een uniek inkijkje in de zoektocht naar klank, tekst en sfeer.
     </p>
 
-    <!-- HIGHLIGHT / CALL TO ACTION -->
-    <div class="highlight-box">
-        <p style="font-size: 1.1rem; font-weight: 500; color: #edece7;">
+    <!-- ===== CONTENT BLOK ===== -->
+    <div class="content-block">
+        <p style="font-weight: 500; color: #edece7;">
             ⚡ Door deze registratie te kopen, word je een <strong>vroege medestander</strong>.
         </p>
         <p>
-            Jouw bijdrage helpt om de voorstelling verder te brengen – naar een betere ruimte, 
+            Jouw bijdrage helpt om de voorstelling verder te brengen — naar een betere ruimte, 
             meer repetitietijd en uiteindelijk een scherpere, rijkere versie.
         </p>
-        <div class="price-tag">€10,-</div>
+        <div class="price">€10,-</div>
         <div class="button-wrap">
             <a href="https://thefreenutz.bandcamp.com/track/spiegellicht" class="button" target="_blank" rel="noopener noreferrer">
                 → Beluister &amp; steun op Bandcamp
             </a>
         </div>
-        <p style="font-size: 0.9rem; color: #a89c90; margin-top: 0.2rem;">
+        <p style="font-size: 0.8rem; color: #a89c90; margin-top: 0.3rem;">
             Includes unlimited streaming + high-quality download (MP3, FLAC, 16‑bit/48kHz).
         </p>
     </div>
 
-    <!-- WAAROM STEUNEN? -->
-    <h2>📢 Waarom jouw steun telt</h2>
-    <ul style="list-style: none; margin-bottom: 1.6rem;">
-        <li style="padding: 0.4rem 0; display: flex; gap: 0.8rem; align-items: baseline; border-bottom: 1px solid #221f1c;">
+    <!-- ===== WAAROM & HOE ===== -->
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin: 1.5rem 0 0.5rem 0; color: #e5ddd4;">
+        📢 Waarom jouw steun telt
+    </h2>
+    <ul style="list-style: none; margin-bottom: 1.5rem;">
+        <li style="padding: 0.3rem 0; display: flex; gap: 0.6rem; align-items: baseline; border-bottom: 1px solid #1f1c19;">
             <span style="color: #b89b7b;">◆</span> 
-            <span><strong>Directe impact</strong> — Elke aankoop gaat rechtstreeks naar de ontwikkeling van de voorstelling.</span>
+            <span><strong>Directe impact</strong> — Elke aankoop gaat rechtstreeks naar de ontwikkeling.</span>
         </li>
-        <li style="padding: 0.4rem 0; display: flex; gap: 0.8rem; align-items: baseline; border-bottom: 1px solid #221f1c;">
+        <li style="padding: 0.3rem 0; display: flex; gap: 0.6rem; align-items: baseline; border-bottom: 1px solid #1f1c19;">
             <span style="color: #b89b7b;">◆</span> 
-            <span><strong>Uniek inkijkje</strong> — Je krijgt de rauwe, onbewerkte eerste versie die nergens anders te horen is.</span>
+            <span><strong>Uniek inkijkje</strong> — De rauwe, onbewerkte eerste versie die nergens anders te horen is.</span>
         </li>
-        <li style="padding: 0.4rem 0; display: flex; gap: 0.8rem; align-items: baseline;">
+        <li style="padding: 0.3rem 0; display: flex; gap: 0.6rem; align-items: baseline;">
             <span style="color: #b89b7b;">◆</span> 
-            <span><strong>Word deel van het verhaal</strong> — Jij maakt mogelijk dat deze voorstelling kan groeien tot wat hij verdient te zijn.</span>
+            <span><strong>Word deel van het verhaal</strong> — Jij maakt de groei van deze voorstelling mogelijk.</span>
         </li>
     </ul>
 
-    <!-- HOE WERKT HET? -->
-    <h2>✅ Zo doe je mee</h2>
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin: 0 0 0.5rem 0; color: #e5ddd4;">
+        ✅ Zo doe je mee
+    </h2>
     <div class="steps">
-        <div class="step-item">
-            <strong>Klik</strong>
+        <div class="step">
+            <strong>1. Klik</strong>
             <span>op de Bandcamp-link</span>
         </div>
-        <div class="step-item">
-            <strong>Kies</strong>
+        <div class="step">
+            <strong>2. Kies</strong>
             <span>€10 of meer</span>
         </div>
-        <div class="step-item">
-            <strong>Download</strong>
-            <span>de track en word medefinancier</span>
+        <div class="step">
+            <strong>3. Download</strong>
+            <span>en word medefinancier</span>
         </div>
     </div>
 
-    <!-- EXTRA OPROEP -->
-    <p style="font-size: 1rem; background: #1a1715; padding: 0.8rem 1.4rem; border-radius: 2rem; display: inline-block; border: 1px solid #2f2a25;">
+    <!-- ===== EXTRA ===== -->
+    <p style="font-size: 0.9rem; background: #1a1715; padding: 0.5rem 1.2rem; border-radius: 2rem; display: inline-block; border: 1px solid #2f2a25; margin-top: 0.2rem;">
         🕯️ <em>“Samen brengen we Spiegellicht tot leven.”</em>
     </p>
 
-    <!-- FOOTER -->
-    <div class="footer-note">
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
         <span>
             Deze crowdfunding loopt tot <strong>31 augustus 2026</strong>.
         </span>
         <span>
-            Deel gerust met vrienden &amp; familie — 
-            <a href="#" onclick="alert('📤 Deel de pagina via jouw favoriete kanaal!'); return false;">deel dit initiatief</a>
+            Deel met vrienden — 
+            <a href="#" onclick="alert('📤 Deel deze pagina!'); return false;">deel dit initiatief</a>
         </span>
-        <span style="opacity: 0.6;">
-            thefree · <a href="https://thefree.be" style="border-bottom: none;">home</a>
+        <span style="opacity: 0.5;">
+            thefree · <a href="#" style="border-bottom: none;">home</a>
         </span>
     </div>
 
