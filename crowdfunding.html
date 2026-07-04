@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Free NutZ – Steun onze crowdfunding</title>
+    <title>The Free NutZ – Steun ons via Bandcamp</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     
     <style>
         /* ============================================================
-                   CROWDFUNDING PAGINA – Indie kleinkunst met neon/casino-knipoog
+                   CROWDFUNDING – Eenvoudig met Bandcamp-link
                    ============================================================ */
         
         * {
@@ -30,7 +30,6 @@
             line-height: 1.7;
         }
         
-        /* Subtiele sterren */
         body::before {
             content: '';
             position: fixed;
@@ -50,14 +49,14 @@
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 24px;
             position: relative;
             z-index: 1;
         }
         
-        /* ---------- HEADER (fixed) ---------- */
+        /* ---------- HEADER ---------- */
         header {
             position: fixed;
             top: 0;
@@ -134,10 +133,7 @@
             letter-spacing: 0.3px;
         }
         
-        nav ul li a:hover {
-            color: #fff;
-        }
-        
+        nav ul li a:hover { color: #fff; }
         nav ul li a.active-link {
             color: #fff;
         }
@@ -184,61 +180,9 @@
             transition: all 0.3s;
         }
         
-        /* ---------- SECTIES ---------- */
-        section {
-            padding: 80px 0 60px;
-            scroll-margin-top: 80px;
-        }
-        
-        .section-title {
-            font-family: 'Bungee', cursive;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 32px;
-            color: #e8e4e0;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-        .section-title .highlight-pink { color: #ff2d75; }
-        .section-title .highlight-cyan { color: #00f0ff; opacity: 0.6; }
-        .section-title .highlight-gold { color: #ffd700; }
-        
-        .section-sub {
-            text-align: center;
-            color: #777;
-            font-size: 1rem;
-            max-width: 600px;
-            margin: -20px auto 40px;
-            font-weight: 300;
-        }
-        
-        .neon-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .neon-card:hover {
-            border-color: rgba(255, 45, 117, 0.08);
-            box-shadow: 0 8px 40px rgba(255, 45, 117, 0.03);
-        }
-        
-        .neon-card p {
-            color: #bbb;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-        
-        /* ---------- HERO (Crowdfunding) ---------- */
+        /* ---------- HERO (eenvoudig) ---------- */
         #crowdfunding-hero {
-            min-height: 60vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -253,7 +197,7 @@
             position: absolute;
             inset: 0;
             background: 
-                radial-gradient(ellipse at 40% 50%, rgba(255, 45, 117, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 40% 50%, rgba(255, 45, 117, 0.04) 0%, transparent 60%),
                 radial-gradient(ellipse at 60% 50%, rgba(255, 215, 0, 0.04) 0%, transparent 60%);
             z-index: 0;
         }
@@ -272,7 +216,7 @@
         
         .hero-content h1 {
             font-family: 'Bungee', cursive;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             color: #ffd700;
             text-shadow: 0 0 60px rgba(255, 215, 0, 0.15);
             letter-spacing: 2px;
@@ -280,7 +224,7 @@
         }
         
         .hero-content .sub {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #aaa;
             font-weight: 300;
             letter-spacing: 2px;
@@ -291,195 +235,88 @@
             font-weight: 400;
         }
         
-        /* ---------- PERKENS (crowdfunding tiers) ---------- */
-        .perks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .perk-item {
+        /* ---------- CARD ---------- */
+        .neon-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 14px;
-            padding: 28px 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border-top: 3px solid #ff2d75;
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            margin: 0 auto 40px;
         }
         
-        .perk-item:hover {
-            transform: translateY(-4px);
-            border-color: #ffd700;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        .neon-card:hover {
+            border-color: rgba(255, 45, 117, 0.08);
+            box-shadow: 0 8px 40px rgba(255, 45, 117, 0.03);
         }
         
-        .perk-item .perk-icon {
-            font-size: 2.2rem;
-            display: block;
-            margin-bottom: 8px;
+        .neon-card p {
+            color: #bbb;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-weight: 300;
         }
         
-        .perk-item .perk-title {
-            font-family: 'Bungee', cursive;
-            font-size: 1.1rem;
+        .neon-card .highlight {
             color: #ffd700;
+            font-weight: 400;
+        }
+        
+        /* ---------- BANDCAMP KNOP ---------- */
+        .bandcamp-button-wrapper {
+            text-align: center;
+            margin: 30px 0 10px;
+        }
+        
+        .btn-bandcamp {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #ffd700, #f0a500);
+            color: #0a0a0f;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+            letter-spacing: 1px;
+        }
+        
+        .btn-bandcamp:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+        }
+        
+        .btn-bandcamp .small {
+            display: block;
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: rgba(10, 10, 15, 0.6);
+            margin-top: 4px;
             letter-spacing: 0.5px;
         }
         
-        .perk-item .perk-price {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #ff2d75;
-            margin: 8px 0;
-        }
-        
-        .perk-item .perk-desc {
-            color: #999;
-            font-size: 0.9rem;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-        
-        .perk-item .perk-button {
-            display: inline-block;
-            margin-top: 16px;
-            padding: 10px 28px;
-            background: linear-gradient(135deg, #ffd700, #f0a500);
-            color: #0a0a0f;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
-        }
-        
-        .perk-item .perk-button:hover {
-            transform: scale(1.04);
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
-        }
-        
-        /* ---------- PROGRESS BAR ---------- */
-        .progress-wrapper {
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
-        .progress-stats {
+        /* ---------- TAGS ---------- */
+        .tags {
             display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 6px;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0 10px;
         }
         
-        .progress-stats .raised {
-            color: #ffd700;
-            font-weight: 600;
-        }
-        
-        .progress-stats .goal {
+        .tags span {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
             color: #666;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
-        
-        .progress-bar-bg {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ff2d75, #ffd700);
-            border-radius: 10px;
-            transition: width 1s ease;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-        }
-        
-        /* ---------- WHY SUPPORT ---------- */
-        .reasons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .reason-item {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: all 0.3s ease;
-        }
-        
-        .reason-item:hover {
-            border-color: rgba(255, 45, 117, 0.1);
-        }
-        
-        .reason-item .reason-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 6px;
-        }
-        
-        .reason-item .reason-text {
-            color: #bbb;
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-        
-        /* ---------- BUTTONS ---------- */
-        .btn-neon {
-            display: inline-block;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            letter-spacing: 0.3px;
-        }
-        
-        .btn-neon.primary {
-            background: linear-gradient(135deg, #ff2d75, #ff6a3a);
-            color: #fff;
-            box-shadow: 0 0 30px rgba(255, 45, 117, 0.1);
-        }
-        .btn-neon.primary:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 50px rgba(255, 45, 117, 0.2);
-        }
-        
-        .btn-neon.gold {
-            background: linear-gradient(135deg, #ffd700, #f0a500);
-            color: #0a0a0f;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
-        }
-        .btn-neon.gold:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
-        }
-        
-        .btn-neon.secondary {
-            background: transparent;
-            color: #ccc;
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        .btn-neon.secondary:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .text-center { text-align: center; }
-        .mt-20 { margin-top: 20px; }
-        .mt-40 { margin-top: 40px; }
         
         /* ---------- FOOTER ---------- */
         footer {
@@ -488,12 +325,14 @@
             margin-top: 20px;
             text-align: center;
         }
+        
         footer .socials {
             display: flex;
             justify-content: center;
             gap: 30px;
             margin-bottom: 16px;
         }
+        
         footer .socials a {
             color: #666;
             text-decoration: none;
@@ -502,12 +341,15 @@
             transition: all 0.3s ease;
             letter-spacing: 0.5px;
         }
+        
         footer .socials a:hover { color: #ff2d75; }
+        
         footer p {
             color: #444;
             font-size: 0.8rem;
             font-weight: 300;
         }
+        
         footer .footer-symbols {
             color: #333;
             font-size: 0.7rem;
@@ -542,10 +384,8 @@
             
             .hero-content h1 { font-size: 2.5rem; }
             .hero-content .sub { font-size: 1rem; }
-            .section-title { font-size: 1.5rem; }
-            .perks-grid { grid-template-columns: 1fr; }
-            .reasons-grid { grid-template-columns: 1fr 1fr; }
-            section { padding: 60px 0 40px; }
+            .btn-bandcamp { padding: 14px 30px; font-size: 1rem; width: 100%; }
+            .neon-card { padding: 28px; }
         }
         
         @media (max-width: 480px) {
@@ -553,14 +393,13 @@
             .logo-header { font-size: 0.85rem; }
             .logo-header .bandname { font-size: 1rem; }
             .logo-header .poker-chip { width: 18px; height: 18px; line-height: 14px; font-size: 8px; }
-            .reasons-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ========== HEADER (fixed) ========== -->
+    <!-- ========== HEADER ========== -->
     <header id="mainHeader">
         <a href="index.html" class="logo-header">
             <span class="poker-chip">♠</span>
@@ -592,165 +431,41 @@
     <!-- ========== HERO ========== -->
     <section id="crowdfunding-hero">
         <div class="hero-content">
-            <span class="big-icon">🎰</span>
+            <span class="big-icon">🎶</span>
             <h1>Steun The Free Nutz</h1>
             <p class="sub">
-                <span>Nieuwe muziek</span> · <span>Nieuwe verhalen</span> · <span>Nieuwe nachten</span>
+                Koop <span>Spiegellicht</span> op Bandcamp
             </p>
         </div>
     </section>
 
-    <!-- ========== INTRO ========== -->
+    <!-- ========== UITLEG + KNOP ========== -->
     <section>
         <div class="container">
             <div class="neon-card">
-                <p style="text-align:center; font-size:1.15rem;">
-                    Wij zijn <strong style="color:#ffd700;">The Free Nutz</strong> – een Belgische indie-kleinkunstband 
-                    met een passie voor eerlijke muziek, vreemde humor en onvergetelijke live-shows.
+                <p style="text-align:center;">
+                    <strong style="color:#ffd700;">Spiegellicht</strong> – de eerste adem.
                 </p>
                 <p style="text-align:center;">
-                    Met jullie hulp kunnen we <strong style="color:#ff2d75;">een nieuwe EP opnemen</strong>, 
-                    <strong style="color:#00f0ff;">een videoclip maken</strong> en 
-                    <strong style="color:#ffd700;">onze live-show naar een hoger niveau tillen</strong>.
+                    Deze opname is nog <span style="color:#ff2d75;">ruw en onbewerkt</span>, precies zoals hij op een avond in de studio ontstond.
+                    Door deze registratie te kopen, word je een <span style="color:#ffd700;">vroege medestander</span>.
+                    Jouw bijdrage helpt om de voorstelling verder te brengen – naar een betere ruimte, meer repetitietijd en uiteindelijk een scherpere, rijkere versie.
                 </p>
-                <p style="text-align:center; color:#888; font-style:italic; margin-bottom:0;">
-                    Elke bijdrage, groot of klein, maakt het verschil. 🎶
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== PROGRESS ========== -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">
-                <span class="highlight-pink">★</span> Onze voortgang <span class="highlight-pink">★</span>
-            </h2>
-            
-            <div class="progress-wrapper">
-                <div class="progress-stats">
-                    <span class="raised">🎯 € 1.250 opgehaald</span>
-                    <span class="goal">Doel: € 4.000</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" style="width:31%;"></div>
-                </div>
-                <p style="text-align:center; color:#666; font-size:0.8rem; margin-top:8px;">
-                    31% bereikt · Nog 31 dagen te gaan
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== PERKENS ========== -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">
-                <span class="highlight-gold">♠</span> Kies je bijdrage <span class="highlight-gold">♦</span>
-            </h2>
-            <p class="section-sub">Kies een perk dat bij je past – of doneer vrij</p>
-            
-            <div class="perks-grid">
-                <!-- Perk 1 -->
-                <div class="perk-item">
-                    <span class="perk-icon">🎧</span>
-                    <div class="perk-title">Digitale Supporter</div>
-                    <div class="perk-price">€ 10</div>
-                    <div class="perk-desc">
-                        Exclusieve download van de nieuwe EP<br />
-                        + digitale bedankkaart
-                    </div>
-                    <a href="#" class="perk-button">Kies deze</a>
+                
+                <div class="bandcamp-button-wrapper">
+                    <a href="https://thefreenutz.bandcamp.com/track/spiegellicht" target="_blank" class="btn-bandcamp">
+                        🎧 Koop Spiegellicht op Bandcamp
+                        <span class="small">€10,- · streaming + download</span>
+                    </a>
                 </div>
                 
-                <!-- Perk 2 -->
-                <div class="perk-item" style="border-top-color:#ffd700;">
-                    <span class="perk-icon">💿</span>
-                    <div class="perk-title">Limited Edition CD</div>
-                    <div class="perk-price">€ 25</div>
-                    <div class="perk-desc">
-                        Gesigneerde CD van de nieuwe EP<br />
-                        + digitale download + naam in booklet
-                    </div>
-                    <a href="#" class="perk-button">Kies deze</a>
+                <div class="tags">
+                    <span>#indie</span>
+                    <span>#kleinkunst</span>
+                    <span>#België</span>
+                    <span>#crowdfunding</span>
+                    <span>#nieuw</span>
                 </div>
-                
-                <!-- Perk 3 -->
-                <div class="perk-item" style="border-top-color:#00f0ff;">
-                    <span class="perk-icon">🎸</span>
-                    <div class="perk-title">VIP Fan</div>
-                    <div class="perk-price">€ 50</div>
-                    <div class="perk-desc">
-                        Alle bovenstaande perks<br />
-                        + gratis toegang tot 1 show + shout-out
-                    </div>
-                    <a href="#" class="perk-button">Kies deze</a>
-                </div>
-                
-                <!-- Perk 4 -->
-                <div class="perk-item" style="border-top-color:#ff2d75;">
-                    <span class="perk-icon">🎤</span>
-                    <div class="perk-title">Exclusive Backstage</div>
-                    <div class="perk-price">€ 100</div>
-                    <div class="perk-desc">
-                        Alle bovenstaande perks<br />
-                        + backstage meet & greet + gepersonaliseerd bedankje
-                    </div>
-                    <a href="#" class="perk-button">Kies deze</a>
-                </div>
-            </div>
-            
-            <div class="text-center mt-20">
-                <a href="#" class="btn-neon gold">💎 Vrij bedrag doneren</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== WAAROM STEUNEN ========== -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">
-                <span class="highlight-cyan">♣</span> Waarom steunen? <span class="highlight-pink">♥</span>
-            </h2>
-            
-            <div class="reasons-grid">
-                <div class="reason-item">
-                    <span class="reason-icon">🎶</span>
-                    <div class="reason-text">Nieuwe muziek die je nergens anders hoort</div>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-icon">🎥</span>
-                    <div class="reason-text">Een videoclip die we samen maken</div>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-icon">🎪</span>
-                    <div class="reason-text">Onvergetelijke live-shows</div>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-icon">🤝</span>
-                    <div class="reason-text">Onafhankelijke muziek – zonder labels</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== SLOT / CALL TO ACTION ========== -->
-    <section>
-        <div class="container">
-            <div class="neon-card" style="text-align:center;">
-                <h2 style="font-family:'Bungee',cursive; font-size:1.8rem; color:#ffd700; margin-bottom:16px;">
-                    ♠ Maak het verschil ♥
-                </h2>
-                <p style="max-width:600px; margin:0 auto 24px;">
-                    Elke bijdrage brengt ons dichter bij een nieuwe EP, 
-                    bijzondere videoclips en de beste live-shows ooit.
-                </p>
-                <a href="#" class="btn-neon gold" style="padding:16px 50px; font-size:1.1rem;">
-                    🎯 Doneer nu
-                </a>
-                <p style="color:#555; font-size:0.8rem; margin-top:16px;">
-                    Je bijdrage is welkom via PayPal, Bancontact of overschrijving
-                </p>
             </div>
         </div>
     </section>
@@ -771,7 +486,6 @@
 
     <!-- ========== SCRIPTS ========== -->
     <script>
-        // Hamburger toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         
@@ -785,7 +499,6 @@
             });
         });
         
-        // Header shrink bij scroll
         window.addEventListener('scroll', () => {
             const header = document.getElementById('mainHeader');
             header.classList.toggle('scrolled', window.scrollY > 50);
