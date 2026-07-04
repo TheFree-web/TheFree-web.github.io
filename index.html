@@ -229,7 +229,7 @@
             box-shadow: 0 8px 40px rgba(255, 45, 117, 0.03);
         }
         
-        /* ---------- HERO ---------- */
+        /* ---------- HOME / HERO ---------- */
         #home {
             min-height: 80vh;
             display: flex;
@@ -343,32 +343,79 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
         
-        /* ---------- RELEASE ---------- */
+        /* ---------- RELEASE (titel is link) ---------- */
         .release-card {
             text-align: center;
             max-width: 640px;
             margin: 0 auto;
         }
+        
         .release-card h3 {
             font-family: 'Bungee', cursive;
             font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        
+        .release-card h3 a {
             background: linear-gradient(135deg, #ff2d75, #ff8a5c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
         }
+        
+        .release-card h3 a::after {
+            content: ' →';
+            -webkit-text-fill-color: #ffd700;
+            background: none;
+            color: #ffd700;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .release-card h3 a:hover {
+            text-shadow: 0 0 40px rgba(255, 45, 117, 0.3);
+            transform: scale(1.02);
+        }
+        
+        .release-card h3 a:hover::after {
+            opacity: 1;
+        }
+        
         .release-card p {
             color: #bbb;
             font-size: 1.05rem;
-            margin-top: 16px;
+            margin-top: 8px;
             font-weight: 300;
         }
+        
         .release-card .credit {
             color: #666;
             font-size: 0.85rem;
             margin-top: 12px;
             font-style: italic;
+        }
+        
+        .release-card .bandcamp-hint {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 20px;
+            background: rgba(255, 215, 0, 0.06);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 50px;
+            color: #ffd700;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+        
+        .release-card .bandcamp-hint:hover {
+            background: rgba(255, 215, 0, 0.12);
+            transform: scale(1.03);
         }
         
         /* ---------- SHOWS ---------- */
@@ -451,7 +498,7 @@
             font-style: italic;
         }
         
-        /* ---------- CONTACT (op dezelfde pagina) ---------- */
+        /* ---------- CONTACT ---------- */
         .contact-grid {
             display: flex;
             flex-direction: column;
@@ -632,7 +679,7 @@
                 <li><a href="#shows">Live</a></li>
                 <li><a href="#story">Verhaal</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="http://thefree.be/crowdfunding" class="crowd-button">🎯 Steun crowdfunding</a></li>
+                <li><a href="crowdfunding.html" class="crowd-button">🎯 Steun crowdfunding</a></li>
             </ul>
         </nav>
         
@@ -663,23 +710,32 @@
             <div class="hero-buttons">
                 <a href="#release" class="btn-neon primary">🎧 Ontdek onze muziek</a>
                 <a href="#shows" class="btn-neon secondary">📅 Aankomende shows</a>
-                <a href="http://thefree.be/crowdfunding" class="btn-neon primary" style="background:linear-gradient(135deg,#ff6a3a,#ff2d75);">🎯 Steun ons</a>
+                <a href="crowdfunding.html" class="btn-neon primary" style="background:linear-gradient(135deg,#ff6a3a,#ff2d75);">🎯 Steun ons</a>
             </div>
         </div>
     </section>
 
-    <!-- ========== RELEASE ========== -->
+    <!-- ========== RELEASE (titel is link naar Bandcamp) ========== -->
     <section id="release">
         <div class="container">
             <h2 class="section-title">
                 <span class="highlight-pink">★</span> Nieuwste release <span class="highlight-pink">★</span>
             </h2>
             <div class="neon-card release-card">
-                <h3>DE DAG IS DE NACHT</h3>
+                <h3>
+                    <a href="https://thefreenutz.bandcamp.com/track/spiegellicht" target="_blank">
+                        DE DAG IS DE NACHT
+                    </a>
+                </h3>
                 <p>
                     Een reis tussen introspectie, absurditeit en donkere melancholie.
                 </p>
                 <p class="credit">— met dank aan dEUS</p>
+                
+                <!-- Extra kleine knop voor de duidelijkheid -->
+                <a href="https://thefreenutz.bandcamp.com/track/spiegellicht" target="_blank" class="bandcamp-hint">
+                    🎵 Beluister en koop op Bandcamp →
+                </a>
             </div>
         </div>
     </section>
@@ -779,7 +835,7 @@
                 <a href="#">Instagram</a>
                 <a href="#">Spotify</a>
                 <a href="#">YouTube</a>
-                <a href="#">Bandcamp</a>
+                <a href="https://thefreenutz.bandcamp.com">Bandcamp</a>
             </div>
             <p>© 2026 The Free Nutz · Belgische indie kleinkunst</p>
             <div class="footer-symbols">♠ ♦ ♣ ♥</div>
