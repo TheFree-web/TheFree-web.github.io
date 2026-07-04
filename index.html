@@ -3,343 +3,832 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Free Nutz – Belgische indie kleinkunst</title>
+    <title>The Free NutZ – Belgische indie kleinkunst</title>
     
-    <!-- SEO + Logo structured data -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "url": "http://thefree.be",
-            "logo": "http://thefree.be/logo.png"
-        }
-    </script>
-    
-    <!-- Open Graph voor sociale media -->
-    <meta property="og:title" content="The Free Nutz" />
-    <meta property="og:description" content="Belgische indie kleinkunst – rauwe energie, nachtelijke melancholie en vreemde humor." />
-    <meta property="og:image" content="http://thefree.be/logo.png" />
-    <meta property="og:url" content="http://thefree.be" />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     
     <style>
-        /* ---------- RESET & BASIS ---------- */
+        /* ============================================================
+                   ONE-PAGER – Indie kleinkunst met neon/casino-knipoog
+                   ============================================================ */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            background-color: #0b0b0b;
-            color: #ececec;
-            line-height: 1.6;
-            padding: 20px;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0f;
+            background-image: 
+                radial-gradient(ellipse at 20% 30%, rgba(255, 45, 117, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(0, 240, 255, 0.04) 0%, transparent 50%);
+            color: #e8e4e0;
+            min-height: 100vh;
+            padding-top: 80px;
+            line-height: 1.7;
         }
-        a {
-            color: #f0b34b;
-            text-decoration: none;
+        
+        /* Subtiele sterren */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 15px 25px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 35px 65px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 85px 35px, rgba(255,255,255,0.2), transparent);
+            background-size: 200px 100px;
+            background-repeat: repeat;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
         }
-        a:hover {
-            color: #ffd966;
-        }
+        
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
         }
-
-        /* ---------- HEADER / NAVIGATIE ---------- */
+        
+        /* ---------- HEADER (fixed) ---------- */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            padding: 20px 0;
-            border-bottom: 1px solid #2a2a2a;
-            margin-bottom: 40px;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 45, 117, 0.15);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            transition: all 0.3s ease;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #f0b34b;
+        
+        header.scrolled {
+            padding: 12px 30px;
+            border-bottom-color: rgba(0, 240, 255, 0.1);
         }
-        .logo span {
-            color: #ffffff;
-            font-weight: 300;
-        }
-        nav {
+        
+        .logo-header {
             display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
             align-items: center;
+            gap: 12px;
+            font-family: 'Bungee', cursive;
+            font-size: 1.4rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
         }
-        nav a {
-            color: #ccc;
-            font-weight: 500;
-            transition: color 0.2s;
+        
+        .logo-header .bandname {
+            color: #ff2d75;
+            text-shadow: 0 0 30px rgba(255, 45, 117, 0.15);
+            font-size: 1.6rem;
         }
-        nav a:hover {
-            color: #f0b34b;
+        .logo-header .bandname .the { color: #ff8a5c; }
+        .logo-header .bandname .free { color: #ff8a5c; }
+        .logo-header .bandname .nutz { color: #ff2d75; }
+        
+        .logo-header .poker-chip {
+            display: inline-block;
+            width: 28px; height: 28px;
+            background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b);
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: 12px;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            color: #0a0a0f;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+            opacity: 0.7;
         }
-
-        /* ---------- CROWDFUNDING KNOP (SPECIAL) ---------- */
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.85rem;
+            padding: 6px 8px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+        
+        nav ul li a:hover {
+            color: #fff;
+        }
+        
+        nav ul li a.active-link {
+            color: #fff;
+        }
+        nav ul li a.active-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 1px;
+            background: #ff2d75;
+            box-shadow: 0 0 15px rgba(255, 45, 117, 0.2);
+        }
+        
         .crowd-button {
-            background: #ff6600;
+            background: linear-gradient(135deg, #ff2d75, #ff6a3a) !important;
             color: #fff !important;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: background 0.3s, transform 0.1s;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+            padding: 8px 18px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            font-size: 0.75rem !important;
+            box-shadow: 0 0 25px rgba(255, 45, 117, 0.15) !important;
+            transition: all 0.3s ease !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            letter-spacing: 0.3px;
         }
         .crowd-button:hover {
-            background: #e05a00 !important;
-            color: #fff !important;
-            transform: scale(1.03);
-            box-shadow: 0 0 25px rgba(255, 102, 0, 0.5);
+            transform: scale(1.04) !important;
+            box-shadow: 0 0 40px rgba(255, 45, 117, 0.25) !important;
         }
-
-        /* ---------- SECTIES ---------- */
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 26px;
+            height: 2px;
+            background: #ccc;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        /* ---------- SECTIES (algemeen) ---------- */
         section {
-            margin-bottom: 60px;
+            padding: 80px 0 60px;
+            scroll-margin-top: 80px;
         }
-        h1 {
-            font-size: 2.8rem;
+        
+        .section-title {
+            font-family: 'Bungee', cursive;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #e8e4e0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        .section-title .highlight-pink { color: #ff2d75; }
+        .section-title .highlight-cyan { color: #00f0ff; opacity: 0.6; }
+        
+        .section-sub {
+            text-align: center;
+            color: #777;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: -20px auto 40px;
             font-weight: 300;
-            margin-bottom: 10px;
         }
-        h1 strong {
-            font-weight: 700;
-            color: #f0b34b;
-        }
-        h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            border-left: 5px solid #f0b34b;
-            padding-left: 15px;
-            margin-bottom: 25px;
-        }
-        .subhead {
-            font-size: 1.2rem;
-            color: #aaa;
-            margin-bottom: 30px;
-        }
-
-        /* ---------- RELEASE CARD ---------- */
-        .release-card {
-            background: #1a1a1a;
+        
+        .neon-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 16px;
-            padding: 30px;
-            border: 1px solid #2c2c2c;
-            margin: 30px 0;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+        .neon-card:hover {
+            border-color: rgba(255, 45, 117, 0.08);
+            box-shadow: 0 8px 40px rgba(255, 45, 117, 0.03);
+        }
+        
+        /* ---------- HERO ---------- */
+        #home {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 60px 20px 40px;
+            scroll-margin-top: 0;
+        }
+        
+        #home::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 40% 50%, rgba(255, 45, 117, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 60% 50%, rgba(0, 240, 255, 0.03) 0%, transparent 60%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+        
+        .hero-logo {
+            margin-bottom: 16px;
+        }
+        
+        .hero-logo .bandname {
+            font-family: 'Bungee', cursive;
+            font-size: 4.2rem;
+            line-height: 1.15;
+            display: block;
+            letter-spacing: 1px;
+        }
+        .hero-logo .bandname .the { color: #ff8a5c; }
+        .hero-logo .bandname .free { color: #ff8a5c; }
+        .hero-logo .bandname .nutz {
+            color: #ff2d75;
+            text-shadow: 
+                0 0 40px rgba(255, 45, 117, 0.2),
+                0 0 80px rgba(255, 45, 117, 0.08);
+            animation: pulseGlowSoft 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlowSoft {
+            0%, 100% { text-shadow: 0 0 40px rgba(255, 45, 117, 0.2), 0 0 80px rgba(255, 45, 117, 0.08); }
+            50% { text-shadow: 0 0 60px rgba(255, 45, 117, 0.3), 0 0 120px rgba(255, 45, 117, 0.12); }
+        }
+        
+        .hero-sub {
+            font-size: 1rem;
+            color: #888;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: 300;
+        }
+        .hero-sub span { color: #ffd700; font-weight: 400; }
+        
+        .hero-description {
+            color: #bbb;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 24px auto 32px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .hero-description em {
+            color: #ff8a5c;
+            font-style: normal;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-neon {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            letter-spacing: 0.3px;
+        }
+        .btn-neon.primary {
+            background: linear-gradient(135deg, #ff2d75, #ff6a3a);
+            color: #fff;
+            box-shadow: 0 0 30px rgba(255, 45, 117, 0.1);
+        }
+        .btn-neon.primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 50px rgba(255, 45, 117, 0.2);
+        }
+        .btn-neon.secondary {
+            background: transparent;
+            color: #ccc;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .btn-neon.secondary:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* ---------- RELEASE ---------- */
+        .release-card {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
         }
         .release-card h3 {
-            font-size: 2rem;
-            color: #f0b34b;
+            font-family: 'Bungee', cursive;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #ff2d75, #ff8a5c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
         }
         .release-card p {
-            color: #ccc;
+            color: #bbb;
+            font-size: 1.05rem;
+            margin-top: 16px;
+            font-weight: 300;
+        }
+        .release-card .credit {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 12px;
             font-style: italic;
         }
-
-        /* ---------- LIVE SHOWS GRID ---------- */
+        
+        /* ---------- SHOWS ---------- */
         .shows-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
+        
         .show-item {
-            background: #141414;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #f0b34b;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 2px solid #ff2d75;
+        }
+        .show-item:hover {
+            transform: translateY(-3px);
+            border-color: #00f0ff;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
         .show-item .date {
-            font-weight: 700;
-            color: #f0b34b;
-            font-size: 1.1rem;
+            font-family: 'Bungee', cursive;
+            font-size: 1rem;
+            color: #ff2d75;
+            letter-spacing: 0.5px;
         }
         .show-item .location {
-            color: #bbb;
+            color: #ccc;
+            font-size: 0.95rem;
+            margin: 8px 0;
+            font-weight: 300;
         }
         .show-item .extra {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 6px;
+            color: #666;
+            font-size: 0.8rem;
         }
-
-        /* ---------- VIDEO SECTION ---------- */
-        .video-placeholder {
-            background: #1a1a1a;
-            border-radius: 16px;
-            padding: 50px 20px;
-            text-align: center;
-            border: 2px dashed #333;
-            color: #777;
-            font-size: 1.2rem;
+        .show-item .booking-link {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 6px 18px;
+            background: rgba(255, 45, 117, 0.08);
+            color: #bbb;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 400;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .video-placeholder i {
-            display: block;
-            font-size: 3rem;
-            margin-bottom: 10px;
+        .show-item .booking-link:hover {
+            background: rgba(255, 45, 117, 0.15);
+            color: #fff;
         }
-
-        /* ---------- VERHAAL / OVER ONS ---------- */
+        
+        /* ---------- VERHAAL ---------- */
         .story-box {
-            background: #141414;
-            border-radius: 16px;
-            padding: 30px;
-            border: 1px solid #2a2a2a;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
         }
         .story-box p {
-            margin-bottom: 15px;
-            color: #ddd;
+            color: #bbb;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-weight: 300;
         }
-        .band-names {
+        .story-box .band-names {
+            color: #ffd700;
+            font-weight: 400;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.05);
+        }
+        .story-box .band-sub {
+            color: #555;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+        
+        /* ---------- CONTACT (op dezelfde pagina) ---------- */
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        
+        .contact-direct {
+            text-align: center;
+        }
+        .contact-direct h2 {
+            font-family: 'Bungee', cursive;
+            font-size: 1.4rem;
+            color: #ff2d75;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .contact-direct p {
+            color: #bbb;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        .contact-direct a {
+            color: #00f0ff;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .contact-direct a:hover {
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            color: #e8e4e0;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: rgba(255, 45, 117, 0.2);
+            box-shadow: 0 0 30px rgba(255, 45, 117, 0.03);
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #555;
+            font-weight: 300;
+        }
+        .contact-form button {
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #ff2d75, #ff6a3a);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
             font-weight: 600;
-            color: #f0b34b;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(255, 45, 117, 0.08);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
         }
-
+        .contact-form button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(255, 45, 117, 0.15);
+        }
+        
         /* ---------- FOOTER ---------- */
         footer {
-            border-top: 1px solid #2a2a2a;
-            padding-top: 30px;
-            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 40px 0;
+            margin-top: 20px;
             text-align: center;
-            color: #666;
-            font-size: 0.9rem;
         }
-
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 16px;
+        }
+        footer .socials a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        footer .socials a:hover { color: #ff2d75; }
+        footer p {
+            color: #444;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+        footer .footer-symbols {
+            color: #333;
+            font-size: 0.7rem;
+            margin-top: 6px;
+            letter-spacing: 4px;
+        }
+        
         /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 700px) {
-            header {
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            header { padding: 14px 20px; }
+            .logo-header { font-size: 1rem; }
+            .logo-header .bandname { font-size: 1.2rem; }
+            .logo-header .poker-chip { width: 22px; height: 22px; line-height: 18px; font-size: 10px; }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background: rgba(10, 10, 15, 0.98);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+                width: 220px;
+                padding: 30px 20px;
+                gap: 12px;
+                transition: right 0.4s ease;
+                border-left: 1px solid rgba(255, 45, 117, 0.1);
+                border-bottom: 1px solid rgba(255, 45, 117, 0.1);
             }
-            nav {
-                gap: 15px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .crowd-button {
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
+            nav ul.active { right: 0; }
+            .hamburger { display: flex; }
+            
+            .hero-logo .bandname { font-size: 2.8rem; }
+            .hero-description { font-size: 0.95rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn-neon { width: 100%; max-width: 260px; text-align: center; }
+            
+            .section-title { font-size: 1.5rem; }
+            .release-card h3 { font-size: 1.6rem; }
+            .shows-grid { grid-template-columns: 1fr; }
+            section { padding: 60px 0 40px; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-logo .bandname { font-size: 2rem; }
+            .logo-header { font-size: 0.85rem; }
+            .logo-header .bandname { font-size: 1rem; }
+            .logo-header .poker-chip { width: 18px; height: 18px; line-height: 14px; font-size: 8px; }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- ========== HEADER (fixed) ========== -->
+    <header id="mainHeader">
+        <a href="#home" class="logo-header">
+            <span class="poker-chip">♠</span>
+            <span class="bandname">
+                <span class="the">the</span>
+                <span class="free">Free</span>
+                <span class="nutz">Nutz</span>
+            </span>
+        </a>
+        
+        <nav>
+            <ul id="navLinks">
+                <li><a href="#home" class="active-link">Home</a></li>
+                <li><a href="#release">Release</a></li>
+                <li><a href="#shows">Live</a></li>
+                <li><a href="#story">Verhaal</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="http://thefree.be/crowdfunding" class="crowd-button">🎯 Steun crowdfunding</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
-        <!-- ========== HEADER ========== -->
-        <header>
-            <div class="logo">THE FREE <span>NUTZ</span></div>
-            <nav>
-                <a href="#release">Release</a>
-                <a href="#shows">Live</a>
-                <a href="#story">Verhaal</a>
-                <a href="#video">Video</a>
-                <!-- ⭐ CROWDFUNDING KNOP (zonder Nutrange) -->
-                <a href="http://thefree.be/crowdfunding" class="crowd-button">🎯 Steun crowdfunding</a>
-            </nav>
-        </header>
-
-        <!-- ========== INTRO ========== -->
-        <section>
-            <h1>
-                Belgische <strong>indie kleinkunst</strong>
-            </h1>
-            <p class="subhead">
+    <!-- ========== HOME / HERO ========== -->
+    <section id="home">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <span class="bandname">
+                    <span class="the">the</span>
+                    <span class="free">Free</span>
+                    <span class="nutz">Nutz</span>
+                </span>
+            </div>
+            <div class="hero-sub">♠ ♦ <span>Belgische indie kleinkunst</span> ♣ ♥</div>
+            
+            <p class="hero-description">
                 Rauwe energie, nachtelijke melancholie, vreemde humor en onvoorspelbare live shows.<br />
-                The Free Nutz mixt indie, punk en kleinkunst tot één eigen universum.
+                <em>The Free Nutz</em> mixt indie, punk en kleinkunst tot één eigen universum.
             </p>
-        </section>
+            
+            <div class="hero-buttons">
+                <a href="#release" class="btn-neon primary">🎧 Ontdek onze muziek</a>
+                <a href="#shows" class="btn-neon secondary">📅 Aankomende shows</a>
+                <a href="http://thefree.be/crowdfunding" class="btn-neon primary" style="background:linear-gradient(135deg,#ff6a3a,#ff2d75);">🎯 Steun ons</a>
+            </div>
+        </div>
+    </section>
 
-        <!-- ========== RELEASE ========== -->
-        <section id="release">
-            <h2>Nieuwste release</h2>
-            <div class="release-card">
+    <!-- ========== RELEASE ========== -->
+    <section id="release">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="highlight-pink">★</span> Nieuwste release <span class="highlight-pink">★</span>
+            </h2>
+            <div class="neon-card release-card">
                 <h3>DE DAG IS DE NACHT</h3>
                 <p>
-                    Een reis tussen introspectie, absurditeit en donkere melancholie.<br />
-                    <span style="color:#888;">Met dank aan dEUS.</span>
+                    Een reis tussen introspectie, absurditeit en donkere melancholie.
                 </p>
-                <p style="margin-top:12px; color:#aaa;">
-                    Nieuwe tracks, nieuwe energie, nieuwe nachten.
-                </p>
+                <p class="credit">— met dank aan dEUS</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ========== LIVE SHOWS ========== -->
-        <section id="shows">
-            <h2>Live shows</h2>
-            <p style="color:#aaa; margin-bottom:20px;">
-                Kom verdwalen in feedback, vreemde verhalen en rauwe energie.
-            </p>
+    <!-- ========== LIVE SHOWS ========== -->
+    <section id="shows">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="highlight-pink">♠</span> Live <span class="highlight-pink">♦</span>
+            </h2>
+            <p class="section-sub">Kom verdwalen in feedback, vreemde verhalen en rauwe energie.</p>
+            
             <div class="shows-grid">
                 <div class="show-item">
                     <div class="date">Woensdagen 2026</div>
                     <div class="location">BAR DIVERS · Handelslei 165</div>
                     <div class="extra">Open repetities</div>
+                    <a href="#contact" class="booking-link">Gratis</a>
                 </div>
                 <div class="show-item">
                     <div class="date">8 MEI 2026</div>
                     <div class="location">Oude Pastorij · Westmalle</div>
+                    <div class="extra">Live</div>
+                    <a href="#contact" class="booking-link">Tickets</a>
                 </div>
                 <div class="show-item">
                     <div class="date">13 MEI 2026</div>
                     <div class="location">Privé</div>
+                    <div class="extra">Exclusive</div>
+                    <a href="#contact" class="booking-link">Info</a>
                 </div>
                 <div class="show-item">
                     <div class="date">15 JUNI 2026</div>
                     <div class="location">Meihofke</div>
+                    <div class="extra">Summer special</div>
+                    <a href="#contact" class="booking-link">Tickets</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ========== VIDEO ========== -->
-        <section id="video">
-            <h2>Video</h2>
-            <div class="video-placeholder">
-                <span style="font-size:3rem;">🎬</span><br />
-                Live fragmenten, visuals en nachtelijke chaos.<br />
-                <span style="font-size:0.9rem; color:#555;">(video komt binnenkort)</span>
-            </div>
-        </section>
-
-        <!-- ========== VERHAAL ========== -->
-        <section id="story">
-            <h2>Ons verhaal</h2>
-            <div class="story-box">
+    <!-- ========== VERHAAL ========== -->
+    <section id="story">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="highlight-pink">♣</span> Ons verhaal <span class="highlight-pink">♥</span>
+            </h2>
+            <div class="neon-card story-box">
                 <p>
                     The Free Nutz ontstond uit herstel, nachtelijke gesprekken, feedback, chaos en vooral vriendschap.
                     Geen perfecte mensen. Geen perfecte songs. Alleen eerlijke energie, vreemde humor en een live-reputatie
                     die je niet snel vergeet.
                 </p>
                 <p>
-                    <span class="band-names">Karlos, Jeroen, Kamiel en Sander</span> — twee werelden, één band.
+                    Met invloeden uit rock, alternatieve muziek en moderne productie bouwen we aan een eigen identiteit.
+                    Elke release vertelt een nieuw hoofdstuk en elke show brengt ons dichter bij het publiek.
+                </p>
+                <p>
+                    <span class="band-names">Karlos · Jeroen · Kamiel · Sander</span><br />
+                    <span class="band-sub">twee werelden, één band</span>
                 </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ========== FOOTER ========== -->
-        <footer>
-            <p>
-                &copy; 2026 The Free Nutz – Belgische indie kleinkunst<br />
-                <span style="color:#444;">
-                    <!-- Geen Nutrange meer hier -->
-                </span>
-            </p>
-        </footer>
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="highlight-pink">★</span> Contact <span class="highlight-pink">★</span>
+            </h2>
+            <p class="section-sub">Boekingen & vragen — we horen het graag</p>
+            
+            <div class="neon-card">
+                <div class="contact-grid">
+                    <div class="contact-direct">
+                        <h2>🎰 Boek ons</h2>
+                        <p>Voor boekingen of vragen mail naar</p>
+                        <a href="mailto:booking@thefree.be">booking@thefree.be</a>
+                    </div>
+                    
+                    <form class="contact-form" action="contact-form.php" method="POST">
+                        <input type="text" name="name" placeholder="Jouw naam" required />
+                        <input type="email" name="email" placeholder="Jouw e-mail" required />
+                        <textarea name="message" rows="5" placeholder="Jouw bericht" required></textarea>
+                        <button type="submit">♣ Verstuur ♣</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
-    <!-- einde container -->
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">Spotify</a>
+                <a href="#">YouTube</a>
+                <a href="#">Bandcamp</a>
+            </div>
+            <p>© 2026 The Free Nutz · Belgische indie kleinkunst</p>
+            <div class="footer-symbols">♠ ♦ ♣ ♥</div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Sluit menu bij klik op link (mobiel)
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Active link bij scrollen (highlight in menu)
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = document.querySelectorAll('nav ul li a:not(.crowd-button)');
+        
+        window.addEventListener('scroll', () => {
+            // Header shrink
+            const header = document.getElementById('mainHeader');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+            
+            // Active link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navAnchors.forEach(anchor => {
+                anchor.classList.remove('active-link');
+                if (anchor.getAttribute('href') === '#' + current) {
+                    anchor.classList.add('active-link');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
