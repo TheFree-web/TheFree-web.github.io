@@ -53,6 +53,15 @@
             margin-bottom: 2rem;
         }
 
+        .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #5a4e42;
+            border-left: 4px solid #2c5f4b;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+
         h2 {
             font-size: 1.6rem;
             font-weight: 600;
@@ -76,12 +85,44 @@
             border-bottom-color: #2c5f4b;
         }
 
-        /* --- KNOPPEN / CARDS --- */
+        /* --- KNOPPEN --- */
+        .btn {
+            display: inline-block;
+            background: #2c5f4b;
+            color: #fff !important;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: none !important;
+            transition: background 0.2s;
+            margin: 0.5rem 0.25rem;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #1f4738;
+            border-bottom: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2c5f4b !important;
+            border: 2px solid #2c5f4b;
+        }
+
+        .btn-outline:hover {
+            background: #2c5f4b;
+            color: #fff !important;
+        }
+
+        /* --- KAARTJES --- */
         .card-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
             margin: 2rem 0 1.5rem;
+            justify-content: center;
         }
 
         .card {
@@ -119,35 +160,7 @@
             border-radius: 20px;
         }
 
-        .btn {
-            display: inline-block;
-            background: #2c5f4b;
-            color: #fff !important;
-            padding: 0.7rem 2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            border-bottom: none !important;
-            transition: background 0.2s;
-            margin: 0.5rem 0.25rem 0.5rem 0;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background: #1f4738;
-            border-bottom: none;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #2c5f4b !important;
-            border: 2px solid #2c5f4b;
-        }
-
-        .btn-outline:hover {
-            background: #2c5f4b;
-            color: #fff !important;
-        }
-
+        /* --- CTA BLOK --- */
         .cta-block {
             background: #f6f3ef;
             padding: 2rem 2rem 1.8rem;
@@ -226,12 +239,17 @@
     <div class="subhead">Boek · EP · Voorstelling</div>
     <div class="byline">Jeroen Bos</div>
 
+    <!-- CITAAT -->
+    <div class="quote">
+        “Soms verdwaalt een mens niet omdat hij de weg kwijt is, maar omdat hij te diep heeft gekeken.”
+    </div>
+
     <!-- INTRO -->
     <p><em>MENS als kompas</em> is een persoonlijk en reflectief boek over psychische ontregeling, herstel en de zoektocht naar richting. Geen handleiding, maar een uitnodiging om te navigeren – voor wie leeft met kwetsbaarheid, voor wie werkt in zorg, en voor wie menselijkheid zoekt voorbij labels en systemen.</p>
 
     <p>Bij het boek hoort de EP <strong>Spiegellicht</strong>: negen rauwe, eerlijke nummers die een tweede stem geven aan wat woorden niet kunnen dragen.</p>
 
-    <!-- CARD OVERZICHT -->
+    <!-- KAARTJES -->
     <div class="card-grid">
         <div class="card">
             <span class="icon">📖</span>
@@ -256,17 +274,17 @@
         </div>
     </div>
 
-    <!-- STEUN / PRE-ORDER -->
-    <div class="cta-block">
-        <p><strong>📦 Steun &amp; pre-order</strong></p>
-        <p style="font-size:0.95rem;">Wil je het boek of de EP vooraf bestellen? Of de voorstelling helpen realiseren?</p>
-        <a href="https://thefree.be/crowdfunding.html" class="btn" target="_blank">👉 crowdfunding.thefree.be</a>
-    </div>
+   <!-- STEUN & PRE-ORDER -->
+<div class="cta-block">
+    <p><strong>📦 Steun &amp; pre-order</strong></p>
+    <p style="font-size:0.95rem;">Wil je het boek of de EP vooraf bestellen? Of de voorstelling helpen realiseren?</p>
+    <a href="mailto:jeroendecaluw@gmail.com?subject=Pre-order%20MENS%20als%20kompas" class="btn">📧 Stuur een e-mail</a>
+</div>
 
     <!-- LUISTER -->
     <p style="text-align:center; margin-bottom:0.25rem;"><strong>🎧 Luister nu op Bandcamp</strong></p>
     <p style="text-align:center; margin-top:0;">
-        <a href="https://thefreenutz.bandcamp.com" target="_blank">thefreenutz.bandcamp.com</a>
+        <a href="https://thefreenutz.bandcamp.com" class="btn btn-outline" target="_blank">thefreenutz.bandcamp.com</a>
     </p>
 
     <hr />
@@ -279,7 +297,7 @@
     </div>
 
     <div class="contact">
-        Jeroen Bos · <a href="mailto:jeroendecaluw@gmail.com">jouw@email.be</a>
+        Jeroen Bos · <a href="mailto:jeroendecaluw@gmail.com">jeroendecaluw@gmail.com</a>
     </div>
 
 </div>
