@@ -53,16 +53,29 @@
             margin-bottom: 2rem;
         }
 
+        /* --- AFBEELDING (NU WERKEND) --- */
         .featured-image {
             margin: 1.5rem 0 2rem 0;
             text-align: center;
             background: #f0ece6;
-            padding: 2rem 1rem;
+            padding: 1rem;
             border-radius: 8px;
+        }
+
+        .featured-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-image .caption {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
             color: #5a4e42;
             font-style: italic;
         }
-        /* Vervang dit door een echte afbeelding als die er is */
 
         .quote {
             font-size: 1.2rem;
@@ -328,10 +341,10 @@
     <div class="subhead">Boek · EP · Voorstelling</div>
     <div class="byline">Jeroen Bos</div>
 
-    <!-- AFBEELDING (Plekhouder) -->
+    <!-- AFBEELDING (NU MET ECHTE IMG-TAG) -->
     <div class="featured-image">
-        🖼️ <strong>Cover boek & vinyl</strong><br>
-        <span style="font-size: 0.9rem;">MENS als kompas COVER.png</span>
+        <img src="MENS als kompas COVER.png" alt="Cover van MENS als kompas" />
+        <span class="caption">Cover van het boek en de vinyl</span>
     </div>
 
     <!-- CITAAT -->
@@ -350,7 +363,7 @@
     <!-- SOCIAAL BEWIJS (Quote) -->
     <div class="testimonial">
         “Dit boek en deze muziek raken iets wat woorden alleen niet kunnen vatten. Een eerlijke en moedige verkenning van wat het betekent om mens te zijn.”
-        <div class="author">— [Naam]Jeroen De Caluwé, ervaringsdeskundige</div>
+        <div class="author">— Jeroen De Caluwé, ervaringsdeskundige</div>
     </div>
 
     <!-- KAARTJES -->
