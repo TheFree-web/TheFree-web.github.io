@@ -53,6 +53,17 @@
             margin-bottom: 2rem;
         }
 
+        .featured-image {
+            margin: 1.5rem 0 2rem 0;
+            text-align: center;
+            background: #f0ece6;
+            padding: 2rem 1rem;
+            border-radius: 8px;
+            color: #5a4e42;
+            font-style: italic;
+        }
+        /* Vervang dit door een echte afbeelding als die er is */
+
         .quote {
             font-size: 1.2rem;
             font-style: italic;
@@ -160,7 +171,14 @@
             border-radius: 20px;
         }
 
-        /* --- PRIJZEN BLOK (NIEUW) --- */
+        .card .description {
+            font-size: 0.9rem;
+            color: #3d352e;
+            margin: 0.5rem 0;
+            font-style: italic;
+        }
+
+        /* --- PRIJZEN BLOK --- */
         .pricing-block {
             background: #f6f3ef;
             padding: 1.5rem 2rem;
@@ -195,7 +213,16 @@
             margin-left: 0.3rem;
         }
 
-        .pricing-block .price-tag.bundel {
+        .pricing-block .bundle-highlight {
+            background: #eae4dc;
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.5rem 0;
+            border: 2px solid #2c5f4b;
+        }
+
+        .pricing-block .bundle-highlight .price-tag {
             background: #1f4738;
         }
 
@@ -246,6 +273,22 @@
             text-align: center;
         }
 
+        .testimonial {
+            font-style: italic;
+            color: #3d352e;
+            background: #fcf9f6;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #2c5f4b;
+        }
+
+        .testimonial .author {
+            font-style: normal;
+            font-weight: 600;
+            color: #5a4e42;
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 640px) {
             .container {
@@ -285,6 +328,12 @@
     <div class="subhead">Boek · EP · Voorstelling</div>
     <div class="byline">Jeroen Bos</div>
 
+    <!-- AFBEELDING (Plekhouder) -->
+    <div class="featured-image">
+        🖼️ <strong>Cover boek & vinyl</strong><br>
+        <span style="font-size: 0.9rem;">(Plaats hier een sfeervolle afbeelding van het boek, de vinylplaat of een voorstelling)</span>
+    </div>
+
     <!-- CITAAT -->
     <div class="quote">
         “Soms verdwaalt een mens niet omdat hij de weg kwijt is, maar omdat hij te diep heeft gekeken.”
@@ -295,12 +344,22 @@
 
     <p>Bij het boek hoort de EP <strong>Spiegellicht</strong>: zes rauwe, eerlijke nummers die een tweede stem geven aan wat woorden niet kunnen dragen.</p>
 
+    <!-- EXTRA EMOTIONELE CONTEXT -->
+    <p><em>Jaren van zoeken, vallen en weer opstaan hebben geleid tot dit boek, deze muziek en deze voorstelling. Het is geen handleiding voor herstel, maar een poging om woorden en klanken te geven aan wat vaak onuitgesproken blijft. Een kompas, geen routekaart.</em></p>
+
+    <!-- SOCIAAL BEWIJS (Quote) -->
+    <div class="testimonial">
+        “Dit boek en deze muziek raken iets wat woorden alleen niet kunnen vatten. Een eerlijke en moedige verkenning van wat het betekent om mens te zijn.”
+        <div class="author">— [Naam]Jeroen De Caluwé, ervaringsdeskundige</div>
+    </div>
+
     <!-- KAARTJES -->
     <div class="card-grid">
         <div class="card">
             <span class="icon">📖</span>
             <h3>Boek</h3>
             <p><em>MENS als kompas</em></p>
+            <p class="description">Een persoonlijk verhaal over richting en veerkracht.</p>
             <span class="label">107 p.</span>
             <span class="label">september 2026</span>
         </div>
@@ -308,6 +367,7 @@
             <span class="icon">🎵</span>
             <h3>EP</h3>
             <p><em>Spiegellicht</em></p>
+            <p class="description">Zes rauwe nummers op vinyl.</p>
             <span class="label">6 nummers</span>
             <span class="label">vinyl · limited edition</span>
         </div>
@@ -315,12 +375,13 @@
             <span class="icon">🎭</span>
             <h3>Voorstelling</h3>
             <p>Live-ervaring</p>
+            <p class="description">Een intiem concert met gitaar, projecties en voorgelezen fragmenten.</p>
             <span class="label">± 45 min.</span>
             <span class="label">muziek · tekst · sfeer</span>
         </div>
     </div>
 
-    <!-- PRIJZEN (NIEUW) -->
+    <!-- PRIJZEN -->
     <div class="pricing-block">
         <p><strong>💶 Prijzen</strong></p>
         <div class="price-item">
@@ -329,22 +390,24 @@
         <div class="price-item">
             🎵 EP (vinyl) <strong>€ 25</strong>
         </div>
-        <div class="price-item">
-            📦 Bundel (boek + vinyl) <strong>€ 40</strong> <span class="price-tag bundel">voordeel</span>
+        <div class="bundle-highlight">
+            📦 <strong>Aanbevolen</strong> · Bundel (boek + vinyl) <strong>€ 40</strong> <span class="price-tag">voordeel</span>
         </div>
-        <div class="price-item" style="margin-right:0;">
-            📱 E-book <strong>€ 15</strong> <span class="price-tag">binnenkort</span>
-        </div>
-        <div class="price-item" style="margin-right:0;">
-            🎧 EP (download) <strong>€ 10</strong> <span class="price-tag">nu op Bandcamp</span>
+        <div style="margin-top: 0.75rem;">
+            <div class="price-item" style="margin-right:0;">
+                📱 E-book <strong>€ 15</strong> <span class="price-tag">binnenkort</span>
+            </div>
+            <div class="price-item" style="margin-right:0;">
+                🎧 EP (download) <strong>€ 10</strong> <span class="price-tag">nu op Bandcamp</span>
+            </div>
         </div>
     </div>
 
     <!-- STEUN & PRE-ORDER -->
     <div class="cta-block">
-        <p><strong>📦 Steun &amp; pre-order</strong></p>
-        <p style="font-size:0.95rem;">Wil je het boek of de EP vooraf bestellen? Of de voorstelling helpen realiseren?</p>
-        <a href="mailto:jeroendecaluw@gmail.com?subject=Pre-order%20MENS%20als%20kompas" class="btn">📧 Stuur een e-mail</a>
+        <p><strong>📦 Reserveer jouw exemplaar in de voorverkoop</strong></p>
+        <p style="font-size:0.95rem;">Wil je het boek of de EP vooraf bestellen? Of wil je de voorstelling helpen realiseren? Stuur een e-mail en ik neem contact met je op.</p>
+        <a href="mailto:jeroendecaluw@gmail.com?subject=Pre-order%20MENS%20als%20kompas" class="btn">📧 Stuur een e-mail voor pre-order</a>
     </div>
 
     <!-- LUISTER -->
