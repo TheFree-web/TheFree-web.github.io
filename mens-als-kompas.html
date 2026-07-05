@@ -160,6 +160,45 @@
             border-radius: 20px;
         }
 
+        /* --- PRIJZEN BLOK (NIEUW) --- */
+        .pricing-block {
+            background: #f6f3ef;
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            margin: 2rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .pricing-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-block .price-item {
+            display: inline-block;
+            margin: 0.25rem 1.5rem 0.25rem 0;
+            font-size: 1rem;
+        }
+
+        .pricing-block .price-item strong {
+            font-weight: 700;
+            color: #1e1e1e;
+        }
+
+        .pricing-block .price-tag {
+            display: inline-block;
+            background: #2c5f4b;
+            color: #fff;
+            padding: 0.1rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 0.3rem;
+        }
+
+        .pricing-block .price-tag.bundel {
+            background: #1f4738;
+        }
+
         /* --- CTA BLOK --- */
         .cta-block {
             background: #f6f3ef;
@@ -227,6 +266,13 @@
             .cta-block {
                 padding: 1.5rem 1rem;
             }
+            .pricing-block {
+                padding: 1rem;
+            }
+            .pricing-block .price-item {
+                display: block;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
@@ -255,7 +301,7 @@
             <span class="icon">📖</span>
             <h3>Boek</h3>
             <p><em>MENS als kompas</em></p>
-            <span class="label">      107 p.     </span>
+            <span class="label">107 p.</span>
             <span class="label">september 2026</span>
         </div>
         <div class="card">
@@ -274,12 +320,32 @@
         </div>
     </div>
 
-   <!-- STEUN & PRE-ORDER -->
-<div class="cta-block">
-    <p><strong>📦 Steun &amp; pre-order</strong></p>
-    <p style="font-size:0.95rem;">Wil je het boek of de EP vooraf bestellen? Of de voorstelling helpen realiseren?</p>
-    <a href="mailto:jeroendecaluw@gmail.com?subject=Pre-order%20MENS%20als%20kompas" class="btn">📧 Stuur een e-mail</a>
-</div>
+    <!-- PRIJZEN (NIEUW) -->
+    <div class="pricing-block">
+        <p><strong>💶 Prijzen</strong></p>
+        <div class="price-item">
+            📖 Boek (paperback) <strong>€ 20</strong>
+        </div>
+        <div class="price-item">
+            🎵 EP (vinyl) <strong>€ 25</strong>
+        </div>
+        <div class="price-item">
+            📦 Bundel (boek + vinyl) <strong>€ 40</strong> <span class="price-tag bundel">voordeel</span>
+        </div>
+        <div class="price-item" style="margin-right:0;">
+            📱 E-book <strong>€ 15</strong> <span class="price-tag">binnenkort</span>
+        </div>
+        <div class="price-item" style="margin-right:0;">
+            🎧 EP (download) <strong>€ 10</strong> <span class="price-tag">nu op Bandcamp</span>
+        </div>
+    </div>
+
+    <!-- STEUN & PRE-ORDER -->
+    <div class="cta-block">
+        <p><strong>📦 Steun &amp; pre-order</strong></p>
+        <p style="font-size:0.95rem;">Wil je het boek of de EP vooraf bestellen? Of de voorstelling helpen realiseren?</p>
+        <a href="mailto:jeroendecaluw@gmail.com?subject=Pre-order%20MENS%20als%20kompas" class="btn">📧 Stuur een e-mail</a>
+    </div>
 
     <!-- LUISTER -->
     <p style="text-align:center; margin-bottom:0.25rem;"><strong>🎧 Luister nu op Bandcamp</strong></p>
