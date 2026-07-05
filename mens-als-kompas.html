@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MENS als kompas · Jeroen Bos</title>
+    <style>
+        /* --- RESET & BASIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #faf8f5;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 3rem 2.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        /* --- TYPO --- */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+        }
+
+        .subhead {
+            font-size: 1.3rem;
+            color: #5a4e42;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .byline {
+            font-size: 1.1rem;
+            color: #6b5f53;
+            border-bottom: 2px solid #eae4dc;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        a {
+            color: #2c5f4b;
+            text-decoration: none;
+            border-bottom: 1px solid #d0dbd6;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: #2c5f4b;
+        }
+
+        /* --- KNOPPEN / CARDS --- */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .card {
+            flex: 1 1 180px;
+            background: #f6f3ef;
+            padding: 1.5rem 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .card .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3d352e;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .label {
+            font-size: 0.85rem;
+            color: #5a4e42;
+            background: #eae4dc;
+            display: inline-block;
+            padding: 0.15rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2c5f4b;
+            color: #fff !important;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            border-bottom: none !important;
+            transition: background 0.2s;
+            margin: 0.5rem 0.25rem 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #1f4738;
+            border-bottom: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2c5f4b !important;
+            border: 2px solid #2c5f4b;
+        }
+
+        .btn-outline:hover {
+            background: #2c5f4b;
+            color: #fff !important;
+        }
+
+        .cta-block {
+            background: #f6f3ef;
+            padding: 2rem 2rem 1.8rem;
+            border-radius: 8px;
+            margin: 2rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .cta-block p {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-block .btn {
+            margin-top: 0.5rem;
+        }
+
+        hr {
+            border: 0;
+            border-top: 2px solid #eae4dc;
+            margin: 2.5rem 0;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem 2.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            border-bottom: none;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #2c5f4b;
+        }
+
+        .contact {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #5a4e42;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.75rem 1.25rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .subhead {
+                font-size: 1.1rem;
+            }
+            .card-grid {
+                gap: 1rem;
+            }
+            .card {
+                flex: 1 1 140px;
+            }
+            .cta-block {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <h1>MENS als kompas</h1>
+    <div class="subhead">Boek · EP · Voorstelling</div>
+    <div class="byline">Jeroen Bos</div>
+
+    <!-- INTRO -->
+    <p><em>MENS als kompas</em> is een persoonlijk en reflectief boek over psychische ontregeling, herstel en de zoektocht naar richting. Geen handleiding, maar een uitnodiging om te navigeren – voor wie leeft met kwetsbaarheid, voor wie werkt in zorg, en voor wie menselijkheid zoekt voorbij labels en systemen.</p>
+
+    <p>Bij het boek hoort de EP <strong>Spiegellicht</strong>: negen rauwe, eerlijke nummers die een tweede stem geven aan wat woorden niet kunnen dragen.</p>
+
+    <!-- CARD OVERZICHT -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="icon">📖</span>
+            <h3>Boek</h3>
+            <p><em>MENS als kompas</em></p>
+            <span class="label">114 p. · full colour</span>
+            <span class="label">september 2026</span>
+        </div>
+        <div class="card">
+            <span class="icon">🎵</span>
+            <h3>EP</h3>
+            <p><em>Spiegellicht</em></p>
+            <span class="label">9 nummers</span>
+            <span class="label">vinyl · limited edition</span>
+        </div>
+        <div class="card">
+            <span class="icon">🎭</span>
+            <h3>Voorstelling</h3>
+            <p>Live-ervaring</p>
+            <span class="label">± 45 min.</span>
+            <span class="label">muziek · tekst · beeld</span>
+        </div>
+    </div>
+
+    <!-- STEUN / PRE-ORDER -->
+    <div class="cta-block">
+        <p><strong>📦 Steun &amp; pre-order</strong></p>
+        <p style="font-size:0.95rem;">Wil je het boek of de EP vooraf bestellen? Of de voorstelling helpen realiseren?</p>
+        <a href="https://thefree.be/crowdfunding.html" class="btn" target="_blank">👉 crowdfunding.thefree.be</a>
+    </div>
+
+    <!-- LUISTER -->
+    <p style="text-align:center; margin-bottom:0.25rem;"><strong>🎧 Luister nu op Bandcamp</strong></p>
+    <p style="text-align:center; margin-top:0;">
+        <a href="https://thefreenutz.bandcamp.com" target="_blank">thefreenutz.bandcamp.com</a>
+    </p>
+
+    <hr />
+
+    <!-- CONTACT & SOCIAL -->
+    <div class="footer-links">
+        <a href="https://thefree.be/crowdfunding.html" target="_blank">Crowdfunding</a>
+        <a href="https://thefreenutz.bandcamp.com" target="_blank">Bandcamp</a>
+        <a href="mailto:jeroendecaluw@gmail.com">E‑mail</a>
+    </div>
+
+    <div class="contact">
+        Jeroen Bos · <a href="mailto:jeroendecaluw@gmail.com">jouw@email.be</a>
+    </div>
+
+</div>
+
+</body>
+</html>
