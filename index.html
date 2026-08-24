@@ -10,7 +10,7 @@
     <style>
         /* ============================================================
                    ONE-PAGER – Indie kleinkunst met neon/casino-knipoog
-                   =========================================================== */
+                   ============================================================ */
         
         * {
             margin: 0;
@@ -88,34 +88,19 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: 'Bungee', cursive;
-            font-size: 1.4rem;
             text-decoration: none;
-            letter-spacing: 0.5px;
         }
         
-        .logo-header .bandname {
-            color: #ff2d75;
-            text-shadow: 0 0 30px rgba(255, 45, 117, 0.15);
-            font-size: 1.6rem;
+        .logo-header img {
+            height: 40px;
+            width: auto;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
-        .logo-header .bandname .the { color: #ff8a5c; }
-        .logo-header .bandname .free { color: #ff8a5c; }
-        .logo-header .bandname .nutz { color: #ff2d75; }
         
-        .logo-header .poker-chip {
-            display: inline-block;
-            width: 28px; height: 28px;
-            background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b);
-            border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.3);
-            font-size: 12px;
-            text-align: center;
-            line-height: 24px;
-            font-weight: bold;
-            color: #0a0a0f;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-            opacity: 0.7;
+        .logo-header img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 30px rgba(255, 45, 117, 0.1);
         }
         
         nav ul {
@@ -261,26 +246,20 @@
             margin-bottom: 16px;
         }
         
-        .hero-logo .bandname {
-            font-family: 'Bungee', cursive;
-            font-size: 4.2rem;
-            line-height: 1.15;
+        .hero-logo img {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
             display: block;
-            letter-spacing: 1px;
-        }
-        .hero-logo .bandname .the { color: #ff8a5c; }
-        .hero-logo .bandname .free { color: #ff8a5c; }
-        .hero-logo .bandname .nutz {
-            color: #ff2d75;
-            text-shadow: 
-                0 0 40px rgba(255, 45, 117, 0.2),
-                0 0 80px rgba(255, 45, 117, 0.08);
-            animation: pulseGlowSoft 4s ease-in-out infinite;
+            margin: 0 auto 10px;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(255, 45, 117, 0.08);
+            transition: all 0.3s ease;
         }
         
-        @keyframes pulseGlowSoft {
-            0%, 100% { text-shadow: 0 0 40px rgba(255, 45, 117, 0.2), 0 0 80px rgba(255, 45, 117, 0.08); }
-            50% { text-shadow: 0 0 60px rgba(255, 45, 117, 0.3), 0 0 120px rgba(255, 45, 117, 0.12); }
+        .hero-logo img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 60px rgba(255, 45, 117, 0.12);
         }
         
         .hero-sub {
@@ -343,7 +322,7 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
         
-        /* ---------- RELEASE (titel is link) ---------- */
+        /* ---------- RELEASE ---------- */
         .release-card {
             text-align: center;
             max-width: 640px;
@@ -587,6 +566,26 @@
             margin-top: 20px;
             text-align: center;
         }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            max-width: 120px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-logo img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 45, 117, 0.08);
+        }
+        
         footer .socials {
             display: flex;
             justify-content: center;
@@ -618,9 +617,7 @@
         @media (max-width: 768px) {
             body { padding-top: 70px; }
             header { padding: 14px 20px; }
-            .logo-header { font-size: 1rem; }
-            .logo-header .bandname { font-size: 1.2rem; }
-            .logo-header .poker-chip { width: 22px; height: 22px; line-height: 18px; font-size: 10px; }
+            .logo-header img { height: 32px; }
             
             nav ul {
                 position: fixed;
@@ -639,7 +636,7 @@
             nav ul.active { right: 0; }
             .hamburger { display: flex; }
             
-            .hero-logo .bandname { font-size: 2.8rem; }
+            .hero-logo img { max-width: 240px; }
             .hero-description { font-size: 0.95rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn-neon { width: 100%; max-width: 260px; text-align: center; }
@@ -648,13 +645,14 @@
             .release-card h3 { font-size: 1.6rem; }
             .shows-grid { grid-template-columns: 1fr; }
             section { padding: 60px 0 40px; }
+            
+            .footer-logo img { max-width: 90px; }
         }
         
         @media (max-width: 480px) {
-            .hero-logo .bandname { font-size: 2rem; }
-            .logo-header { font-size: 0.85rem; }
-            .logo-header .bandname { font-size: 1rem; }
-            .logo-header .poker-chip { width: 18px; height: 18px; line-height: 14px; font-size: 8px; }
+            .hero-logo img { max-width: 180px; }
+            .logo-header img { height: 28px; }
+            .footer-logo img { max-width: 70px; }
         }
     </style>
 </head>
@@ -664,12 +662,7 @@
     <!-- ========== HEADER (fixed) ========== -->
     <header id="mainHeader">
         <a href="#home" class="logo-header">
-            <span class="poker-chip">♠</span>
-            <span class="bandname">
-                <span class="the">the</span>
-                <span class="free">Free</span>
-                <span class="nutz">Nutz</span>
-            </span>
+            <img src="images/thefreenutz-logo.jpeg" alt="The Free NutZ" />
         </a>
         
         <nav>
@@ -694,17 +687,14 @@
     <section id="home">
         <div class="hero-content">
             <div class="hero-logo">
-                <span class="bandname">
-                    <span class="the">the</span>
-                    <span class="free">Free</span>
-                    <span class="nutz">Nutz</span>
-                </span>
+                <img src="images/thefreenutz-logo.jpeg" alt="The Free NutZ – officieel logo" />
             </div>
+            
             <div class="hero-sub">♠ ♦ <span>Belgische indie kleinkunst</span> ♣ ♥</div>
             
             <p class="hero-description">
                 Rauwe energie, nachtelijke melancholie, vreemde humor en onvoorspelbare live shows.<br />
-                <em>The Free Nutz</em> mixt indie en kleinkunst tot één eigen universum.
+                <em>The Free NutZ</em> mixt indie en kleinkunst tot één eigen universum.
             </p>
             
             <div class="hero-buttons">
@@ -715,7 +705,7 @@
         </div>
     </section>
 
-    <!-- ========== RELEASE (titel is link naar Bandcamp) ========== -->
+    <!-- ========== RELEASE ========== -->
     <section id="release">
         <div class="container">
             <h2 class="section-title">
@@ -724,14 +714,12 @@
             <div class="neon-card release-card">
                 <h3>
                     <iframe style="border: 0; width: 350px; height: 522px;" src="https://bandcamp.com/EmbeddedPlayer/album=124244548/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://thefreenutz.bandcamp.com/album/spiegellicht">SPIEGELLICHT by The Free NutZ</a></iframe>
-                    </a>
                 </h3>
                 <p>
                     Een nummer
                 </p>
-                <p class="credit">                               </p>
+                <p class="credit"></p>
                 
-                <!-- Extra kleine knop voor de duidelijkheid -->
                 <a href="https://thefreenutz.bandcamp.com/track/de-dag-is-de-nacht" target="_blank" class="bandcamp-hint">
                     🎵 Beluister en koop op Bandcamp →
                 </a>
@@ -739,7 +727,7 @@
         </div>
     </section>
 
-      <!-- ========== LIVE / UPDATE ========== -->
+    <!-- ========== LIVE / UPDATE ========== -->
     <section id="shows">
         <div class="container">
             <h2 class="section-title">
@@ -774,7 +762,7 @@
             </h2>
             <div class="neon-card story-box">
                 <p>
-                    The Free Nutz ontstond uit herstel, nachtelijke gesprekken, feedback, chaos en vooral vriendschap.
+                    The Free NutZ ontstond uit herstel, nachtelijke gesprekken, feedback, chaos en vooral vriendschap.
                     Geen perfecte mensen. Geen perfecte songs. Alleen eerlijke energie, vreemde humor en een live-reputatie
                     die je niet snel vergeet.
                 </p>
@@ -815,19 +803,25 @@
                 </div>
             </div>
         </div>
-    <!-- ========== FOOTER =========== -->
-<footer>
-    <div class="container">
-        <div class="socials">
-            <a href="https://www.instagram.com/thefree.be" target="_blank">Instagram</a>
-            <a href="https://m.youtube.com/@MrCarlfilm" target="_blank">YouTube</a>
-            <a href="https://www.tiktok.com/@jeroen_bos" target="_blank">TikTok</a>
-            <a href="https://thefreenutz.bandcamp.com" target="_blank">Bandcamp</a>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/thefreenutz-logo.jpeg" alt="The Free NutZ" />
+            </div>
+            <div class="socials">
+                <a href="https://www.instagram.com/thefree.be" target="_blank">Instagram</a>
+                <a href="https://m.youtube.com/@MrCarlfilm" target="_blank">YouTube</a>
+                <a href="https://www.tiktok.com/@jeroen_bos" target="_blank">TikTok</a>
+                <a href="https://thefreenutz.bandcamp.com" target="_blank">Bandcamp</a>
+            </div>
+            <p>© 2026 The Free NutZ · Belgische indie kleinkunst</p>
+            <div class="footer-symbols">♠ ♦ ♣ ♥</div>
         </div>
-        <p>© 2026 The Free Nutz · Belgische indie kleinkunst</p>
-        <div class="footer-symbols">♠ ♦ ♣ ♥</div>
-    </div>
-</footer>
+    </footer>
+
     <!-- ========== SCRIPTS ========== -->
     <script>
         // Hamburger toggle
